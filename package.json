@@ -6,6 +6,8 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "antd": "^4.16.12",
+    "babel-eslint": "^10.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -18,11 +20,41 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+  "babel": {
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ],
+          "extensions": [
+            ".js",
+            ".json",
+            ".ts",
+            ".tsx"
+          ],
+          "alias": {
+            "underscore": "lodash"
+          }
+        }
+      ]
     ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "plugins": [
+      "module-resolver"
+    ],
+    "settings": {
+      "import/resolver": {
+        "babel-module": {}
+      }
+    }
   },
   "browserslist": {
     "production": [
@@ -35,5 +67,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/eslint-parser": "^7.15.0",
+    "@babel/runtime": "^7.15.3",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "eslint": "^7.32.0",
+    "eslint-import-resolver-babel-module": "^5.3.1",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-module-resolver": "^1.4.0"
   }
 }

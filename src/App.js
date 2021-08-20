@@ -1,10 +1,15 @@
-import "./App.css";
+import { Container, Content } from "./styles";
+
+import { Header, Sidebar } from "layout";
 
 function App() {
   return (
-    <div>
-      <p>hi</p>
-    </div>
+    <Container>
+      <Header />
+      <Content>
+        <Sidebar />
+      </Content>
+    </Container>
   );
 }
 
