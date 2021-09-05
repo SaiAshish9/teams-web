@@ -1,10 +1,17 @@
 import React from "react";
 
-import { Container, Img, ImgContainer, Label, Content } from "./styles";
+import {
+  Container,
+  Img,
+  ImgContainer,
+  Label,
+  Content,
+  SettingsContainer,
+} from "./styles";
 
 import DotsImg from "assets/images/navbar/dots.svg";
 
-import { Avatar } from "./components";
+import { Avatar, ThreeDots } from "./components";
 
 const Header = () => {
   return (
@@ -14,7 +21,10 @@ const Header = () => {
       </ImgContainer>
       <Content>
         <Label>Microsoft Teams</Label>
-        <Avatar />
+        <SettingsContainer>
+          <ThreeDots />
+          <Avatar />
+        </SettingsContainer>
       </Content>
     </Container>
   );

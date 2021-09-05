@@ -2,8 +2,8 @@ import React from "react";
 
 import { Container } from "./styles";
 
-const InputContainer = () => {
+const Ellipses = () => {
   return <Container>hi</Container>;
 };
 
-export default InputContainer;
+export default Ellipses;

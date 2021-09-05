@@ -46,3 +46,8 @@ export const Label = styled.p`
   color: ${white};
   margin-left: 1.5rem;
 `;
+
+export const SettingsContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
