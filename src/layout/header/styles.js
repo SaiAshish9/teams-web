@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
+import { COLORS } from "constants/index";
+
+const { eastBay, scampi } = COLORS;
+
 export const Container = styled.div`
   height: 3rem;
-  background: #464775;
+  background: ${eastBay};
   display: flex;
 `;
 
@@ -22,6 +26,6 @@ export const ImgContainer = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: #6364a7;
+    background-color: ${scampi};
   }
 `;
