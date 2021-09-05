@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, Img, ImgContainer, Label } from "./styles";
+import { Container, Img, ImgContainer, Label, Content } from "./styles";
 
 import DotsImg from "assets/images/navbar/dots.svg";
 
@@ -12,8 +12,10 @@ const Header = () => {
       <ImgContainer>
         <Img src={DotsImg} alt="img" />
       </ImgContainer>
-      <Label>Microsoft Teams</Label>
-      <Avatar />
+      <Content>
+        <Label>Microsoft Teams</Label>
+        <Avatar />
+      </Content>
     </Container>
   );
 };
