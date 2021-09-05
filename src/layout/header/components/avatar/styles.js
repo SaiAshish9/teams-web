@@ -2,14 +2,19 @@ import styled from "styled-components";
 
 import { COLORS } from "constants/index";
 
-const { eastBay } = COLORS;
+const { eastBay, scampi } = COLORS;
+
+export const ParentContainer = styled.div``;
 
 export const Container = styled.div`
-  justify-content: flex-end;
   width: 2rem;
   margin-right: 1rem;
   cursor: pointer;
+  height: 100%;
   position: relative;
+  &:hover {
+    background-color: ${scampi};
+  }
 `;
 
 export const Img = styled.img`

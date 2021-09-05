@@ -8,16 +8,19 @@ import {
   Img,
   CheckmarkContainer,
   StyledCheckmarkImg,
+  ParentContainer,
 } from "./styles";
 
 const AvatarContainer = () => {
   return (
-    <Container>
-      <Img src={AvatarImg} alt="img" />
-      <CheckmarkContainer>
-        <StyledCheckmarkImg src={CheckmarkImg} alt="img" />
-      </CheckmarkContainer>
-    </Container>
+    <ParentContainer>
+      <Container>
+        <Img src={AvatarImg} alt="img" />
+        <CheckmarkContainer>
+          <StyledCheckmarkImg src={CheckmarkImg} alt="img" />
+        </CheckmarkContainer>
+      </Container>
+    </ParentContainer>
   );
 };
 
