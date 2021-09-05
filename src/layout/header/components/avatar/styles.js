@@ -1,20 +1,24 @@
 import styled from "styled-components";
 
-import { COLORS } from "constants/index";
+import { COLORS, Styles } from "constants/index";
 
 const { eastBay, scampi } = COLORS;
 
-export const ParentContainer = styled.div``;
-
-export const Container = styled.div`
-  width: 2rem;
-  margin-right: 1rem;
+export const ParentContainer = styled.div`
+  padding: 0 0.5rem;
+  height: 3rem;
   cursor: pointer;
-  height: 100%;
-  position: relative;
+  ${Styles.RCC}
+  margin-right: 0.5rem;
   &:hover {
     background-color: ${scampi};
   }
+`;
+
+export const Container = styled.div`
+  width: 2rem;
+  margin: auto;
+  position: relative;
 `;
 
 export const Img = styled.img`

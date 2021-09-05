@@ -4,6 +4,7 @@
 
 const COLORS = {
   white: "#fff",
+  white8: "rgba(255,255,255,0.8)",
   bigStone: "#6164a6",
   scampi: "#6364a7",
   eastBay: "#464775",

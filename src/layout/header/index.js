@@ -11,7 +11,7 @@ import {
 
 import DotsImg from "assets/images/navbar/dots.svg";
 
-import { Avatar, ThreeDots } from "./components";
+import { Avatar, InputContainer, ThreeDots } from "./components";
 
 const Header = () => {
   return (
@@ -21,6 +21,7 @@ const Header = () => {
       </ImgContainer>
       <Content>
         <Label>Microsoft Teams</Label>
+        <InputContainer />
         <SettingsContainer>
           <ThreeDots />
           <Avatar />
