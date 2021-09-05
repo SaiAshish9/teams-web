@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   align-self: flex-end;
+  width: 2rem;
   margin-right: 2rem;
   cursor: pointer;
 `;
