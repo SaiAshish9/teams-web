@@ -26,7 +26,7 @@ export const ListItem = styled.div`
   justify-content: center;
   flex-direction: column;
   padding: 0.5rem 0;
-  padding-left: 2px;
+  padding-left: 1px;
   cursor: pointer;
   color: ${({ selected }) => (selected === 1 ? bigStone : boulder)};
   &:hover {
@@ -45,7 +45,7 @@ export const ListItemContent = styled.div`
     selected === 1 &&
     last !== 1 &&
     css`
-      border-left: 0.2rem solid ${bigStone};
+      border-left: 0.15rem solid ${bigStone};
     `}
 `;
 

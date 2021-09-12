@@ -8,11 +8,13 @@ const COLORS = {
   bigStone: "#6164a6",
   scampi: "#6364a7",
   eastBay: "#464775",
+  kimberly: "#696c99",
   gallery: "#ebebeb",
   gallery1: "#f0f0f0",
   dustyGray: "#999",
   boulder: "#797979",
   alto: "#d1d1d1",
+  silverChalice: "#9d9d9d",
 };
 
 export default COLORS;
