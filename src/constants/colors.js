@@ -11,6 +11,7 @@ const COLORS = {
   kimberly: "#696c99",
   gallery: "#ebebeb",
   gallery1: "#f0f0f0",
+  desertStorm: "#f3f2f1",
   dustyGray: "#999",
   boulder: "#797979",
   alto: "#d1d1d1",

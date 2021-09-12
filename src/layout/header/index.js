@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Container,
@@ -11,16 +11,21 @@ import {
 
 import DotsImg from "assets/images/navbar/dots.svg";
 
-import { Avatar, InputContainer, ThreeDots } from "./components";
-
-import { useStore } from "store";
-
-import { Theme } from "constants/index";
+import {
+  Avatar,
+  InputContainer,
+  ThreeDots,
+  SettingsDropdown,
+} from "./components";
 
 const Header = () => {
-  const {
-    actions: { setTheme },
-  } = useStore();
+  const [openSettingsDropdown, setOpenSettingsDropdown] = useState(false);
+
+  function toggleMenu(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setOpenSettingsDropdown((s) => !s);
+  }
 
   return (
     <Container>
@@ -31,15 +36,16 @@ const Header = () => {
         <Label>Microsoft Teams</Label>
         <InputContainer />
         <SettingsContainer>
-          <ThreeDots
-            onClick={() => {
-              console.log(Theme.dark)
-              setTheme(Theme.dark);
-            }}
-          />
+          <ThreeDots onClick={toggleMenu} />
           <Avatar />
         </SettingsContainer>
       </Content>
+      {openSettingsDropdown && (
+        <SettingsDropdown
+          setOpen={setOpenSettingsDropdown}
+          open={openSettingsDropdown}
+        />
+      )}
     </Container>
   );
 };

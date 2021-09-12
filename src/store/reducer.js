@@ -1,7 +1,7 @@
 import { SET_THEME } from "./types";
 
 export const initialState = {
-  theme: localStorage.getItem("theme") ?? "light",
+  theme: localStorage.getItem("theme") ?? "dark",
 };
 
 export default function reducer(state, action) {

@@ -7,7 +7,7 @@ import { Container, StyledImg } from "./styles";
 const Ellipses = ({ onClick }) => {
   return (
     <Container onClick={onClick}>
-      <StyledImg src={ThreeDotsImg} alt="img" />
+      <StyledImg id="three-dots" src={ThreeDotsImg} alt="img" />
     </Container>
   );
 };

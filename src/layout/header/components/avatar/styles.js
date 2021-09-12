@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-import { COLORS, Styles } from "constants/index";
+import { COLORS, Styles, Theme } from "constants/index";
 
-const { eastBay, scampi } = COLORS;
+const { eastBay, scampi, mineShaft } = COLORS;
 
 export const ParentContainer = styled.div`
   padding: 0 0.5rem;
@@ -13,6 +13,13 @@ export const ParentContainer = styled.div`
   &:hover {
     background-color: ${scampi};
   }
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      &:hover {
+        background-color: ${mineShaft};
+      }
+    `}
 `;
 
 export const Container = styled.div`
