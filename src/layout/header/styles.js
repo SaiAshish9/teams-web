@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
-import { COLORS } from "constants/index";
+import { COLORS, Theme } from "constants/index";
 
-const { eastBay, scampi, white } = COLORS;
+const { eastBay, scampi, white, codGray } = COLORS;
 
 export const Container = styled.div`
   height: 3rem;
-  background: ${eastBay};
+  background: ${({ theme: { current } }) =>
+    current === Theme.dark ? codGray : eastBay};
   display: flex;
   width: 100%;
   align-items: center;

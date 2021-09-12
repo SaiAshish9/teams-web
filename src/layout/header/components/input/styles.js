@@ -1,15 +1,17 @@
 import styled, { css } from "styled-components";
 
-import { COLORS, Styles } from "constants/index";
+import { COLORS, Styles, Theme } from "constants/index";
 
-const { white8, kimberly, white, silverChalice } = COLORS;
+const { white8, kimberly, white, silverChalice, mineShaft, gray, mineShaft2 } =
+  COLORS;
 
 export const Container = styled.div`
-  background: ${white8};
+  background: ${({ theme: { current } }) =>
+    current === Theme.dark ? mineShaft : white8};
   width: 50vw;
   height: 2rem;
   ${Styles.RBC}
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
   padding: 0 0.1rem;
   position: relative;
   overflow: hidden;
@@ -31,11 +33,21 @@ export const Inp = styled.input`
   bottom: 0;
   left: 0;
   ${Styles.HideBorder}
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      color: ${white8};
+    `}
   &::placeholder {
     position: relative;
     left: 1.2rem;
     color: ${kimberly};
     opacity: 0.8;
+    ${({ theme: { current } }) =>
+      current === Theme.dark &&
+      css`
+        color: ${gray};
+      `}
   }
   ${({ focussed }) =>
     focussed === 1 &&
@@ -45,5 +57,20 @@ export const Inp = styled.input`
         left: 0rem;
         color: ${silverChalice};
       }
+      ${({ theme: { current } }) =>
+        current === Theme.dark &&
+        css`
+          background: ${mineShaft2};
+        `}
     `}
+  &:hover {
+    &::placeholder {
+      ${({ theme: { current }, focussed }) =>
+        current === Theme.dark &&
+        focussed === 0 &&
+        css`
+          color: ${white8};
+        `}
+    }
+  }
 `;

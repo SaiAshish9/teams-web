@@ -1,7 +1,7 @@
-const THEME = {
+const Theme = {
   light: "light",
   dark: "dark",
-  high: "highContrast",
+  highContrast: "highContrast",
 };
 
-export default THEME;
+export default Theme;

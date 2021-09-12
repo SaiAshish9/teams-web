@@ -13,7 +13,15 @@ import DotsImg from "assets/images/navbar/dots.svg";
 
 import { Avatar, InputContainer, ThreeDots } from "./components";
 
+import { useStore } from "store";
+
+import { Theme } from "constants/index";
+
 const Header = () => {
+  const {
+    actions: { setTheme },
+  } = useStore();
+
   return (
     <Container>
       <ImgContainer>
@@ -23,7 +31,12 @@ const Header = () => {
         <Label>Microsoft Teams</Label>
         <InputContainer />
         <SettingsContainer>
-          <ThreeDots />
+          <ThreeDots
+            onClick={() => {
+              console.log(Theme.dark)
+              setTheme(Theme.dark);
+            }}
+          />
           <Avatar />
         </SettingsContainer>
       </Content>

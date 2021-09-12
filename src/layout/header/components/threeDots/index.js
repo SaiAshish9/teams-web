@@ -4,9 +4,9 @@ import ThreeDotsImg from "assets/images/sidebar/threeDots-white.svg";
 
 import { Container, StyledImg } from "./styles";
 
-const Ellipses = () => {
+const Ellipses = ({ onClick }) => {
   return (
-    <Container>
+    <Container onClick={onClick}>
       <StyledImg src={ThreeDotsImg} alt="img" />
     </Container>
   );

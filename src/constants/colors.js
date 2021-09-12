@@ -15,6 +15,12 @@ const COLORS = {
   boulder: "#797979",
   alto: "#d1d1d1",
   silverChalice: "#9d9d9d",
+  dustyGray: "#949494",
+  gray: "#787878",
+  codGray: "#0a0a0a",
+  mineShaft: "#1f1f1f",
+  mineShaft1: "#141414",
+  mineShaft2: "#292929",
 };
 
 export default COLORS;

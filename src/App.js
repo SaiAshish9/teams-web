@@ -8,22 +8,28 @@ import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "global/global.styles";
 
-function App() {
+function AppInit() {
   const {
     state: { theme },
   } = useStore();
+  
+  return (
+    <ThemeProvider theme={{ current: theme }}>
+      <GlobalStyles />
+      <Container>
+        <Header />
+        <Content>
+          <Sidebar />
+        </Content>
+      </Container>
+    </ThemeProvider>
+  );
+}
 
+function App() {
   return (
     <StoreProvider>
-      <ThemeProvider theme={{ current: theme }}>
-        <GlobalStyles />
-        <Container>
-          <Header />
-          <Content>
-            <Sidebar />
-          </Content>
-        </Container>
-      </ThemeProvider>
+      <AppInit />
     </StoreProvider>
   );
 }

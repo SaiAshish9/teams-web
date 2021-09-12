@@ -1,18 +1,33 @@
 import styled, { css } from "styled-components";
 
-import { COLORS } from "constants/index";
+import { COLORS, Theme } from "constants/index";
 
-const { white, bigStone, dustyGray, gallery, boulder, gallery1, alto } = COLORS;
+const {
+  white,
+  bigStone,
+  dustyGray,
+  gallery,
+  boulder,
+  codGray,
+  gallery1,
+  alto,
+  mineShaft1,
+} = COLORS;
 
 export const Container = styled.div`
   height: calc(100% - 3rem);
   width: 4rem;
-  background: ${gallery};
-  box-shadow: 0 0 3px ${dustyGray};
+  background: ${({ theme: { current } }) =>
+    current === Theme.dark ? codGray : gallery};
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-direction: column;
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      box-shadow: 0 0 3px ${dustyGray};
+    `};
 `;
 
 export const Img = styled.img`
@@ -61,12 +76,14 @@ export const SecondItemsContent = styled.div`
 `;
 
 export const DownloadIconContainer = styled.div`
-  margin: 0.4rem 0.2rem;
-  width: calc(100% - 0.4rem);
+  margin: 0.5rem 0.3rem;
+  width: calc(100% - 0.6rem);
   border-radius: 0.4rem;
-  border: 0.1rem solid ${alto};
+  border: ${({ theme: { current } }) =>
+    current === Theme.dark ? `0.2px solid ${boulder}` : `0.1rem solid ${alto}`};
   height: 2.4rem;
-  background: ${gallery1};
+  background: ${({ theme: { current } }) =>
+    current === Theme.dark ? mineShaft1 : gallery1};
   cursor: pointer;
   &:hover {
     background: ${white};
