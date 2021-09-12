@@ -22,6 +22,7 @@ const COLORS = {
   mineShaft: "#1f1f1f",
   mineShaft1: "#141414",
   mineShaft2: "#292929",
+  mineShaft3: "#3d3d3d",
 };
 
 export default COLORS;

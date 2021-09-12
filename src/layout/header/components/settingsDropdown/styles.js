@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
-import { COLORS, Theme } from "constants/index";
+import { COLORS, Styles, Theme } from "constants/index";
 
-const { white, mineShaft, mineShaft2, desertStorm } = COLORS;
+const { white, mineShaft, mineShaft2, desertStorm, alto, mineShaft3 } = COLORS;
 
 export const Container = styled.div`
   position: absolute;
@@ -22,16 +22,46 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  padding: 0.8rem;
+  padding: 0.7rem 1rem;
+  ${Styles.RBC}
+  ${({ img }) =>
+    img !== 1 &&
+    css`
+      justify-content: flex-start;
+    `}
+  cursor: pointer;
+  width: 100%;
+  &:hover {
+    background: ${mineShaft3};
+  }
 `;
 
 export const Divider = styled.div`
   height: 0.18rem;
-  margin: 0.9rem 0;
   background: ${desertStorm};
   ${({ theme: { current } }) =>
     current === Theme.dark &&
     css`
       background: ${mineShaft};
     `}
+`;
+
+export const Img = styled.img`
+  width: 1.7rem;
+  height: 1.54rem;
+  position: relative;
+  right: 0.3rem;
+  margin-right: -0.2rem;
+`;
+
+export const RightArrowImg = styled.img`
+  width: 1.7rem;
+  position: relative;
+  left: 0.3rem;
+`;
+
+export const Label = styled.p`
+  font-size: 0.8rem;
+  color: ${alto};
+  font-weight: 300;
 `;

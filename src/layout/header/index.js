@@ -16,10 +16,12 @@ import {
   InputContainer,
   ThreeDots,
   SettingsDropdown,
+  SettingsModal,
 } from "./components";
 
 const Header = () => {
   const [openSettingsDropdown, setOpenSettingsDropdown] = useState(false);
+  const [openSettingsModal, setOpenSettingsModal] = useState(false);
 
   function toggleMenu(e) {
     e.preventDefault();
@@ -44,8 +46,10 @@ const Header = () => {
         <SettingsDropdown
           setOpen={setOpenSettingsDropdown}
           open={openSettingsDropdown}
+          setOpenSettingsModal={setOpenSettingsModal}
         />
       )}
+      <SettingsModal open={openSettingsModal} setOpen={setOpenSettingsModal} />
     </Container>
   );
 };

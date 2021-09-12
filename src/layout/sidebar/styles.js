@@ -12,6 +12,7 @@ const {
   gallery1,
   alto,
   mineShaft1,
+  mineShaft,
 } = COLORS;
 
 export const Container = styled.div`
@@ -48,6 +49,13 @@ export const ListItem = styled.div`
     background: ${white};
     color: ${bigStone};
   }
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      &:hover {
+        background: ${mineShaft};
+      }
+    `}
 `;
 
 export const ListItemContent = styled.div`
@@ -88,4 +96,11 @@ export const DownloadIconContainer = styled.div`
   &:hover {
     background: ${white};
   }
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      &:hover {
+        background: ${mineShaft};
+      }
+    `}
 `;
