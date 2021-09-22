@@ -1,6 +1,8 @@
+import { useState, useEffect } from "react";
+
 import { Container, Content } from "./styles";
 
-import { Header, Sidebar } from "layout";
+import { Header, Sidebar, Skeleton } from "layout";
 
 import { StoreProvider, useStore } from "store";
 
@@ -12,15 +14,32 @@ function AppInit() {
   const {
     state: { theme },
   } = useStore();
-  
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let timer1 = setTimeout(() => setLoading(false), 1000);
+
+    return () => {
+      clearTimeout(timer1);
+    };
+  }, []);
+
   return (
     <ThemeProvider theme={{ current: theme }}>
       <GlobalStyles />
+
       <Container>
-        <Header />
-        <Content>
-          <Sidebar />
-        </Content>
+        {loading ? (
+          <Skeleton />
+        ) : (
+          <>
+            <Header />
+            <Content>
+              <Sidebar />
+            </Content>
+          </>
+        )}
       </Container>
     </ThemeProvider>
   );
