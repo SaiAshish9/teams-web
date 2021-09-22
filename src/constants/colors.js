@@ -16,6 +16,7 @@ const COLORS = {
   boulder: "#797979",
   alto: "#d1d1d1",
   silverChalice: "#9d9d9d",
+  silverChalice1: "#adadad",
   dustyGray: "#949494",
   gray: "#787878",
   codGray: "#0a0a0a",

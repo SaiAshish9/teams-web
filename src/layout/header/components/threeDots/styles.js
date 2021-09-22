@@ -9,8 +9,4 @@ export const Container = styled.div`
 export const StyledImg = styled.img`
   height: 1.8rem;
   width: 1.8rem;
-  &:hover {
-    height: 1.9rem;
-    width: 1.9rem;
-  }
 `;
