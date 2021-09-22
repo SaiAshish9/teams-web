@@ -8,32 +8,40 @@ import {
   Content,
   SideBar,
   ListItem,
+  Img,
 } from "./styles";
+
+import GeneralImg from "assets/images/modal/settings/general.svg";
+import AccountsImg from "assets/images/modal/settings/accounts.svg";
+import PrivacyImg from "assets/images/modal/settings/privacy.svg";
+import NotificationsImg from "assets/images/modal/settings/notifications.svg";
+import CaptionsImg from "assets/images/modal/settings/captions.svg";
+import CallsImg from "assets/images/modal/settings/calls.svg";
 
 const data = [
   {
     text: "General",
-    icon: null,
+    icon: GeneralImg,
   },
   {
     text: "Accounts",
-    icon: null,
+    icon: AccountsImg,
   },
   {
     text: "Privacy",
-    icon: null,
+    icon: PrivacyImg,
   },
   {
     text: "Notifications",
-    icon: null,
+    icon: NotificationsImg,
   },
   {
     text: "Captions and transcripts",
-    icon: null,
+    icon: CaptionsImg,
   },
   {
     text: "Calls",
-    icon: null,
+    icon: CallsImg,
   },
 ];
 
@@ -60,6 +68,7 @@ const SettingsModal = ({ open, setOpen }) => {
                 onClick={() => setSelected(k)}
                 key={k}
               >
+                <Img alt="img" src={i.icon} />
                 {i.text}
               </ListItem>
             ))}

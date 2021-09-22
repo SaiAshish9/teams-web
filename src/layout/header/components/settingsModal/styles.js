@@ -72,13 +72,14 @@ export const SideBar = styled.div`
 `;
 
 export const ListItem = styled.div`
-  height: 2.2rem;
+  height: 2.3rem;
   width: 100%;
   border-radius: 0.27rem;
   color: #fff;
   font-size: 0.8rem;
   padding-left: 0.4rem;
   ${Styles.RBC};
+  justify-content: flex-start;
   cursor: pointer;
   font-weight: 300;
   &:hover {
@@ -89,4 +90,10 @@ export const ListItem = styled.div`
     css`
       background: #484644;
     `}
+`;
+
+export const Img = styled.img`
+  margin-right: 0.2rem;
+  width: 2rem;
+  height: 2rem;
 `;
