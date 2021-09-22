@@ -103,10 +103,20 @@ export const Label = styled.p`
   font-weight: bold;
   color: #fff;
   font-size: 0.8rem;
+  margin-bottom: 1rem;
 `;
 
 export const MainContent = styled.div`
   width: 80%;
   height: 100%;
   padding: 0.7rem 1.5rem;
+`;
+
+export const Row = styled.div`
+  ${Styles.RBC};
+`;
+
+export const ThemeImg = styled.img`
+  width: 31%;
+  cursor: pointer;
 `;

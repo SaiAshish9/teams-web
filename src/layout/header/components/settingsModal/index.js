@@ -10,7 +10,9 @@ import {
   ListItem,
   Img,
   Label,
-  MainContent
+  MainContent,
+  Row,
+  ThemeImg,
 } from "./styles";
 
 import GeneralImg from "assets/images/modal/settings/general.svg";
@@ -19,6 +21,9 @@ import PrivacyImg from "assets/images/modal/settings/privacy.svg";
 import NotificationsImg from "assets/images/modal/settings/notifications.svg";
 import CaptionsImg from "assets/images/modal/settings/captions.svg";
 import CallsImg from "assets/images/modal/settings/calls.svg";
+import LightThemeImg from "assets/images/modal/settings/lightTheme.svg";
+import DarkThemeImg from "assets/images/modal/settings/darkTheme.svg";
+import HighContrastThemeImg from "assets/images/modal/settings/highContrastTheme.svg";
 
 const data = [
   {
@@ -60,7 +65,7 @@ const SettingsModal = ({ open, setOpen }) => {
       <Container>
         <Header>
           <Title>Settings</Title>
-          <CloseIcon />
+          <CloseIcon onClick={() => setOpen(false)} />
         </Header>
         <Content>
           <SideBar>
@@ -77,6 +82,13 @@ const SettingsModal = ({ open, setOpen }) => {
           </SideBar>
           <MainContent>
             <Label>Theme</Label>
+            <Row>
+              {[LightThemeImg, DarkThemeImg, HighContrastThemeImg].map(
+                (i, k) => (
+                  <ThemeImg src={i} key={k} />
+                )
+              )}
+            </Row>
           </MainContent>
         </Content>
       </Container>
