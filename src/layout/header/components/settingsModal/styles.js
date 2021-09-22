@@ -67,7 +67,7 @@ export const Content = styled.div`
 `;
 
 export const SideBar = styled.div`
-  width: 27%;
+  width: 32%;
   height: 100%;
 `;
 
@@ -96,4 +96,17 @@ export const Img = styled.img`
   margin-right: 0.2rem;
   width: 2rem;
   height: 2rem;
+`;
+
+export const Label = styled.p`
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  font-size: 0.8rem;
+`;
+
+export const MainContent = styled.div`
+  width: 80%;
+  height: 100%;
+  padding: 0.7rem 1.5rem;
 `;

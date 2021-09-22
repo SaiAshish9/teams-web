@@ -9,6 +9,8 @@ import {
   SideBar,
   ListItem,
   Img,
+  Label,
+  MainContent
 } from "./styles";
 
 import GeneralImg from "assets/images/modal/settings/general.svg";
@@ -73,6 +75,9 @@ const SettingsModal = ({ open, setOpen }) => {
               </ListItem>
             ))}
           </SideBar>
+          <MainContent>
+            <Label>Theme</Label>
+          </MainContent>
         </Content>
       </Container>
     </StyledModal>
