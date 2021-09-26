@@ -30,7 +30,7 @@ function AppInit() {
       <GlobalStyles />
 
       <Container>
-        {loading ? (
+        {!loading ? (
           <Skeleton />
         ) : (
           <>

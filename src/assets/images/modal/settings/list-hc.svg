@@ -1,0 +1,30 @@
+<svg class="lsvg" viewBox="0 0 280 154" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" fill-rule="evenodd" class="preview-default-dark">
+        <path d="M280 11V1.982C280 .892 279 0 277.698 0H2.202C.9 0 0 .793 0 1.982V11h280z" fill="#8B8CC7" fill-rule="nonzero"></path>
+        <path d="M278 154H21V11h259v140.999c0 1.1-1 2.001-2 2.001z" class="lsvgbg" fill-rule="nonzero"></path>
+        <path d="M22 154H2c-1 0-2-.8-2-2.001V11h22v143z" class="lsvgab" fill-rule="nonzero"></path>
+        <rect fill="#E2E2F6" x="92" y="3" width="117" height="5" rx="1"></rect>
+        <circle fill="#FFF" fill-rule="nonzero" cx="271.5" cy="5.5" r="3.5"></circle>
+        <path class="lsvglr" fill-rule="nonzero" d="M22 11h72v143H22z"></path>
+        <path fill="#D9DADD" fill-rule="nonzero" d="M45 27h42v4H45zM45 66h42v4H45zM45 105h42v4H45z"></path>
+        <path class="lsvgmp" fill-rule="nonzero" d="M113 25h148v30H113zM113 67h148v30H113zM113 109h148v30H113z"></path>
+        <rect fill="#C3F2F4" fill-rule="nonzero" x="29" y="24" width="10" height="10" rx="1"></rect>
+        <rect fill="#C3F2F4" fill-rule="nonzero" x="29" y="63" width="10" height="10" rx="1"></rect>
+        <rect fill="#C3F2F4" fill-rule="nonzero" x="29" y="102" width="10" height="10" rx="1"></rect>
+        <path fill="#D9DADD" fill-rule="nonzero" d="M45 38h24v4H45zM45 77h24v4H45zM45 116h24v4H45zM45 49h24v4H45zM45 88h24v4H45zM45 127h24v4H45z"></path>
+    </g>
+    <g fill="none" fill-rule="evenodd" class="preview-contrast">
+        <path d="M280 11V1.982C280 .892 279 0 277.698 0H2.202C.9 0 0 .793 0 1.982V11h280zM278 154H21V11h259v140.999c0 1.1-1 2.001-2 2.001z" fill="#000" fill-rule="nonzero"></path>
+        <path d="M22 154H2c-1 0-2-.8-2-2.001V11h22v143z" fill="#000" fill-rule="nonzero"></path>
+        <rect stroke="#FFF" x="92" y="3" width="117" height="5" rx="1"></rect>
+        <circle fill="#FFF" fill-rule="nonzero" cx="271.5" cy="5.5" r="3.5"></circle>
+        <path fill="#000" fill-rule="nonzero" d="M22 11h72v143H22z"></path>
+        <path fill="#E8D441" fill-rule="nonzero" d="M45 27h42v4H45zM45 66h42v4H45zM45 105h42v4H45z"></path>
+        <path stroke="#FFF" d="M113 25h148v30H113zM113 67h148v30H113zM113 109h148v30H113z"></path>
+        <rect fill="#C3F2F4" fill-rule="nonzero" x="29" y="24" width="10" height="10" rx="1"></rect>
+        <rect fill="#C3F2F4" fill-rule="nonzero" x="29" y="63" width="10" height="10" rx="1"></rect>
+        <rect fill="#C3F2F4" fill-rule="nonzero" x="29" y="102" width="10" height="10" rx="1"></rect>
+        <path fill="#E8D441" fill-rule="nonzero" d="M45 38h24v4H45zM45 77h24v4H45zM45 116h24v4H45zM45 49h24v4H45zM45 88h24v4H45zM45 127h24v4H45z"></path>
+        <path d="M22 11v143M94 11v143M0 11h280" stroke="#FFF"></path>
+    </g>
+</svg>

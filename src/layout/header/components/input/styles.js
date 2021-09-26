@@ -15,6 +15,12 @@ export const Container = styled.div`
   padding: 0 0.1rem;
   position: relative;
   overflow: hidden;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: #000;
+      border: 1px solid #fff;
+    `}
 `;
 
 export const Icon = styled.img`

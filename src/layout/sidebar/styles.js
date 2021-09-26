@@ -29,6 +29,12 @@ export const Container = styled.div`
     css`
       box-shadow: 0 0 3px ${dustyGray};
     `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: #000;
+      border-right: 1px solid #fff;
+    `}
 `;
 
 export const Img = styled.img`
@@ -69,12 +75,22 @@ export const ListItemContent = styled.div`
     last !== 1 &&
     css`
       border-left: 0.15rem solid ${bigStone};
+      ${({ theme: { current } }) =>
+        current === Theme.highContrast &&
+        css`
+          border-left: 0.15rem solid yellow;
+        `}
     `}
 `;
 
 export const ListItemLabel = styled.p`
   font-size: 0.6rem;
   color: ${({ selected }) => (selected === 1 ? bigStone : boulder)};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: yellow !important;
+    `}
 `;
 
 export const FirstItemsContent = styled.div``;
@@ -102,5 +118,11 @@ export const DownloadIconContainer = styled.div`
       &:hover {
         background: ${mineShaft};
       }
+    `}
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: #000;
+      border: none;
     `}
 `;

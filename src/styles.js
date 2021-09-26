@@ -9,7 +9,11 @@ export const Container = styled.div`
   width: 100%;
   overflow: hidden;
   background: ${({ theme: { current } }) =>
-    current === Theme.dark ? mineShaft : white};
+    current === Theme.dark
+      ? mineShaft
+      : current === Theme.light
+      ? white
+      : "#000"};
 `;
 
 export const Content = styled.div`

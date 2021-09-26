@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { COLORS, Theme } from "constants/index";
 
@@ -7,10 +7,19 @@ const { eastBay, scampi, white, codGray } = COLORS;
 export const Container = styled.div`
   height: 3rem;
   background: ${({ theme: { current } }) =>
-    current === Theme.dark ? codGray : eastBay};
+    current === Theme.dark
+      ? codGray
+      : current === Theme.light
+      ? eastBay
+      : "#000"};
   display: flex;
   width: 100%;
   align-items: center;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border-bottom: 1px solid #fff;
+    `}
 `;
 
 export const Content = styled.div`
@@ -47,6 +56,11 @@ export const Label = styled.p`
   padding: 0px;
   color: ${white};
   margin-left: 1.5rem;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: yellow;
+    `}
 `;
 
 export const SettingsContainer = styled.div`
