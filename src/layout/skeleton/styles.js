@@ -10,12 +10,13 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 12rem;
+  width: 11rem;
   margin: 0;
 `;
 
 export const Image1 = styled.img`
-  width: 7rem;
+  width: 6rem;
   position: relative;
   bottom: 1.2rem;
+  left: 0.2rem;
 `;

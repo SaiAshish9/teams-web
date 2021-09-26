@@ -6,7 +6,7 @@ import { Theme, COLORS, Styles } from "constants/index";
 
 import { IoCloseOutline } from "react-icons/io5";
 
-const { mineShaft, white, silverChalice1, bigStone } = COLORS;
+const { mineShaft, white, silverChalice1, bigStone, eastBay } = COLORS;
 
 export const StyledModal = styled(Modal)`
   .ant-modal-body {
@@ -20,6 +20,9 @@ export const StyledModal = styled(Modal)`
     width: 54vw;
     padding: 0px;
   }
+  .ant-modal-mask {
+    background-color: rgba(37, 36, 35, 0.75) !important;
+  }
   top: 0px;
   padding: 0;
   overflow: hidden;
@@ -29,7 +32,7 @@ export const StyledModal = styled(Modal)`
 
 export const Container = styled.div`
   background: ${({ theme: { current } }) =>
-    current === Theme.dark ? mineShaft : white};
+    current === Theme.dark ? "#292929" : white};
   height: 100%;
   padding: 1.6rem;
   display: flex;
@@ -52,6 +55,11 @@ export const Title = styled.p`
   font-weight: 500;
   font-size: 1.1rem;
   color: #d7d7d7;
+  ${({ theme: { current } }) =>
+    current == Theme.light &&
+    css`
+      color: #000;
+    `}
 `;
 
 export const Header = styled.div`
@@ -75,7 +83,8 @@ export const ListItem = styled.div`
   height: 2.3rem;
   width: 100%;
   border-radius: 0.27rem;
-  color: #fff;
+  color: ${({ theme: { current } }) =>
+    current === Theme.dark ? "#fff" : "#252423"};
   font-size: 0.8rem;
   padding-left: 0.4rem;
   ${Styles.RBC};
@@ -88,7 +97,15 @@ export const ListItem = styled.div`
   ${({ selected }) =>
     selected === 1 &&
     css`
-      background: #484644;
+      background: ${({ theme: { current } }) =>
+        current === Theme.dark ? "#484644" : "#edebe9"};
+    `}
+  ${({ theme: { current } }) =>
+    current == Theme.light &&
+    css`
+      &:hover {
+        background: #edebe9;
+      }
     `}
 `;
 
@@ -103,7 +120,12 @@ export const Label = styled.p`
   font-weight: bold;
   color: #fff;
   font-size: 0.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  ${({ theme: { current } }) =>
+    current == Theme.light &&
+    css`
+      color: #000;
+    `}
 `;
 
 export const MainContent = styled.div`
@@ -114,9 +136,59 @@ export const MainContent = styled.div`
 
 export const Row = styled.div`
   ${Styles.RBC};
+  margin-bottom: 1rem;
 `;
 
-export const ThemeImg = styled.img`
+export const ThemeImg = styled.img``;
+
+export const ThemeImgContainer = styled.div`
   width: 31%;
   cursor: pointer;
+  border-bottom: solid 0.2rem transparent;
+  &:hover {
+    background-color: #1f1f1f !important;
+    border-bottom: solid 0.2rem #9ea2ff;
+    border-radius: 0 0 0.2rem 0.2rem;
+  }
+  ${({ selected }) =>
+    selected === 1 &&
+    css`
+      background-color: #1f1f1f !important;
+      border-bottom: solid 0.2rem #9ea2ff;
+      border-radius: 0 0 0.2rem 0.2rem;
+    `}
+  ${({ theme: { current } }) =>
+    current == Theme.light &&
+    css`
+      &:hover {
+        background-color: #f0f0f0 !important;
+        border-bottom: solid 0.2rem #6264a7;
+      }
+      ${({ selected }) =>
+        selected === 1 &&
+        css`
+          background-color: #f0f0f0 !important;
+          border-bottom: solid 0.2rem #6264a7;
+        `}
+    `}
+`;
+
+export const ThemeImgLabel = styled.p`
+  color: #fff;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.1rem 0.1rem;
+  font-weight: 300;
+  ${({ theme: { current } }) =>
+    current == Theme.light &&
+    css`
+      color: #000;
+    `}
+`;
+
+export const Desc = styled.p`
+  color: #fff;
+  font-weight: 300;
+  font-size: 0.7rem;
+  opacity: 0.8;
+  margin-bottom: 0.7rem;
 `;

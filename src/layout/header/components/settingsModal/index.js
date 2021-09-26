@@ -13,6 +13,9 @@ import {
   MainContent,
   Row,
   ThemeImg,
+  ThemeImgContainer,
+  ThemeImgLabel,
+  Desc,
 } from "./styles";
 
 import GeneralImg from "assets/images/modal/settings/general.svg";
@@ -24,6 +27,8 @@ import CallsImg from "assets/images/modal/settings/calls.svg";
 import LightThemeImg from "assets/images/modal/settings/lightTheme.svg";
 import DarkThemeImg from "assets/images/modal/settings/darkTheme.svg";
 import HighContrastThemeImg from "assets/images/modal/settings/highContrastTheme.svg";
+
+import { useStore } from "store";
 
 const data = [
   {
@@ -52,8 +57,33 @@ const data = [
   },
 ];
 
+const ThemeData = [
+  {
+    img: LightThemeImg,
+    label: "Default",
+    key: "light",
+  },
+  {
+    img: DarkThemeImg,
+    label: "Dark",
+    key: "dark",
+  },
+  {
+    img: HighContrastThemeImg,
+    label: "High Contrast",
+    key: "highContrast",
+  },
+];
+
 const SettingsModal = ({ open, setOpen }) => {
   const [selected, setSelected] = useState(0);
+
+  const {
+    state: { theme },
+    actions: { setTheme },
+  } = useStore();
+
+  const [themeSelected, setThemeSelected] = useState(theme);
 
   return (
     <StyledModal
@@ -83,11 +113,38 @@ const SettingsModal = ({ open, setOpen }) => {
           <MainContent>
             <Label>Theme</Label>
             <Row>
-              {[LightThemeImg, DarkThemeImg, HighContrastThemeImg].map(
-                (i, k) => (
-                  <ThemeImg src={i} key={k} />
-                )
-              )}
+              {ThemeData.map((i, k) => (
+                <ThemeImgContainer
+                  key={k}
+                  selected={+(themeSelected === i.key)}
+                  onClick={() => {
+                    localStorage.setItem("theme", i.key);
+                    setTheme(i.key);
+                    setThemeSelected(i.key);
+                  }}
+                >
+                  <ThemeImg src={i.img} />
+                  <ThemeImgLabel>{i.label}</ThemeImgLabel>
+                </ThemeImgContainer>
+              ))}
+            </Row>
+            <Label>Layout</Label>
+            <Desc>Choose how you want to navigate between teams.</Desc>
+            <Row>
+              {ThemeData.map((i, k) => (
+                <ThemeImgContainer
+                  key={k}
+                  selected={+(themeSelected === i.key)}
+                  onClick={() => {
+                    localStorage.setItem("theme", i.key);
+                    setTheme(i.key);
+                    setThemeSelected(i.key);
+                  }}
+                >
+                  <ThemeImg src={i.img} />
+                  <ThemeImgLabel>{i.label}</ThemeImgLabel>
+                </ThemeImgContainer>
+              ))}
             </Row>
           </MainContent>
         </Content>
