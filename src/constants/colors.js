@@ -18,6 +18,7 @@ const COLORS = {
   alto: "#d1d1d1",
   silverChalice: "#9d9d9d",
   silverChalice1: "#adadad",
+  silverChalice3: "#b2b2b2",
   dustyGray: "#949494",
   gray: "#787878",
   codGray: "#0a0a0a",
@@ -25,6 +26,7 @@ const COLORS = {
   mineShaft1: "#141414",
   mineShaft2: "#292929",
   mineShaft3: "#3d3d3d",
+  mineShaft4: "#201f1f",
   yellow: "#ffff00",
   blue: "#18ebff",
 };
