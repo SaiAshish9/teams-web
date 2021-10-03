@@ -6,7 +6,7 @@ import { Theme, COLORS, Styles } from "constants/index";
 
 import { IoCloseOutline } from "react-icons/io5";
 
-const { white, silverChalice1, bigStone, eastBay } = COLORS;
+const { white, silverChalice1, bigStone, yellow, blue } = COLORS;
 
 export const StyledCheckbox = styled(Checkbox)`
   ${Styles.HideBorder};
@@ -145,7 +145,7 @@ export const ListItem = styled.div`
       ${({ theme: { current } }) =>
         current == Theme.highContrast &&
         css`
-          background: #18ebff;
+          background: ${blue};
           color: #000;
         `}
     `}
@@ -156,11 +156,11 @@ export const ListItem = styled.div`
         background: #edebe9;
       }
     `}
-    ${({ theme: { current } }) =>
+    ${({ theme: { current }, selected }) =>
     current == Theme.highContrast &&
     css`
       &:hover {
-        background: #18ebff;
+        background: ${selected === 1 ? blue : yellow};
         color: #000;
       }
     `}
@@ -243,14 +243,14 @@ export const ThemeImgContainer = styled.div`
     current == Theme.highContrast &&
     css`
       &:hover {
-        background-color: #ffff00 !important;
-        border-bottom: solid 0.2rem #ffff00;
+        background-color: ${yellow} !important;
+        border-bottom: solid 0.2rem ${yellow};
       }
       ${({ selected }) =>
         selected === 1 &&
         css`
           background-color: #000 !important;
-          border-bottom: solid 0.2rem #ffff00;
+          border-bottom: solid 0.2rem ${yellow};
         `}
     `}
     color: #fff;

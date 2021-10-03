@@ -71,7 +71,7 @@ export const ListItem = styled.div`
       padding: 0.5rem 0;
     `}
   color: ${({ selected }) => (selected === 1 ? bigStone : boulder)};
-  ${({ theme: { current } }) =>
+  ${({ theme: { current }, selected }) =>
     current === Theme.highContrast &&
     css`
       color: ${yellow};
@@ -85,7 +85,7 @@ export const ListItem = styled.div`
           left: -1px;
         `}
       &:hover {
-        background: ${yellow};
+        background: ${selected === 1 ? blue : yellow};
         color: #000;
       }
     `}
