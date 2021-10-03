@@ -12,6 +12,8 @@ import {
 } from "./styles";
 
 import AppsIcon from "assets/images/sidebar/appsIcon.svg";
+import AppsIconHC from "assets/images/sidebar/appsIconHC.svg";
+import AppsIconHCSelected from "assets/images/sidebar/appsIconHCSelected.svg";
 import AppsIconFilled from "assets/images/sidebar/appsIcon-filled.svg";
 import BellIcon from "assets/images/sidebar/bellIcon.svg";
 import BellIconHC from "assets/images/sidebar/bellIconHC.svg";
@@ -100,12 +102,16 @@ const Sidebar = () => {
     },
     {
       icon: theme === Theme.highContrast ? ThreeDotsIconHC : ThreeDotsIcon,
-      iconFilled: theme === Theme.highContrast ? ThreeDotsIconHCSelected : ThreeDotsIconFilled,
+      iconFilled:
+        theme === Theme.highContrast
+          ? ThreeDotsIconHCSelected
+          : ThreeDotsIconFilled,
       text: "",
     },
     {
-      icon: AppsIcon,
-      iconFilled: AppsIconFilled,
+      icon: theme === Theme.highContrast ? AppsIconHC : AppsIcon,
+      iconFilled:
+        theme === Theme.highContrast ? AppsIconHCSelected : AppsIconFilled,
       text: "Apps",
     },
     {
@@ -156,7 +162,7 @@ const Sidebar = () => {
             onMouseEnter={() => setSelected(k + icons.length - 2)}
             onMouseLeave={() => setSelected(-1)}
             selected={+(listItemClicked === k + icons.length - 2)}
-            >
+          >
             <ListItemContent
               selected={+(listItemClicked === k + icons.length - 2)}
             >
