@@ -6,7 +6,7 @@ import { Theme, COLORS, Styles } from "constants/index";
 
 import { IoCloseOutline } from "react-icons/io5";
 
-const { mineShaft, white, silverChalice1, bigStone, eastBay } = COLORS;
+const { white, silverChalice1, bigStone, eastBay } = COLORS;
 
 export const StyledCheckbox = styled(Checkbox)`
   ${Styles.HideBorder};
@@ -253,13 +253,7 @@ export const ThemeImgContainer = styled.div`
           border-bottom: solid 0.2rem #ffff00;
         `}
     `}
-`;
-
-export const ThemeImgLabel = styled.p`
-  color: #fff;
-  font-size: 0.8rem;
-  padding: 0.5rem 0rem 0.1rem;
-  font-weight: 300;
+    color: #fff;
   ${({ theme: { current } }) =>
     current == Theme.light &&
     css`
@@ -272,6 +266,12 @@ export const ThemeImgLabel = styled.p`
         color: #000;
       }
     `}
+`;
+
+export const ThemeImgLabel = styled.p`
+  font-size: 0.8rem;
+  padding: 0.5rem 0rem 0.1rem;
+  font-weight: 300;
 `;
 
 export const Desc = styled.p`
