@@ -56,8 +56,8 @@ import { useStore } from "store";
 import { Theme } from "constants/index";
 
 const Sidebar = () => {
-  const [selected, setSelected] = useState(0);
-  const [listItemClicked, setListItemClicked] = useState(0);
+  const [selected, setSelected] = useState(3);
+  const [listItemClicked, setListItemClicked] = useState(3);
   const [downloadIconHovered, setDownloadIconHovered] = useState(false);
 
   const {

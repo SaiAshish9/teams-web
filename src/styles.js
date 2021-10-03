@@ -12,7 +12,7 @@ export const Container = styled.div`
     current === Theme.dark
       ? mineShaft
       : current === Theme.light
-      ? white
+      ? "#f5f5f5"
       : "#000"};
 `;
 

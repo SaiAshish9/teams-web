@@ -19,6 +19,7 @@ export const Label = styled.p`
 export const Content = styled.div`
   ${Styles.RBC};
   width: 100%;
+  margin-bottom: 0.7rem;
 `;
 
 export const Img = styled.img`

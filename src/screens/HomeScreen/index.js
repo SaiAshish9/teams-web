@@ -9,7 +9,7 @@ import FilterImg from "assets/images/navbar/filter.svg";
 import FilterImgDark from "assets/images/navbar/filterDark.svg";
 import FilterImgBlue from "assets/images/navbar/filterBlue.svg";
 
-import { CreateTeamBtn } from "./components";
+import { CreateTeamBtn, MainContent } from "./components";
 
 import { useStore } from "store";
 
@@ -63,6 +63,7 @@ const HomeScreen = () => {
           <CreateTeamBtn />
         </Row>
       </Content>
+      <MainContent />
     </Container>
   );
 };
