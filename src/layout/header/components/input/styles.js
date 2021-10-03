@@ -2,8 +2,16 @@ import styled, { css } from "styled-components";
 
 import { COLORS, Styles, Theme } from "constants/index";
 
-const { white8, kimberly, white, silverChalice, mineShaft, gray, mineShaft2 } =
-  COLORS;
+const {
+  white8,
+  kimberly,
+  white,
+  silverChalice,
+  mineShaft,
+  gray,
+  blue,
+  mineShaft2,
+} = COLORS;
 
 export const Container = styled.div`
   background: ${({ theme: { current } }) =>
@@ -14,12 +22,10 @@ export const Container = styled.div`
   border-radius: 0.2rem;
   padding: 0 0.1rem;
   position: relative;
-  overflow: hidden;
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`
       background: #000;
-      border: 1px solid #fff;
     `}
 `;
 
@@ -38,7 +44,8 @@ export const Inp = styled.input`
   padding: 0 0.7rem;
   bottom: 0;
   left: 0;
-  ${Styles.HideBorder}
+  outline: none !important;
+  box-shadow: none !important;
   ${({ theme: { current } }) =>
     current === Theme.dark &&
     css`
@@ -60,10 +67,10 @@ export const Inp = styled.input`
         color: ${white};
       `}
   }
-  ${({ focussed }) =>
+  ${({ focussed, theme: { current } }) =>
     focussed === 1 &&
     css`
-      background: ${white};
+      background: ${current === Theme.highContrast ? "#000" : white};
       &::placeholder {
         left: 0rem;
         color: ${silverChalice};
@@ -84,4 +91,17 @@ export const Inp = styled.input`
         `}
     }
   }
+  ${({ theme: { current }, focussed }) =>
+    current === Theme.highContrast &&
+    css`
+      border: 1px solid #fff;
+      border-radius: 0.2rem;
+      ${focussed === 1 &&
+      css`
+        border: 1px solid ${blue};
+        &::placeholder {
+          color: #fff;
+        }
+      `}
+    `}
 `;

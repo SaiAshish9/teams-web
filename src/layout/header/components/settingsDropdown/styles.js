@@ -2,7 +2,8 @@ import styled, { css } from "styled-components";
 
 import { COLORS, Styles, Theme } from "constants/index";
 
-const { white, mineShaft, mineShaft2, desertStorm, alto, mineShaft3 } = COLORS;
+const { white, mineShaft, mineShaft2, desertStorm, alto, mineShaft3, yellow } =
+  COLORS;
 
 export const Container = styled.div`
   position: absolute;
@@ -19,10 +20,16 @@ export const Container = styled.div`
       background: ${mineShaft2};
       box-shadow: rgb(0 0 0 / 50%) 0px 0.2rem 1.6rem 0px;
     `}
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: #000;
+      border: 1px solid #fff;
+    `}
 `;
 
 export const Content = styled.div`
-  padding: 0.7rem 1rem;
+  padding: 0.54rem 1rem;
   ${Styles.RBC}
   ${({ img }) =>
     img !== 1 &&
@@ -31,9 +38,18 @@ export const Content = styled.div`
     `}
   cursor: pointer;
   width: 100%;
+  color: ${alto};
   &:hover {
     background: ${mineShaft3};
   }
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      &:hover {
+        background: ${yellow};
+        color: #000;
+      }
+    `}
 `;
 
 export const Divider = styled.div`
@@ -43,6 +59,12 @@ export const Divider = styled.div`
     current === Theme.dark &&
     css`
       background: ${mineShaft};
+    `}
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      height: 0.04rem;
+      opacity: 0.4;
     `}
 `;
 
@@ -62,6 +84,5 @@ export const RightArrowImg = styled.img`
 
 export const Label = styled.p`
   font-size: 0.8rem;
-  color: ${alto};
   font-weight: 300;
 `;
