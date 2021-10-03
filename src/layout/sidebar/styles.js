@@ -13,6 +13,8 @@ const {
   alto,
   mineShaft1,
   mineShaft,
+  blue,
+  yellow,
 } = COLORS;
 
 export const Container = styled.div`
@@ -50,7 +52,6 @@ export const ListItem = styled.div`
   padding: 0.5rem 0;
   padding-left: 1px;
   cursor: pointer;
-  color: ${({ selected }) => (selected === 1 ? bigStone : boulder)};
   &:hover {
     background: ${white};
     color: ${bigStone};
@@ -60,6 +61,31 @@ export const ListItem = styled.div`
     css`
       &:hover {
         background: ${mineShaft};
+      }
+    `}
+  ${({ selected }) =>
+    selected === 1 &&
+    css`
+      background: ${blue};
+      padding: 0.5rem 0;
+    `}
+  color: ${({ selected }) => (selected === 1 ? bigStone : boulder)};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: ${yellow};
+      ${({ selected }) =>
+        selected === 1 &&
+        css`
+          color: #000;
+          margin: 0px;
+          width: 105%;
+          position: relative;
+          left: -1px;
+        `}
+      &:hover {
+        background: ${yellow};
+        color: #000;
       }
     `}
 `;
@@ -78,19 +104,13 @@ export const ListItemContent = styled.div`
       ${({ theme: { current } }) =>
         current === Theme.highContrast &&
         css`
-          border-left: 0.15rem solid yellow;
+          border-left: none;
         `}
     `}
 `;
 
 export const ListItemLabel = styled.p`
   font-size: 0.6rem;
-  color: ${({ selected }) => (selected === 1 ? bigStone : boulder)};
-  ${({ theme: { current } }) =>
-    current === Theme.highContrast &&
-    css`
-      color: yellow !important;
-    `}
 `;
 
 export const FirstItemsContent = styled.div``;

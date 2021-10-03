@@ -92,6 +92,7 @@ const Sidebar = () => {
             key={k}
             onMouseEnter={() => setSelected(k)}
             onMouseLeave={() => setSelected(-1)}
+            selected={+(listItemClicked === k)}
           >
             <ListItemContent
               selected={+(listItemClicked === k)}

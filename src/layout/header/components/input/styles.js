@@ -54,6 +54,11 @@ export const Inp = styled.input`
       css`
         color: ${gray};
       `}
+    ${({ theme: { current } }) =>
+      current === Theme.highContrast &&
+      css`
+        color: ${white};
+      `}
   }
   ${({ focussed }) =>
     focussed === 1 &&
