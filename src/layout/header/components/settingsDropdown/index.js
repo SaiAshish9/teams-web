@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import {
   Container,
@@ -10,10 +10,20 @@ import {
 } from "./styles";
 
 import SettingsIcon from "assets/images/navbar/settings.svg";
+import SettingsIconHC from "assets/images/navbar/settingsHC.svg";
 import RightArrow from "assets/images/navbar/rightArrow.svg";
+
+import { useStore } from "store";
+
+import { Theme } from "constants/index";
 
 const SettingsDropdown = ({ setOpen, setOpenSettingsModal }) => {
   const settingsDropdownRef = useRef(null);
+  const [hovered, setHovered] = useState(false);
+
+  const {
+    state: { theme },
+  } = useStore();
 
   function useOutsideAlerter(ref) {
     useEffect(() => {
@@ -55,12 +65,23 @@ const SettingsDropdown = ({ setOpen, setOpenSettingsModal }) => {
   return (
     <Container ref={settingsDropdownRef}>
       <Content
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         onClick={() => {
           setOpen(false);
           setOpenSettingsModal(true);
         }}
       >
-        <Img src={SettingsIcon} alt="img" />
+        <Img
+          src={
+            theme === Theme.highContrast && hovered
+              ? SettingsIconHC
+              : theme === Theme.light
+              ? SettingsIconHC
+              : SettingsIcon
+          }
+          alt="img"
+        />
         <Label>Settings</Label>
       </Content>
       <Divider />

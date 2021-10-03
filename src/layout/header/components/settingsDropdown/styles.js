@@ -2,8 +2,16 @@ import styled, { css } from "styled-components";
 
 import { COLORS, Styles, Theme } from "constants/index";
 
-const { white, mineShaft, mineShaft2, desertStorm, alto, mineShaft3, yellow } =
-  COLORS;
+const {
+  white,
+  mineShaft,
+  mineShaft2,
+  desertStorm,
+  alto,
+  gallery,
+  mineShaft3,
+  yellow,
+} = COLORS;
 
 export const Container = styled.div`
   position: absolute;
@@ -48,6 +56,14 @@ export const Content = styled.div`
       &:hover {
         background: ${yellow};
         color: #000;
+      }
+    `}
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+      &:hover {
+        background: ${gallery};
       }
     `}
 `;
