@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 import { COLORS, Styles, Theme } from "constants/index";
 
-const { eastBay, scampi, mineShaft } = COLORS;
+const { eastBay, scampi, mineShaft, yellow } = COLORS;
 
 export const ParentContainer = styled.div`
   padding: 0 0.5rem;
@@ -18,6 +18,13 @@ export const ParentContainer = styled.div`
     css`
       &:hover {
         background-color: ${mineShaft};
+      }
+    `}
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      &:hover {
+        background-color: ${yellow};
       }
     `}
 `;
