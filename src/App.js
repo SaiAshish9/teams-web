@@ -9,6 +9,7 @@ import { StoreProvider, useStore } from "store";
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "global/global.styles";
+import { HomeScreen } from "screens";
 
 function AppInit() {
   const {
@@ -37,6 +38,7 @@ function AppInit() {
             <Header />
             <Content>
               <Sidebar />
+              <HomeScreen />
             </Content>
           </>
         )}
