@@ -14,15 +14,25 @@ import {
 import AppsIcon from "assets/images/sidebar/appsIcon.svg";
 import AppsIconFilled from "assets/images/sidebar/appsIcon-filled.svg";
 import BellIcon from "assets/images/sidebar/bellIcon.svg";
+import BellIconHC from "assets/images/sidebar/bellIconHC.svg";
+import BellIconHCSelected from "assets/images/sidebar/bellIconHCSelected.svg";
 import BellIconFilled from "assets/images/sidebar/bellIcon-filled.svg";
 import ChatIcon from "assets/images/sidebar/chatIcon.svg";
 import ChatIconFilled from "assets/images/sidebar/chatIcon-filled.svg";
+import ChatIconHC from "assets/images/sidebar/chatIconHC.svg";
+import ChatIconHCSelected from "assets/images/sidebar/chatIconHCSelected.svg";
 import TeamsIcon from "assets/images/sidebar/teamsIcon.svg";
 import TeamsIconFilled from "assets/images/sidebar/teamsIcon-filled.svg";
+import TeamsHCIcon from "assets/images/sidebar/teamsIconHC.svg";
+import TeamsHCSelectedIcon from "assets/images/sidebar/teamsIconHCSelected.svg";
 import AssignmentsIcon from "assets/images/sidebar/assignmentsIcon.svg";
 import AssignmentsIconFilled from "assets/images/sidebar/assignmentsIcon-filled.svg";
+import AssignmentsHCIcon from "assets/images/sidebar/assignmentsIconHC.svg";
+import AssignmentsHCSelectedIcon from "assets/images/sidebar/assignmentsIconHCSelected.svg";
 import CalendarIcon from "assets/images/sidebar/calendarIcon.svg";
 import CalendarIconFilled from "assets/images/sidebar/calendarIcon-filled.svg";
+import CalendarHCIcon from "assets/images/sidebar/calendarIconHC.svg";
+import CalendarHCSelectedIcon from "assets/images/sidebar/calendarIconHCSelected.svg";
 import CallIcon from "assets/images/sidebar/callIcon.svg";
 import CallIconFilled from "assets/images/sidebar/callIcon-filled.svg";
 import ThreeDotsIcon from "assets/images/sidebar/threeDots.svg";
@@ -31,57 +41,74 @@ import HelpIcon from "assets/images/sidebar/helpIcon.svg";
 import HelpIconFilled from "assets/images/sidebar/helpIcon-filled.svg";
 import DownloadIcon from "assets/images/sidebar/downloadIcon.svg";
 
-const icons = [
-  {
-    icon: BellIcon,
-    iconFilled: BellIconFilled,
-    text: "Activity",
-  },
-  {
-    icon: ChatIcon,
-    iconFilled: ChatIconFilled,
-    text: "Chat",
-  },
-  {
-    icon: TeamsIcon,
-    iconFilled: TeamsIconFilled,
-    text: "Teams",
-  },
-  {
-    icon: AssignmentsIcon,
-    iconFilled: AssignmentsIconFilled,
-    text: "Assignments",
-  },
-  {
-    icon: CalendarIcon,
-    iconFilled: CalendarIconFilled,
-    text: "Calendar",
-  },
-  {
-    icon: CallIcon,
-    iconFilled: CallIconFilled,
-    text: "Calls",
-  },
-  {
-    icon: ThreeDotsIcon,
-    iconFilled: ThreeDotsIconFilled,
-    text: "",
-  },
-  {
-    icon: AppsIcon,
-    iconFilled: AppsIconFilled,
-    text: "Apps",
-  },
-  {
-    icon: HelpIcon,
-    iconFilled: HelpIconFilled,
-    text: "Help",
-  },
-];
+import { useStore } from "store";
+
+import { Theme } from "constants/index";
 
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
   const [listItemClicked, setListItemClicked] = useState(0);
+
+  const {
+    state: { theme },
+  } = useStore();
+
+  const icons = [
+    {
+      icon: theme === Theme.highContrast ? CalendarHCIcon : CalendarIcon,
+      iconFilled:
+        theme === Theme.highContrast
+          ? CalendarHCSelectedIcon
+          : CalendarIconFilled,
+      text: "Calendar",
+    },
+    {
+      icon: theme === Theme.highContrast ? BellIconHC : BellIcon,
+      iconFilled:
+        theme === Theme.highContrast ? BellIconHCSelected : BellIconFilled,
+      text: "Activity",
+    },
+    {
+      icon: theme === Theme.highContrast ? ChatIconHC : ChatIcon,
+      iconFilled:
+        theme === Theme.highContrast ? ChatIconHCSelected : ChatIconFilled,
+      text: "Chat",
+    },
+    {
+      icon: theme === Theme.highContrast ? TeamsHCIcon : TeamsIcon,
+      iconFilled:
+        theme === Theme.highContrast ? TeamsHCSelectedIcon : TeamsIconFilled,
+      text: "Teams",
+    },
+    {
+      icon: theme === Theme.highContrast ? AssignmentsHCIcon : AssignmentsIcon,
+      iconFilled:
+        theme === Theme.highContrast
+          ? AssignmentsHCSelectedIcon
+          : AssignmentsIconFilled,
+      text: "Assignments",
+    },
+    {
+      icon: CallIcon,
+      iconFilled: CallIconFilled,
+      text: "Calls",
+    },
+    {
+      icon: ThreeDotsIcon,
+      iconFilled: ThreeDotsIconFilled,
+      text: "",
+    },
+    {
+      icon: AppsIcon,
+      iconFilled: AppsIconFilled,
+      text: "Apps",
+    },
+    {
+      icon: HelpIcon,
+      iconFilled: HelpIconFilled,
+      text: "Help",
+    },
+  ];
 
   return (
     <Container>
