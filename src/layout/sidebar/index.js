@@ -34,9 +34,13 @@ import CalendarIconFilled from "assets/images/sidebar/calendarIcon-filled.svg";
 import CalendarHCIcon from "assets/images/sidebar/calendarIconHC.svg";
 import CalendarHCSelectedIcon from "assets/images/sidebar/calendarIconHCSelected.svg";
 import CallIcon from "assets/images/sidebar/callIcon.svg";
+import CallIconHC from "assets/images/sidebar/callIconHC.svg";
+import CallIconHCSelected from "assets/images/sidebar/callIconHCSelected.svg";
 import CallIconFilled from "assets/images/sidebar/callIcon-filled.svg";
 import ThreeDotsIcon from "assets/images/sidebar/threeDots.svg";
 import ThreeDotsIconFilled from "assets/images/sidebar/threeDots-filled.svg";
+import ThreeDotsIconHC from "assets/images/sidebar/threeDotsHC.svg";
+import ThreeDotsIconHCSelected from "assets/images/sidebar/threeDotsHCSelected.svg";
 import HelpIcon from "assets/images/sidebar/helpIcon.svg";
 import HelpIconFilled from "assets/images/sidebar/helpIcon-filled.svg";
 import DownloadIcon from "assets/images/sidebar/downloadIcon.svg";
@@ -89,13 +93,14 @@ const Sidebar = () => {
       text: "Assignments",
     },
     {
-      icon: CallIcon,
-      iconFilled: CallIconFilled,
+      icon: theme === Theme.highContrast ? CallIconHC : CallIcon,
+      iconFilled:
+        theme === Theme.highContrast ? CallIconHCSelected : CallIconFilled,
       text: "Calls",
     },
     {
-      icon: ThreeDotsIcon,
-      iconFilled: ThreeDotsIconFilled,
+      icon: theme === Theme.highContrast ? ThreeDotsIconHC : ThreeDotsIcon,
+      iconFilled: theme === Theme.highContrast ? ThreeDotsIconHCSelected : ThreeDotsIconFilled,
       text: "",
     },
     {
@@ -150,7 +155,8 @@ const Sidebar = () => {
             key={k}
             onMouseEnter={() => setSelected(k + icons.length - 2)}
             onMouseLeave={() => setSelected(-1)}
-          >
+            selected={+(listItemClicked === k + icons.length - 2)}
+            >
             <ListItemContent
               selected={+(listItemClicked === k + icons.length - 2)}
             >
