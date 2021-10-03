@@ -63,8 +63,9 @@ export const ListItem = styled.div`
         background: ${mineShaft};
       }
     `}
-  ${({ selected }) =>
+  ${({ selected, theme: { current } }) =>
     selected === 1 &&
+    current === Theme.highContrast &&
     css`
       background: ${blue};
       padding: 0.5rem 0;
@@ -144,5 +145,8 @@ export const DownloadIconContainer = styled.div`
     css`
       background: #000;
       border: none;
+      &:hover {
+        background: ${yellow};
+      }
     `}
 `;

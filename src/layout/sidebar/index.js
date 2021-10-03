@@ -44,8 +44,12 @@ import ThreeDotsIconFilled from "assets/images/sidebar/threeDots-filled.svg";
 import ThreeDotsIconHC from "assets/images/sidebar/threeDotsHC.svg";
 import ThreeDotsIconHCSelected from "assets/images/sidebar/threeDotsHCSelected.svg";
 import HelpIcon from "assets/images/sidebar/helpIcon.svg";
+import HelpIconHC from "assets/images/sidebar/helpIconHC.svg";
+import HelpIconHCSelected from "assets/images/sidebar/helpIconHCSelected.svg";
 import HelpIconFilled from "assets/images/sidebar/helpIcon-filled.svg";
 import DownloadIcon from "assets/images/sidebar/downloadIcon.svg";
+import DownloadIconHC from "assets/images/sidebar/downloadIconHC.svg";
+import DownloadIconHCSelected from "assets/images/sidebar/downloadIconHCSelected.svg";
 
 import { useStore } from "store";
 
@@ -54,6 +58,7 @@ import { Theme } from "constants/index";
 const Sidebar = () => {
   const [selected, setSelected] = useState(0);
   const [listItemClicked, setListItemClicked] = useState(0);
+  const [downloadIconHovered, setDownloadIconHovered] = useState(false);
 
   const {
     state: { theme },
@@ -115,8 +120,9 @@ const Sidebar = () => {
       text: "Apps",
     },
     {
-      icon: HelpIcon,
-      iconFilled: HelpIconFilled,
+      icon: theme === Theme.highContrast ? HelpIconHC : HelpIcon,
+      iconFilled:
+        theme === Theme.highContrast ? HelpIconHCSelected : HelpIconFilled,
       text: "Help",
     },
   ];
@@ -188,8 +194,20 @@ const Sidebar = () => {
             </ListItemContent>
           </ListItem>
         ))}
-        <DownloadIconContainer>
-          <Img src={DownloadIcon} alt="img" />
+        <DownloadIconContainer
+          onMouseEnter={() => setDownloadIconHovered(true)}
+          onMouseLeave={() => setDownloadIconHovered(false)}
+        >
+          <Img
+            src={
+              theme === Theme.highContrast
+                ? downloadIconHovered
+                  ? DownloadIconHCSelected
+                  : DownloadIconHC
+                : DownloadIcon
+            }
+            alt="img"
+          />
         </DownloadIconContainer>
       </SecondItemsContent>
     </Container>
