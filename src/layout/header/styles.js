@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 import { COLORS, Theme } from "constants/index";
 
-const { eastBay, scampi, white, codGray } = COLORS;
+const { eastBay, scampi, white, codGray, yellow } = COLORS;
 
 export const Container = styled.div`
   height: 3rem;
@@ -42,12 +42,19 @@ export const ImgContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 4rem;
+  width: 4.2rem;
   cursor: pointer;
 
   &:hover {
     background-color: ${scampi};
   }
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      &:hover {
+        background-color: ${yellow};
+      }
+    `}
 `;
 
 export const Label = styled.p`
