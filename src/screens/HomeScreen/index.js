@@ -9,6 +9,8 @@ import FilterImg from "assets/images/navbar/filter.svg";
 import FilterImgDark from "assets/images/navbar/filterDark.svg";
 import FilterImgBlue from "assets/images/navbar/filterBlue.svg";
 
+import { CreateTeamBtn } from "./components";
+
 import { useStore } from "store";
 
 import { Theme } from "constants/index";
@@ -58,6 +60,7 @@ const HomeScreen = () => {
               alt="img"
             />
           </ImgContainer>
+          <CreateTeamBtn />
         </Row>
       </Content>
     </Container>
