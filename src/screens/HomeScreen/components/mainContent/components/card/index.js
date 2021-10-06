@@ -40,7 +40,6 @@ const Card = ({ text, img, id, rightClickedItem, setRightClickedItem }) => {
 
   const [hovered, setHovered] = useState(false);
 
-  const [clicked, setClicked] = useState();
 
   const [selected, setSelected] = useState(-1);
 
@@ -52,7 +51,6 @@ const Card = ({ text, img, id, rightClickedItem, setRightClickedItem }) => {
     } else {
       setRightClickedItem(id);
     }
-    setClicked((c) => !c);
   }
 
   const DATA = [

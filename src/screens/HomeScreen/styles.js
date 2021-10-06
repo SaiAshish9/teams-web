@@ -6,6 +6,7 @@ const { yellow, blue } = COLORS;
 
 export const Container = styled.div`
   padding: 1rem 2rem;
+  padding-left: 1rem;
   width: 100%;
 `;
 
@@ -20,6 +21,7 @@ export const Content = styled.div`
   ${Styles.RBC};
   width: 100%;
   margin-bottom: 0.7rem;
+  padding-left: 1rem;
 `;
 
 export const Img = styled.img`

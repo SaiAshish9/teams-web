@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 
-import { Container, Label, Content } from "./styles";
+import {
+  Container,
+  Label,
+  Content,
+  ArrowDropdownContainer,
+  Arrow,
+  ArrowUp,
+} from "./styles";
 
 import { Card } from "./components";
 
@@ -110,21 +117,28 @@ const DATA = [
 
 const MainContent = () => {
   const [selected, setSelected] = useState(-1);
+  const [clicked, setClicked] = useState(false);
 
   return (
     <Container>
-      <Label>Your teams</Label>
+      <Label>
+        <ArrowDropdownContainer onClick={() => setClicked((c) => !c)}>
+          {clicked ? <ArrowUp /> : <Arrow />}
+          Your teams
+        </ArrowDropdownContainer>
+      </Label>
       <Content>
-        {DATA.map((i, k) => (
-          <Card
-            rightClickedItem={selected}
-            setRightClickedItem={setSelected}
-            key={k}
-            id={k}
-            text={i.text}
-            img={i.img}
-          />
-        ))}
+        {!clicked &&
+          DATA.map((i, k) => (
+            <Card
+              rightClickedItem={selected}
+              setRightClickedItem={setSelected}
+              key={k}
+              id={k}
+              text={i.text}
+              img={i.img}
+            />
+          ))}
       </Content>
     </Container>
   );
