@@ -66,6 +66,7 @@ export const Container = styled.div`
     current === Theme.dark ? "#292929" : white};
   height: 100%;
   padding: 1.6rem;
+  padding-right: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -82,6 +83,7 @@ export const CloseIcon = styled(IoCloseOutline)`
   align-self: flex-end;
   width: 1.5rem;
   height: 1.5rem;
+  margin-right: 1.6rem;
   cursor: pointer;
   color: ${silverChalice1};
   &:hover {
@@ -186,13 +188,68 @@ export const Label = styled.p`
 `;
 
 export const MainContent = styled.div`
-  width: 80%;
   height: 100%;
   padding: 0.2rem 1.5rem;
   overflow-y: scroll;
-  &::-webkit-scrollbar {
-    display: none !important;
-  }
+  width: calc(80%);
+  ${({ hovered }) =>
+    hovered === 1
+      ? css`
+          padding-right: calc(3.1rem + 6.3px);
+          ::-webkit-scrollbar {
+            width: 6.3px;
+          }
+
+          ::-webkit-scrollbar-track {
+            border-radius: 9px;
+          }
+
+          ${({ theme: { current } }) =>
+            current === Theme.light &&
+            css`
+              ::-webkit-scrollbar-thumb {
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 8px;
+              }
+
+              ::-webkit-scrollbar-thumb:hover {
+                background: rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+              }
+            `};
+          ${({ theme: { current } }) =>
+            current === Theme.dark &&
+            css`
+              ::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 8px;
+              }
+
+              ::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.4);
+                cursor: pointer;
+              }
+            `};
+          ${({ theme: { current } }) =>
+            current === Theme.highContrast &&
+            css`
+              ::-webkit-scrollbar-thumb {
+                background: #fff;
+                border-radius: 8px;
+              }
+
+              ::-webkit-scrollbar-thumb:hover {
+                background: #fff;
+                cursor: pointer;
+              }
+            `};
+        `
+      : css`
+          padding-right: calc(3.1rem);
+          ::-webkit-scrollbar {
+            visibility: hidden;
+          }
+        `};
 `;
 
 export const Row = styled.div`
@@ -208,7 +265,7 @@ export const Row = styled.div`
 export const ThemeImg = styled.img``;
 
 export const ThemeImgContainer = styled.div`
-  width: 31%;
+  width: 8rem;
   margin-right: 1rem;
   cursor: pointer;
   border-bottom: solid 0.2rem transparent;

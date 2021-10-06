@@ -89,6 +89,7 @@ function Input({ theme }) {
 const SettingsModal = ({ open, setOpen }) => {
   const [selected, setSelected] = useState(0);
   const [hovered, setHovered] = useState(0);
+  const [mainContentHovered, setMainContentHovered] = useState(false);
 
   const {
     state: { theme },
@@ -214,9 +215,13 @@ const SettingsModal = ({ open, setOpen }) => {
               </ListItem>
             ))}
           </SideBar>
-          <MainContent>
+          <MainContent
+            onMouseEnter={() => setMainContentHovered(true)}
+            onMouseLeave={() => setMainContentHovered(false)}
+            hovered={+mainContentHovered}
+          >
             <Label>Theme</Label>
-            <Row>
+            <Row start={1}>
               {ThemeData.map((i, k) => (
                 <ThemeImgContainer
                   key={k}

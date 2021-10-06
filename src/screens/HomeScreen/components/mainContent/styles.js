@@ -77,6 +77,7 @@ export const Label = styled.p`
   font-size: 0.72rem;
   font-weight: 300;
   position: relative;
+  width: 5rem;
   left: ${({ hovered }) => (hovered === 1 ? "-1rem" : "0rem")};
   padding: 0px;
   margin-bottom: 0.7rem;
