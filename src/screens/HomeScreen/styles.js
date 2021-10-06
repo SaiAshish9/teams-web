@@ -5,7 +5,7 @@ import { Styles, Theme, COLORS } from "constants/index";
 const { yellow, blue } = COLORS;
 
 export const Container = styled.div`
-  padding: 1rem 2rem;
+  padding: 1rem 0rem;
   padding-left: 1rem;
   width: 100%;
 `;
@@ -22,6 +22,7 @@ export const Content = styled.div`
   width: 100%;
   margin-bottom: 0.7rem;
   padding-left: 1rem;
+  padding-right: 2rem;
 `;
 
 export const Img = styled.img`

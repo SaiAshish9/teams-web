@@ -130,7 +130,7 @@ const Card = ({ text, img, id, rightClickedItem, setRightClickedItem }) => {
             ? hovered
               ? ThreeDots
               : ThreeDotsDark
-            : clicked
+            : id === rightClickedItem
             ? ThreeDotsFilled
             : hovered
             ? ThreeDotsDark

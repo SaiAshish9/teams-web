@@ -11,10 +11,66 @@ export const Container = styled.div`
   position: relative;
   padding-left: 1rem;
   padding-bottom: 3rem;
-  &::-webkit-scrollbar {
-    display: none;
-  }
   z-index: 1;
+  ${({ hovered }) =>
+    hovered === 1
+      ? css`
+          padding-right: 2rem;
+
+          ::-webkit-scrollbar {
+            width: 6.3px;
+          }
+
+          ::-webkit-scrollbar-track {
+            border-radius: 9px;
+          }
+
+          ${({ theme: { current } }) =>
+            current === Theme.light &&
+            css`
+              ::-webkit-scrollbar-thumb {
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 8px;
+              }
+
+              ::-webkit-scrollbar-thumb:hover {
+                background: rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+              }
+            `};
+          ${({ theme: { current } }) =>
+            current === Theme.dark &&
+            css`
+              ::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.4);
+                border-radius: 8px;
+              }
+
+              ::-webkit-scrollbar-thumb:hover {
+                background: rgba(255, 255, 255, 0.4);
+                cursor: pointer;
+              }
+            `};
+          ${({ theme: { current } }) =>
+            current === Theme.highContrast &&
+            css`
+              ::-webkit-scrollbar-thumb {
+                background: #fff;
+                border-radius: 8px;
+              }
+
+              ::-webkit-scrollbar-thumb:hover {
+                background: #fff;
+                cursor: pointer;
+              }
+            `};
+        `
+      : css`
+          padding-right: calc(2rem + 6.3px);
+          ::-webkit-scrollbar {
+            display: none;
+          }
+        `}
 `;
 
 export const Label = styled.p`

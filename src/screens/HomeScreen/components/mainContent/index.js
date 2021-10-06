@@ -122,6 +122,7 @@ const MainContent = () => {
 
   return (
     <Container
+      hovered={+hovered}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
