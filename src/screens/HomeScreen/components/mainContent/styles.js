@@ -111,6 +111,11 @@ export const Arrow = styled(IoMdArrowDropdown)`
   position: relative;
   left: -0.2rem;
   font-size: 16px;
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+    `}
 `;
 
 export const ArrowUp = styled(IoMdArrowDropright)`
@@ -119,4 +124,9 @@ export const ArrowUp = styled(IoMdArrowDropright)`
   position: relative;
   left: -0.2rem;
   font-size: 16px;
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+    `}
 `;
