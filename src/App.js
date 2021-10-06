@@ -9,7 +9,9 @@ import { StoreProvider, useStore } from "store";
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "global/global.styles";
-import { HomeScreen } from "screens";
+import { HomeScreen, TeamScreen } from "screens";
+
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 function AppInit() {
   const {
@@ -38,7 +40,10 @@ function AppInit() {
             <Header />
             <Content>
               <Sidebar />
-              <HomeScreen />
+              <Switch>
+                <Route exact path='/' component={HomeScreen} />
+                <Route exact path='/teams' component={TeamScreen} />
+              </Switch>
             </Content>
           </>
         )}
@@ -49,9 +54,11 @@ function AppInit() {
 
 function App() {
   return (
-    <StoreProvider>
-      <AppInit />
-    </StoreProvider>
+    <BrowserRouter>
+      <StoreProvider>
+        <AppInit />
+      </StoreProvider>
+    </BrowserRouter>
   );
 }
 

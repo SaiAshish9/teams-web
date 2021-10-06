@@ -61,6 +61,7 @@ export const Label = styled.p`
   font-size: 18px;
   font-weight: 400;
   padding: 0px;
+  cursor: pointer;
   color: ${white};
   margin-left: 1.5rem;
   ${({ theme: { current } }) =>

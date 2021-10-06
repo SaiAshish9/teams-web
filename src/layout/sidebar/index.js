@@ -50,6 +50,7 @@ import HelpIconFilled from "assets/images/sidebar/helpIcon-filled.svg";
 import DownloadIcon from "assets/images/sidebar/downloadIcon.svg";
 import DownloadIconHC from "assets/images/sidebar/downloadIconHC.svg";
 import DownloadIconHCSelected from "assets/images/sidebar/downloadIconHCSelected.svg";
+import { useHistory } from "react-router-dom";
 
 import { useStore } from "store";
 
@@ -59,6 +60,7 @@ const Sidebar = () => {
   const [selected, setSelected] = useState(3);
   const [listItemClicked, setListItemClicked] = useState(3);
   const [downloadIconHovered, setDownloadIconHovered] = useState(false);
+  const history = useHistory();
 
   const {
     state: { theme },
@@ -72,24 +74,28 @@ const Sidebar = () => {
           ? CalendarHCSelectedIcon
           : CalendarIconFilled,
       text: "Calendar",
+      path: "/calendar",
     },
     {
       icon: theme === Theme.highContrast ? BellIconHC : BellIcon,
       iconFilled:
         theme === Theme.highContrast ? BellIconHCSelected : BellIconFilled,
       text: "Activity",
+      path: "/activity",
     },
     {
       icon: theme === Theme.highContrast ? ChatIconHC : ChatIcon,
       iconFilled:
         theme === Theme.highContrast ? ChatIconHCSelected : ChatIconFilled,
       text: "Chat",
+      path: "/chat",
     },
     {
       icon: theme === Theme.highContrast ? TeamsHCIcon : TeamsIcon,
       iconFilled:
         theme === Theme.highContrast ? TeamsHCSelectedIcon : TeamsIconFilled,
       text: "Teams",
+      path: "/",
     },
     {
       icon: theme === Theme.highContrast ? AssignmentsHCIcon : AssignmentsIcon,
@@ -98,12 +104,14 @@ const Sidebar = () => {
           ? AssignmentsHCSelectedIcon
           : AssignmentsIconFilled,
       text: "Assignments",
+      path: "/assignments",
     },
     {
       icon: theme === Theme.highContrast ? CallIconHC : CallIcon,
       iconFilled:
         theme === Theme.highContrast ? CallIconHCSelected : CallIconFilled,
       text: "Calls",
+      path: "/calls",
     },
     {
       icon: theme === Theme.highContrast ? ThreeDotsIconHC : ThreeDotsIcon,
@@ -112,18 +120,21 @@ const Sidebar = () => {
           ? ThreeDotsIconHCSelected
           : ThreeDotsIconFilled,
       text: "",
+      path: "/",
     },
     {
       icon: theme === Theme.highContrast ? AppsIconHC : AppsIcon,
       iconFilled:
         theme === Theme.highContrast ? AppsIconHCSelected : AppsIconFilled,
       text: "Apps",
+      path: "/apps",
     },
     {
       icon: theme === Theme.highContrast ? HelpIconHC : HelpIcon,
       iconFilled:
         theme === Theme.highContrast ? HelpIconHCSelected : HelpIconFilled,
       text: "Help",
+      path: "/help",
     },
   ];
 
@@ -132,7 +143,10 @@ const Sidebar = () => {
       <FirstItemsContent>
         {icons.slice(0, icons.length - 2).map((i, k) => (
           <ListItem
-            onClick={() => setListItemClicked(k)}
+            onClick={() => {
+              setListItemClicked(k);
+              history.push(i.path);
+            }}
             key={k}
             onMouseEnter={() => setSelected(k)}
             onMouseLeave={() => setSelected(-1)}

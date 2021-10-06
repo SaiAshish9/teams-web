@@ -24,6 +24,8 @@ import { useStore } from "store";
 
 import { Theme } from "constants/index";
 
+import { useHistory } from "react-router-dom";
+
 const Header = () => {
   const [openSettingsDropdown, setOpenSettingsDropdown] = useState(false);
   const [openSettingsModal, setOpenSettingsModal] = useState(false);
@@ -34,6 +36,8 @@ const Header = () => {
     e.stopPropagation();
     setOpenSettingsDropdown((s) => !s);
   }
+
+  const history = useHistory();
 
   const {
     state: { theme },
@@ -51,7 +55,7 @@ const Header = () => {
         />
       </ImgContainer>
       <Content>
-        <Label>Microsoft Teams</Label>
+        <Label onClick={() => history.push("/")}>Microsoft Teams</Label>
         <InputContainer />
         <SettingsContainer>
           <ThreeDots onClick={toggleMenu} />

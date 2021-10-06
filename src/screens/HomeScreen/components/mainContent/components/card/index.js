@@ -31,7 +31,9 @@ import { useStore } from "store";
 
 import { Theme } from "constants/index";
 
-const Card = ({ text, img }) => {
+import { useHistory } from "react-router-dom";
+
+const Card = ({ text, img, id, rightClickedItem, setRightClickedItem }) => {
   const {
     state: { theme },
   } = useStore();
@@ -45,6 +47,11 @@ const Card = ({ text, img }) => {
   function handleClick(e) {
     e.preventDefault();
     // alert(e.type);
+    if (id === rightClickedItem) {
+      setRightClickedItem(-1);
+    } else {
+      setRightClickedItem(id);
+    }
     setClicked((c) => !c);
   }
 
@@ -106,11 +113,13 @@ const Card = ({ text, img }) => {
     },
   ];
 
+  const history = useHistory();
+
   return (
     <Container
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      // onClick={handleClick}
+      onClick={() => history.push("/teams?title=" + text)}
       onContextMenu={handleClick}
     >
       <Img1
@@ -133,7 +142,7 @@ const Card = ({ text, img }) => {
       />
       <Img src={img} alt="img" />
       <Label>{text}</Label>
-      {clicked && (
+      {id === rightClickedItem && (
         <MenuContent>
           <ListItem
             onMouseEnter={() => setSelected(0)}

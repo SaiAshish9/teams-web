@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Container, Label, Content } from "./styles";
 
@@ -109,12 +109,21 @@ const DATA = [
 ];
 
 const MainContent = () => {
+  const [selected, setSelected] = useState(-1);
+
   return (
     <Container>
       <Label>Your teams</Label>
       <Content>
         {DATA.map((i, k) => (
-          <Card key={k} text={i.text} img={i.img} />
+          <Card
+            rightClickedItem={selected}
+            setRightClickedItem={setSelected}
+            key={k}
+            id={k}
+            text={i.text}
+            img={i.img}
+          />
         ))}
       </Content>
     </Container>
