@@ -78,7 +78,7 @@ export const Img1 = styled.img`
 
 export const Label = styled.p`
   margin-top: 1rem;
-  font-weight: 400;
+  font-weight: ${({ highlight }) => (highlight === 1 ? 600 : 300)};
   height: 3rem;
   font-size: 1rem;
   text-align: center;

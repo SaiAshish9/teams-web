@@ -40,7 +40,6 @@ const Card = ({ text, img, id, rightClickedItem, setRightClickedItem }) => {
 
   const [hovered, setHovered] = useState(false);
 
-
   const [selected, setSelected] = useState(-1);
 
   function handleClick(e) {
@@ -139,7 +138,7 @@ const Card = ({ text, img, id, rightClickedItem, setRightClickedItem }) => {
         alt="img"
       />
       <Img src={img} alt="img" />
-      <Label>{text}</Label>
+      <Label highlight={+(text === "Software Engineering")}>{text}</Label>
       {id === rightClickedItem && (
         <MenuContent>
           <ListItem

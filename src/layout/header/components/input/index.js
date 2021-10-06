@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container, Icon, Inp } from "./styles";
+import { Container, DropdownContent, Icon, Inp } from "./styles";
 
 import SearchIcon from "assets/images/navbar/search.svg";
 import SearchHCIcon from "assets/images/navbar/searchHC.svg";
@@ -35,6 +35,7 @@ const InputContainer = () => {
         }
         focussed={+isFocussed}
       />
+      {isFocussed && <DropdownContent>Sai is cool</DropdownContent>}
     </Container>
   );
 };

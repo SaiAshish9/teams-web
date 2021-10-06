@@ -11,23 +11,9 @@ const {
   gray,
   blue,
   mineShaft2,
+  alto,
+  gallery,
 } = COLORS;
-
-export const Container = styled.div`
-  background: ${({ theme: { current } }) =>
-    current === Theme.dark ? mineShaft : white8};
-  width: 50vw;
-  height: 2rem;
-  ${Styles.RBC}
-  border-radius: 0.2rem;
-  padding: 0 0.1rem;
-  position: relative;
-  ${({ theme: { current } }) =>
-    current === Theme.highContrast &&
-    css`
-      background: #000;
-    `}
-`;
 
 export const Icon = styled.img`
   height: 100%;
@@ -103,5 +89,54 @@ export const Inp = styled.input`
           color: #fff;
         }
       `}
+    `}
+`;
+
+export const Container = styled.div`
+  background: ${({ theme: { current } }) =>
+    current === Theme.dark ? mineShaft : white8};
+  width: 50vw;
+  height: 2rem;
+  ${Styles.RBC}
+  border-radius: 0.2rem;
+  padding: 0 0.1rem;
+  position: relative;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: #000;
+    `};
+`;
+
+export const DropdownContent = styled.div`
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 2.07rem;
+  z-index: 3;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  font-weight: 300;
+
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: #000;
+      border: 1px solid #fff;
+      border-top: none;
+      color: #fff;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      background: ${mineShaft2};
+      box-shadow: rgb(0 0 0 / 50%) 0px 0.2rem 1.6rem 0px;
+      color: ${alto};
+    `}
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      background: ${white};
+      box-shadow: 0 0.2rem 1.6rem 0 rgb(37 36 35 / 30%);
     `}
 `;
