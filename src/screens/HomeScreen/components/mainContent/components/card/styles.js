@@ -12,6 +12,7 @@ export const Container = styled.div`
   margin-bottom: 1rem;
   box-shadow: 0 0.2rem 0.4rem -0.075rem rgb(0 0 0 / 10%);
   border-radius: 0.2rem;
+  padding: 0 1rem;
   color: #252423;
   cursor: pointer;
   &:hover {
@@ -44,6 +45,7 @@ export const Container = styled.div`
         color: #000;
       }
     `}
+  padding-top:1rem;
 `;
 
 export const Img = styled.img`
@@ -63,6 +65,8 @@ export const Img1 = styled.img`
 
 export const Label = styled.p`
   margin-top: 1rem;
-  font-weight: 300;
-  font-size: 0.9rem;
+  font-weight: 400;
+  height: 3rem;
+  font-size: 1rem;
+  text-align: center;
 `;
