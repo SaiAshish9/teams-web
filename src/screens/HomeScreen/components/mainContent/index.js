@@ -118,12 +118,16 @@ const DATA = [
 const MainContent = () => {
   const [selected, setSelected] = useState(-1);
   const [clicked, setClicked] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <Container>
-      <Label>
+    <Container
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      <Label hovered={+hovered}>
         <ArrowDropdownContainer onClick={() => setClicked((c) => !c)}>
-          {clicked ? <ArrowUp /> : <Arrow />}
+          {hovered && <>{clicked ? <ArrowUp /> : <Arrow />}</>}
           Your teams
         </ArrowDropdownContainer>
       </Label>
