@@ -13,6 +13,7 @@ const {
   mineShaft2,
   alto,
   gallery,
+  mineShaft3,
 } = COLORS;
 
 export const Icon = styled.img`
@@ -113,11 +114,13 @@ export const DropdownContent = styled.div`
   position: absolute;
   left: 0;
   top: 2.07rem;
+  cursor: pointer;
   z-index: 3;
-  padding: 1rem 2rem;
+  padding: 1rem 0.7rem;
   border-radius: 0.2rem;
   font-weight: 300;
-
+  ${Styles.RBC};
+  justify-content: start;
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`
@@ -125,6 +128,10 @@ export const DropdownContent = styled.div`
       border: 1px solid #fff;
       border-top: none;
       color: #fff;
+      &:hover {
+        background: ${blue};
+        color: #000;
+      }
     `};
   ${({ theme: { current } }) =>
     current === Theme.dark &&
@@ -132,11 +139,40 @@ export const DropdownContent = styled.div`
       background: ${mineShaft2};
       box-shadow: rgb(0 0 0 / 50%) 0px 0.2rem 1.6rem 0px;
       color: ${alto};
+      &:hover {
+        background: ${mineShaft3};
+      }
     `}
   ${({ theme: { current } }) =>
     current === Theme.light &&
     css`
       background: ${white};
       box-shadow: 0 0.2rem 1.6rem 0 rgb(37 36 35 / 30%);
+      &:hover {
+        background: #f5f5f5;
+      }
     `}
+`;
+
+export const SearchContainer = styled.div`
+  border-radius: 0.2rem;
+  padding: 0.1rem;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.54rem;
+  ${({ theme: { current }, hovered }) =>
+    current === Theme.highContrast &&
+    css`
+      border: 1px solid ${hovered === 1 ? "#000" : "#fff"};
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      background: ${gallery};
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      background: #000;
+    `};
 `;
