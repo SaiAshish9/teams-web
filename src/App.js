@@ -9,7 +9,8 @@ import { StoreProvider, useStore } from "store";
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "global/global.styles";
-import { HomeScreen, TeamScreen } from "screens";
+
+import { HomeScreen, TeamScreen, ChatScreen } from "screens";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -41,8 +42,9 @@ function AppInit() {
             <Content>
               <Sidebar />
               <Switch>
-                <Route exact path='/' component={HomeScreen} />
-                <Route exact path='/teams' component={TeamScreen} />
+                <Route exact path="/" component={HomeScreen} />
+                <Route exact path="/teams" component={TeamScreen} />
+                <Route exact path="/chat" component={ChatScreen} />
               </Switch>
             </Content>
           </>
