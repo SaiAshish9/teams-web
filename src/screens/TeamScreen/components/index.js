@@ -1,3 +1,4 @@
 import SideSection from "./SideSection";
+import MainSection from "./MainSection";
 
-export { SideSection };
+export { SideSection, MainSection };
