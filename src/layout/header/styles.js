@@ -26,7 +26,6 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: space-between;
   height: 100%;
 `;
 
@@ -63,7 +62,8 @@ export const Label = styled.p`
   padding: 0px;
   cursor: pointer;
   color: ${white};
-  margin-left: 1.5rem;
+  padding-left: 1.5rem;
+  width: 23.4%;
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`
@@ -74,4 +74,5 @@ export const Label = styled.p`
 export const SettingsContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-left: auto;
 `;
