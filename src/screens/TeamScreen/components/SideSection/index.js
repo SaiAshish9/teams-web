@@ -48,7 +48,7 @@ const SideSection = () => {
         ))}
       </OptionsCont>
       <Title1>Channels</Title1>
-      <OptionsCont>
+      <OptionsCont second={1}>
         {['General'].map((i, k) => (
           <ListItem key={k}>{i}</ListItem>
         ))}
