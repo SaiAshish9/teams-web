@@ -26,7 +26,7 @@ import { Theme } from "constants/index";
 
 import { useHistory } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ setVisible }) => {
   const [openSettingsDropdown, setOpenSettingsDropdown] = useState(false);
   const [openSettingsModal, setOpenSettingsModal] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -46,6 +46,7 @@ const Header = () => {
   return (
     <Container>
       <ImgContainer
+        onClick={() => setVisible((v) => !v)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >

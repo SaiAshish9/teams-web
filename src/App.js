@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { Container, Content } from "./styles";
 
-import { Header, Sidebar, Skeleton } from "layout";
+import { Header, Sidebar, Skeleton, Drawer } from "layout";
 
 import { StoreProvider, useStore } from "store";
 
@@ -21,6 +21,11 @@ function AppInit() {
 
   const [loading, setLoading] = useState(true);
 
+  const [visible, setVisible] = useState(false);
+  const toggleDrawer = () => {
+    setVisible((t) => !t);
+  };
+
   useEffect(() => {
     let timer1 = setTimeout(() => setLoading(false), 1000);
 
@@ -33,12 +38,14 @@ function AppInit() {
     <ThemeProvider theme={{ current: theme }}>
       <GlobalStyles />
 
+      <Drawer visible={visible} toggleDrawer={toggleDrawer} />
+
       <Container>
         {loading ? (
           <Skeleton />
         ) : (
           <>
-            <Header />
+            <Header setVisible={setVisible} />
             <Content>
               <Sidebar />
               <Switch>
