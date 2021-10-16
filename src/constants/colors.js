@@ -16,6 +16,7 @@ const COLORS = {
   dustyGray: "#999",
   boulder: "#797979",
   alto: "#d1d1d1",
+  alto1: "#d6d6d6",
   silverChalice: "#9d9d9d",
   silverChalice1: "#adadad",
   silverChalice3: "#b2b2b2",
@@ -29,6 +30,7 @@ const COLORS = {
   mineShaft4: "#201f1f",
   yellow: "#ffff00",
   blue: "#18ebff",
+  melrose: "#9ea2ff",
 };
 
 export default COLORS;

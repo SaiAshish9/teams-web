@@ -1,0 +1,11 @@
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="presentation" class="app-svg icons-excel">
+    <path d="M16 1H7a1 1 0 0 0-1 1v5l10 5 4 1.5 4-1.5V7z" fill="#21a366"></path>
+    <path fill="none" d="M0 0h24v24H0z"></path>
+    <path fill="#107c41" d="M6 7.021h10V12H6z"></path>
+    <path d="M24 2v5h-8V1h7a1.003 1.003 0 0 1 1 1z" fill="#33c481"></path>
+    <path d="M16 12H6v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-5z" fill="#185c37"></path>
+    <path d="M13.833 6H6v14h7.604A1.5 1.5 0 0 0 15 18.646V7.166A1.17 1.17 0 0 0 13.833 6z" opacity=".5"></path>
+    <rect y="5" width="14" height="14" rx="1.167" ry="1.167" fill="#107c41"></rect>
+    <path d="M3.427 16l2.588-4.011L3.645 8h1.907l1.295 2.55q.178.362.245.54h.017q.128-.29.268-.563L8.76 8h1.752L8.08 11.966 10.573 16H8.71l-1.495-2.8a2.338 2.338 0 0 1-.179-.374h-.022a1.765 1.765 0 0 1-.173.362L5.301 16z" fill="#fff"></path>
+    <path fill="#107c41" d="M16 12h8v5h-8z"></path>
+</svg>

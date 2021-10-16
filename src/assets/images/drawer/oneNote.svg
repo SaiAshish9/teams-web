@@ -1,0 +1,10 @@
+<svg viewBox="0 0 24 24" role="presentation" xmlns="http://www.w3.org/2000/svg" class="app-svg icons-onenote">
+    <path fill="none" d="M0 0h24v24H0z"></path>
+    <path d="M23 1H7a1 1 0 0 0-1 1v20a1 1 0 0 0 1 1h11l6-18V2a1 1 0 0 0-1-1z" fill="#ca64ea"></path>
+    <path d="M13.833 6H6v14h7.604A1.5 1.5 0 0 0 15 18.646V7.166A1.17 1.17 0 0 0 13.833 6z" opacity=".75"></path>
+    <rect y="5" width="14" height="14" rx="1.167" ry="1.167" fill="#7719aa"></rect>
+    <path d="M3.298 8h1.705l2.94 5.163a6.77 6.77 0 0 1 .332.767h.021a7.6 7.6 0 0 1-.049-1.062V8h1.455v8H8.106l-3.054-5.321a4.11 4.11 0 0 1-.31-.55h-.027a10.91 10.91 0 0 1 .043 1.165V16h-1.46z" fill="#fff"></path>
+    <path fill="#ae4bd5" d="M24 5h-6v6l3 1.811L24 11V5z"></path>
+    <path fill="#9332bf" d="M24 11h-6v6l3 2.126L24 17v-6z"></path>
+    <path d="M18 17v6h5a1 1 0 0 0 1-1v-5z" fill="#7719aa"></path>
+</svg>
