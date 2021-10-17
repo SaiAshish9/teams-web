@@ -2,7 +2,17 @@ import styled, { css } from "styled-components";
 
 import { COLORS, Theme, Styles } from "constants/index";
 
-const { bigStone, silverChalice1, mineShaft2 } = COLORS;
+const {
+  bigStone,
+  silverChalice1,
+  mineShaft2,
+  white,
+  mineShaft3,
+  yellow,
+  ebb,
+  alto,
+  dustyGray,
+} = COLORS;
 
 export const Container = styled.div`
   height: 100%;
@@ -11,6 +21,11 @@ export const Container = styled.div`
     current === Theme.dark &&
     css`
       background: #141414;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      box-shadow: 0 0 3px ${dustyGray};
     `};
 `;
 
@@ -77,7 +92,6 @@ export const DotsImg = styled.img`
   width: 1.7rem;
   cursor: pointer;
   position: relative;
-  top: 3.6px;
   margin-right: 1rem;
 `;
 
@@ -102,9 +116,104 @@ export const ListItem = styled.p`
   cursor: pointer;
   padding: 0.3rem 0;
   padding-left: 1.2rem;
+  border-radius: 0.4rem;
   &:hover {
     background: ${mineShaft2};
     color: #fff;
-    font-weight: 400;
   }
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+      &:hover {
+        background: ${ebb};
+        color: #000;
+      }
+    `}
+`;
+
+export const ChannelsListItemContainer = styled.div`
+  width: 100%;
+  ${({ highlight }) =>
+    highlight &&
+    css`
+      background: #292929;
+      color: #fff;
+      ${({ theme: { current } }) =>
+        current === Theme.light &&
+        css`
+          color: #000;
+          background: ${ebb};
+        `}
+    `};
+  ${Styles.RBC};
+  cursor: pointer;
+  position: relative;
+`;
+
+export const MenuContent = styled.div`
+  width: 12rem;
+  background: #292929;
+  box-shadow: 0 0.2rem 1.6rem 0 rgb(0 0 0 / 50%);
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  border: 0;
+  position: absolute;
+  top: 1.4rem;
+  right: -9rem;
+  z-index: 3;
+  padding: 0;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: #000;
+      border: 1px solid #fff;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      background: ${white} !important;
+      box-shadow: 0 0.2rem 1.6rem 0 rgb(37 36 35 / 30%);
+      color: #000;
+    `};
+`;
+
+export const MenuItemListItem = styled.div`
+  color: #fff;
+  width: 100%;
+  font-weight: 300;
+  font-size: 0.72rem;
+  ${Styles.RBC};
+  justify-content: flex-start;
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      color: ${alto};
+      &:hover {
+        background: ${mineShaft3};
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      &:hover {
+        background: ${yellow};
+        color: #000;
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+      &:hover {
+        background: ${ebb};
+      }
+    `}
+  padding: 0.27rem 0.6rem;
+`;
+
+export const ListItemLabel = styled.p``;
+
+export const ListItemImg = styled.img`
+  width: 1.8rem;
 `;
