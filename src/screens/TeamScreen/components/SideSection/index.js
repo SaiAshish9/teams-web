@@ -25,7 +25,9 @@ import { RiArrowLeftSLine } from "react-icons/ri";
 
 import { useHistory, useLocation } from "react-router-dom";
 
-import { TEAMS_DATA, Theme } from "constants/index";
+import { Theme } from "constants/index";
+
+import { TEAMS_DATA } from "constants/data";
 
 import ThreeDotsDarkImg from "assets/images/sidebar/threeDots.svg";
 import ThreeDotsFilledImg from "assets/images/sidebar/threeDots-filled.svg";
