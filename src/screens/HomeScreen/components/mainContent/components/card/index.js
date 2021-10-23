@@ -116,7 +116,10 @@ const Card = ({ text, img, id, rightClickedItem, setRightClickedItem }) => {
     <Container
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      onClick={() => history.push("/teams?title=" + text)}
+      onClick={() => {
+        console.log({ text });
+        history.push("/teams?title=" + text);
+      }}
       onContextMenu={handleClick}
     >
       <Img1
