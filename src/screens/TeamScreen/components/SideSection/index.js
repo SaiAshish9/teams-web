@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 import {
   Container,
@@ -33,7 +33,6 @@ import ThreeDotsDarkImg from "assets/images/sidebar/threeDots.svg";
 import ThreeDotsFilledImg from "assets/images/sidebar/threeDots-filled.svg";
 import ThreeDotsWhiteImg from "assets/images/sidebar/threeDots-white.svg";
 import ThreeDotsHCSelectedImg from "assets/images/sidebar/threeDotsHCSelected.svg";
-import { useState } from "react/cjs/react.development";
 
 import BellIcon from "assets/images/teams/bellIcon.svg";
 import LinkIcon from "assets/images/teams/link.svg";
@@ -52,7 +51,7 @@ import { useStore } from "store";
 
 const SideSection = () => {
   const history = useHistory();
-  const search = window.location?.search;
+  const search = useLocation()?.search;
   const settingsDropdownRef = useRef(null);
 
   const [showSelectedIcon, setShowSelectedIcon] = useState(false);
@@ -154,7 +153,7 @@ const SideSection = () => {
 
   return (
     <Container>
-      {/* <Label onClick={() => history.push("/")}>
+      <Label onClick={() => history.push("/")}>
         <RiArrowLeftSLine size={16} />
         <Span>All teams</Span>
       </Label>
@@ -299,7 +298,7 @@ const SideSection = () => {
             )}
           </ChannelsListItemContainer>
         ))}
-      </OptionsCont> */}
+      </OptionsCont>
     </Container>
   );
 };
