@@ -7,17 +7,21 @@ export const Container = styled.div`
   height: 100%;
   width: 76.6%;
   position: relative;
-  z-index: 0;
+  z-index: 1;
 `;
 
 export const Label = styled.p`
-  color: #fff;
   font-weight: 600;
   font-size: 1.08rem;
   ${({ theme: { current } }) =>
     current === Theme.light &&
     css`
       color: #000;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: #fff;
     `};
 `;
 

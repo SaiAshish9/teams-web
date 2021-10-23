@@ -8,6 +8,7 @@ const TeamScreen = () => {
   return (
     <Container>
       <SideSection />
+      <MainSection />
     </Container>
   );
 };
