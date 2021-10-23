@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 
 import { COLORS, Theme, Styles } from "constants/index";
 import { RiArrowRightSLine } from "react-icons/ri";
+import { AiOutlineCheck } from "react-icons/ai";
 
 const {
   bigStone,
@@ -307,6 +308,11 @@ export const ListItemImg = styled.img`
 `;
 
 export const RightArrow = styled(RiArrowRightSLine)`
+  position: absolute;
+  right: 10px;
+`;
+
+export const RightCheckIcon = styled(AiOutlineCheck)`
   position: absolute;
   right: 10px;
 `;

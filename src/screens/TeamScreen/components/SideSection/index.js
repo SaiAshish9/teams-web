@@ -18,6 +18,7 @@ import {
   ListItemLabel,
   RightArrow,
   SecondDrawer,
+  RightCheckIcon,
 } from "./styles";
 
 import { RiArrowLeftSLine } from "react-icons/ri";
@@ -283,7 +284,13 @@ const SideSection = () => {
                     <ListItemLabel style={{ fontSize: "0.63rem" }}>
                       {i.text1 ?? ""}
                     </ListItemLabel>
-                    {k === 2 && <RightArrow size={16} />}
+                    {k === 2 ? (
+                      theme !== Theme.highContrast ? (
+                        <RightArrow size={16} />
+                      ) : (
+                        <RightCheckIcon size={16} />
+                      )
+                    ) : null}
                   </MenuItemListItem>
                 ))}
               </SecondDrawer>
