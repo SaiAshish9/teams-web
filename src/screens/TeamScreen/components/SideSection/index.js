@@ -61,6 +61,8 @@ const SideSection = () => {
 
   const [openSecondDrawer, setOpenSecondDrawer] = useState(false);
 
+  console.log({ search, history });
+
   const item = TEAMS_DATA.filter(
     (x) => x["text"] === decodeURI(search?.split("=")?.[1])
   )?.[0];
