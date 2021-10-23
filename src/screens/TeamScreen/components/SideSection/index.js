@@ -152,7 +152,7 @@ const SideSection = () => {
 
   return (
     <Container>
-      <Label onClick={() => history.push("/")}>
+      {/* <Label onClick={() => history.push("/")}>
         <RiArrowLeftSLine size={16} />
         <Span>All teams</Span>
       </Label>
@@ -297,7 +297,7 @@ const SideSection = () => {
             )}
           </ChannelsListItemContainer>
         ))}
-      </OptionsCont>
+      </OptionsCont> */}
     </Container>
   );
 };
