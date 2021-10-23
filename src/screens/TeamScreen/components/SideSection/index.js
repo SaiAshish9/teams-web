@@ -50,7 +50,7 @@ import { useStore } from "store";
 
 const SideSection = () => {
   const history = useHistory();
-  const search = useLocation()?.search;
+  const search = window.location?.search;
   const settingsDropdownRef = useRef(null);
 
   const [showSelectedIcon, setShowSelectedIcon] = useState(false);
@@ -61,7 +61,10 @@ const SideSection = () => {
 
   const [openSecondDrawer, setOpenSecondDrawer] = useState(false);
 
-  const item = TEAMS_DATA;
+  const item = TEAMS_DATA.filter(
+    (x) => x["text"] === decodeURI(search?.split("=")?.[1])
+  )?.[0];
+
   const {
     state: { theme },
   } = useStore();
@@ -133,7 +136,7 @@ const SideSection = () => {
   function useOutsideAlerter(ref) {
     useEffect(() => {
       function handleClickOutside(event) {
-        if (ref.current && !ref.current.contains(event.target)) {
+        if (ref?.current && !ref?.current.contains(event.target)) {
           setClicked(false);
         }
       }
