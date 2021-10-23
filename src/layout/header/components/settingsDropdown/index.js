@@ -63,7 +63,7 @@ const SettingsDropdown = ({ setOpen, setOpenSettingsModal }) => {
   ];
 
   return (
-    <Container ref={settingsDropdownRef}>
+    <Container>
       <Content
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}

@@ -13,6 +13,7 @@ const {
   ebb,
   alto,
   dustyGray,
+  blue,
 } = COLORS;
 
 export const Container = styled.div`
@@ -29,6 +30,11 @@ export const Container = styled.div`
     current === Theme.light &&
     css`
       box-shadow: 0 0 3px ${dustyGray};
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border-right: 1px solid #fff;
     `};
 `;
 
@@ -48,6 +54,14 @@ export const Label = styled.p`
         color: ${bigStone};
       }
     `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: #fff;
+      &:hover {
+        color: ${yellow};
+      }
+    `};
 `;
 
 export const Span = styled.span`
@@ -62,6 +76,12 @@ export const Img = styled.img`
   border-radius: 0.4rem;
   margin-top: 1.35rem;
   margin-left: 1rem;
+  border: 2px solid transparent;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border: 2px solid white;
+    `};
 `;
 
 export const Title = styled.p`
@@ -73,6 +93,11 @@ export const Title = styled.p`
     css`
       color: ${silverChalice1};
     `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: ${yellow};
+    `};
 `;
 
 export const Title1 = styled.p`
@@ -83,6 +108,11 @@ export const Title1 = styled.p`
     current === Theme.dark &&
     css`
       color: ${silverChalice1};
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: ${yellow};
     `};
 `;
 
@@ -103,6 +133,11 @@ export const OptionsCont = styled.div`
   font-weight: 300;
   font-size: 0.8rem;
   opacity: 0.72;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      opacity: 1;
+    `};
   ${({ theme: { current } }) =>
     current === Theme.dark &&
     css`
@@ -133,6 +168,19 @@ export const ListItem = styled.p`
         color: #000;
       }
     `};
+  ${({ theme: { current }, highlight }) =>
+    current === Theme.highContrast &&
+    css`
+      color: #fff;
+      ${highlight &&
+      css`
+        color: #000;
+      `};
+      &:hover {
+        background: ${yellow};
+        color: #000;
+      }
+    `};
   position: relative;
   z-index: 2;
 `;
@@ -149,6 +197,16 @@ export const ChannelsListItemContainer = styled.div`
         css`
           color: #000;
           background: ${ebb};
+        `}
+      ${({ theme: { current } }) =>
+        current === Theme.highContrast &&
+        css`
+          color: #000 !important;
+          background: ${blue};
+          border-radius: 2px;
+          &:hover {
+            background: ${yellow};
+          }
         `}
     `};
   ${Styles.RBC};

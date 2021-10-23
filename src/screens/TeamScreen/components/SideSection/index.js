@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 
 import {
   Container,
@@ -27,7 +27,9 @@ import { useHistory, useLocation } from "react-router-dom";
 import { TEAMS_DATA, Theme } from "constants/index";
 
 import ThreeDotsDarkImg from "assets/images/sidebar/threeDots.svg";
+import ThreeDotsFilledImg from "assets/images/sidebar/threeDots-filled.svg";
 import ThreeDotsWhiteImg from "assets/images/sidebar/threeDots-white.svg";
+import ThreeDotsHCSelectedImg from "assets/images/sidebar/threeDotsHCSelected.svg";
 import { useState } from "react/cjs/react.development";
 
 import BellIcon from "assets/images/teams/bellIcon.svg";
@@ -48,6 +50,7 @@ import { useStore } from "store";
 const SideSection = () => {
   const history = useHistory();
   const search = useLocation().search;
+  const settingsDropdownRef = useRef(null);
 
   const [showSelectedIcon, setShowSelectedIcon] = useState(false);
 
@@ -129,6 +132,23 @@ const SideSection = () => {
     },
   ];
 
+  function useOutsideAlerter(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setClicked(false);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  useOutsideAlerter(settingsDropdownRef);
+
   return (
     <Container>
       <Label onClick={() => history.push("/")}>
@@ -138,7 +158,12 @@ const SideSection = () => {
       <Img alt="img" src={item?.["img"]} />
       <Row>
         <Title>{item?.text}</Title>
-        <DotsImg src={ThreeDotsDarkImg} alt="img" />
+        <DotsImg
+          src={
+            theme === Theme.highContrast ? ThreeDotsWhiteImg : ThreeDotsDarkImg
+          }
+          alt="img"
+        />
       </Row>
       <OptionsCont>
         {options.map((i, k) => (
@@ -146,7 +171,7 @@ const SideSection = () => {
         ))}
       </OptionsCont>
       <Title1>Channels</Title1>
-      <OptionsCont second={1}>
+      <OptionsCont ref={settingsDropdownRef} second={1}>
         {["General"].map((i, k) => (
           <ChannelsListItemContainer
             highlight={1}
@@ -162,11 +187,19 @@ const SideSection = () => {
               setClicked((c) => !c);
             }}
           >
-            <ListItem>{i}</ListItem>
+            <ListItem highlight={1}>{i}</ListItem>
             {(showSelectedIcon || clicked) && (
               <DotsImg
                 src={
-                  theme === Theme.light ? ThreeDotsDarkImg : ThreeDotsWhiteImg
+                  theme === Theme.highContrast
+                    ? ThreeDotsHCSelectedImg
+                    : theme === Theme.light
+                    ? clicked
+                      ? ThreeDotsFilledImg
+                      : ThreeDotsDarkImg
+                    : clicked
+                    ? ThreeDotsFilledImg
+                    : ThreeDotsWhiteImg
                 }
                 alt="img"
               />
