@@ -19,7 +19,7 @@ import Pic18 from "assets/images/homeScreen/pic18.png";
 import Pic19 from "assets/images/homeScreen/pic19.png";
 import Pic20 from "assets/images/homeScreen/pic20.png";
 
-export const TEAMS_DATA = [
+const TEAMS_DATA = [
   {
     text: "CSE I & II",
     img: Pic1,
@@ -101,3 +101,5 @@ export const TEAMS_DATA = [
     img: Pic20,
   },
 ];
+
+export default TEAMS_DATA;
