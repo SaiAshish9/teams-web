@@ -50,7 +50,7 @@ import { useStore } from "store";
 
 const SideSection = () => {
   const history = useHistory();
-  const search = useLocation().search;
+  const search = useLocation()?.search;
   const settingsDropdownRef = useRef(null);
 
   const [showSelectedIcon, setShowSelectedIcon] = useState(false);
@@ -64,6 +64,8 @@ const SideSection = () => {
   const item = TEAMS_DATA.filter(
     (x) => x["text"] === decodeURI(search?.split("=")?.[1])
   )?.[0];
+
+  console.log(item);
 
   const {
     state: { theme },
