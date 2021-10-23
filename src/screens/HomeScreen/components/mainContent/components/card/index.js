@@ -117,7 +117,6 @@ const Card = ({ text, img, id, rightClickedItem, setRightClickedItem }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onClick={() => {
-        console.log({ text });
         history.push("/teams?title=" + text);
       }}
       onContextMenu={handleClick}
