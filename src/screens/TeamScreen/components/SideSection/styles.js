@@ -195,27 +195,40 @@ export const MenuItemListItem = styled.div`
   position: relative;
   z-index: 1 !important;
   justify-content: flex-start;
-  ${({ theme: { current } }) =>
+  ${({ theme: { current }, selected }) =>
     current === Theme.dark &&
     css`
       color: ${alto};
+      ${selected &&
+      css`
+        background: ${mineShaft3};
+      `};
       &:hover {
         background: ${mineShaft3};
       }
     `};
-  ${({ theme: { current } }) =>
+  ${({ theme: { current }, selected }) =>
     current === Theme.highContrast &&
     css`
+      ${selected &&
+      css`
+        background: ${yellow};
+        color: #000;
+      `};
       &:hover {
         background: ${yellow};
         color: #000;
       }
     `};
-  ${({ theme: { current } }) =>
+  ${({ theme: { current }, selected }) =>
     current === Theme.light &&
     css`
       background-color: ${white} !important;
       color: #000;
+      ${selected &&
+      css`
+        background: ${ebb};
+      `};
       &:hover {
         background: ${ebb};
       }
@@ -251,7 +264,6 @@ export const SecondDrawer = styled.div`
   top: 1.4rem;
   right: -20.7rem;
   z-index: 5;
-  padding: 1rem;
   border-radius: 0.4rem !important;
 
   ${({ theme: { current } }) =>

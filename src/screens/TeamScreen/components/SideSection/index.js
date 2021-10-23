@@ -67,6 +67,21 @@ const SideSection = () => {
 
   const options = ["Class Notebook", "Assignments", "Grades"];
 
+  const secondOptions = [
+    {
+      text: "All activity",
+      text1: "Posts, replies , mantions",
+    },
+    {
+      text: "Off",
+      text1: "Except direct replies, personal mentions",
+    },
+    {
+      text: "Custom",
+      text1: "",
+    },
+  ];
+
   const data = [
     {
       icon:
@@ -157,19 +172,29 @@ const SideSection = () => {
               />
             )}
             {clicked && (
-              <MenuContent>
+              <MenuContent
+                onMouseLeave={() => {
+                  setOpenSecondDrawer(false);
+                }}
+              >
                 {data.map((i, k) => (
                   <MenuItemListItem
+                    selected={+(selected === k)}
                     onMouseEnter={() => {
                       setSelected(k);
                       if (k === 0) setOpenSecondDrawer(true);
                     }}
                     onMouseLeave={() => {
-                      setSelected(-1);
-                      if (k !== 0) setOpenSecondDrawer(false);
+                      if (k !== 0) {
+                        setSelected(-1);
+                        setOpenSecondDrawer(false);
+                      }
                     }}
                     onClick={() => {
                       setClicked(false);
+                      setSelected(-1);
+                    }}
+                    onContextMenu={() => {
                       setSelected(-1);
                     }}
                     key={k}
@@ -181,8 +206,55 @@ const SideSection = () => {
                 ))}
               </MenuContent>
             )}
-            {openSecondDrawer && <SecondDrawer>
-              </SecondDrawer>}
+            {openSecondDrawer && selected === 0 && (
+              <SecondDrawer
+                onMouseEnter={() => {
+                  setOpenSecondDrawer(true);
+                  setSelected(0);
+                }}
+                onMouseLeave={() => {
+                  setOpenSecondDrawer(false);
+                  setSelected(-1);
+                }}
+                onContextMenu={(e) => {
+                  e.preventDefault();
+                  setOpenSecondDrawer(false);
+                }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setOpenSecondDrawer(false);
+                }}
+              >
+                {secondOptions.map((i, k) => (
+                  <MenuItemListItem
+                    style={{
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      paddingTop: k === 2 ? 10 : "0.27rem",
+                      paddingBottom: k === 2 ? 10 : "0.27rem",
+                    }}
+                    onMouseEnter={() => {
+                      setSelected(0);
+                      if (k === 0) setOpenSecondDrawer(true);
+                    }}
+                    onClick={() => {
+                      setClicked(false);
+                      setSelected(-1);
+                    }}
+                    onContextMenu={() => {
+                      setSelected(-1);
+                    }}
+                    key={k}
+                  >
+                    <ListItemLabel>{i.text}</ListItemLabel>
+                    <ListItemLabel style={{ fontSize: "0.63rem" }}>
+                      {i.text1 ?? ""}
+                    </ListItemLabel>
+                    {k === 2 && <RightArrow size={16} />}
+                  </MenuItemListItem>
+                ))}
+              </SecondDrawer>
+            )}
           </ChannelsListItemContainer>
         ))}
       </OptionsCont>
