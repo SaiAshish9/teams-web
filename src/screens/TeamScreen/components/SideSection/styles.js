@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
 import { COLORS, Theme, Styles } from "constants/index";
+import { RiArrowRightSLine } from "react-icons/ri";
 
 const {
   bigStone,
@@ -17,6 +18,8 @@ const {
 export const Container = styled.div`
   height: 100%;
   width: 23.4%;
+  position: relative;
+  z-index: 2;
   ${({ theme: { current } }) =>
     current === Theme.dark &&
     css`
@@ -129,7 +132,9 @@ export const ListItem = styled.p`
         background: ${ebb};
         color: #000;
       }
-    `}
+    `};
+  position: relative;
+  z-index: 2;
 `;
 
 export const ChannelsListItemContainer = styled.div`
@@ -149,6 +154,7 @@ export const ChannelsListItemContainer = styled.div`
   ${Styles.RBC};
   cursor: pointer;
   position: relative;
+  z-index: 2;
 `;
 
 export const MenuContent = styled.div`
@@ -161,8 +167,10 @@ export const MenuContent = styled.div`
   position: absolute;
   top: 1.4rem;
   right: -9rem;
-  z-index: 3;
+  z-index: 5;
   padding: 0;
+  border-radius: 0.4rem !important;
+
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`
@@ -172,7 +180,7 @@ export const MenuContent = styled.div`
   ${({ theme: { current } }) =>
     current === Theme.light &&
     css`
-      background: ${white} !important;
+      background-color: ${white} !important;
       box-shadow: 0 0.2rem 1.6rem 0 rgb(37 36 35 / 30%);
       color: #000;
     `};
@@ -184,6 +192,8 @@ export const MenuItemListItem = styled.div`
   font-weight: 300;
   font-size: 0.72rem;
   ${Styles.RBC};
+  position: relative;
+  z-index: 1 !important;
   justify-content: flex-start;
   ${({ theme: { current } }) =>
     current === Theme.dark &&
@@ -204,6 +214,7 @@ export const MenuItemListItem = styled.div`
   ${({ theme: { current } }) =>
     current === Theme.light &&
     css`
+      background-color: ${white} !important;
       color: #000;
       &:hover {
         background: ${ebb};
@@ -212,8 +223,48 @@ export const MenuItemListItem = styled.div`
   padding: 0.27rem 0.6rem;
 `;
 
-export const ListItemLabel = styled.p``;
+export const ListItemLabel = styled.p`
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      background-color: ${white} !important;
+    `}
+`;
 
 export const ListItemImg = styled.img`
   width: 1.8rem;
+`;
+
+export const RightArrow = styled(RiArrowRightSLine)`
+  position: absolute;
+  right: 10px;
+`;
+
+export const SecondDrawer = styled.div`
+  width: 12rem;
+  background: #292929;
+  box-shadow: 0 0.2rem 1.6rem 0 rgb(0 0 0 / 50%);
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  border: 0;
+  position: absolute;
+  top: 1.4rem;
+  right: -20.7rem;
+  z-index: 5;
+  padding: 1rem;
+  border-radius: 0.4rem !important;
+
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: #000;
+      border: 1px solid #fff;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      background-color: ${white} !important;
+      box-shadow: 0 0.2rem 1.6rem 0 rgb(37 36 35 / 30%);
+      color: #000;
+    `};
 `;

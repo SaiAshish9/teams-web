@@ -27,11 +27,6 @@ export const Container = styled.div`
   justify-content: space-between;
   flex-direction: column;
   ${({ theme: { current } }) =>
-    current === Theme.light &&
-    css`
-      box-shadow: 0 0 3px ${dustyGray};
-    `};
-  ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`
       background: #000;

@@ -16,6 +16,8 @@ import {
   MenuItemListItem,
   ListItemImg,
   ListItemLabel,
+  RightArrow,
+  SecondDrawer,
 } from "./styles";
 
 import { RiArrowLeftSLine } from "react-icons/ri";
@@ -52,6 +54,8 @@ const SideSection = () => {
   const [selected, setSelected] = useState(-1);
 
   const [clicked, setClicked] = useState(false);
+
+  const [openSecondDrawer, setOpenSecondDrawer] = useState(false);
 
   const item = TEAMS_DATA.filter(
     (x) => x["text"] === decodeURI(search?.split("=")?.[1])
@@ -158,18 +162,27 @@ const SideSection = () => {
                   <MenuItemListItem
                     onMouseEnter={() => {
                       setSelected(k);
+                      if (k === 0) setOpenSecondDrawer(true);
                     }}
                     onMouseLeave={() => {
+                      setSelected(-1);
+                      if (k !== 0) setOpenSecondDrawer(false);
+                    }}
+                    onClick={() => {
+                      setClicked(false);
                       setSelected(-1);
                     }}
                     key={k}
                   >
                     <ListItemImg alt="img" src={i.icon} />
                     <ListItemLabel>{i.text}</ListItemLabel>
+                    {k === 0 && <RightArrow size={16} />}
                   </MenuItemListItem>
                 ))}
               </MenuContent>
             )}
+            {openSecondDrawer && <SecondDrawer>
+              </SecondDrawer>}
           </ChannelsListItemContainer>
         ))}
       </OptionsCont>
