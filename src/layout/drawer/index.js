@@ -94,6 +94,7 @@ const DrawerContainer = ({ toggleDrawer, visible }) => {
     >
       <Header>
         <HeaderImgContainer
+          onClick={toggleDrawer}
           onMouseEnter={() => {
             if (theme === Theme.highContrast) {
               setLogoHovered(true);
@@ -106,7 +107,6 @@ const DrawerContainer = ({ toggleDrawer, visible }) => {
           }}
         >
           <Img
-            onClick={toggleDrawer}
             src={theme === "light" || logoHovered ? DotsImgHC : DotsImg}
             alt="img"
           />

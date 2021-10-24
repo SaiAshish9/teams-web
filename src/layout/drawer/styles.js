@@ -82,6 +82,7 @@ export const Img = styled.img`
 
 export const HeadingLabel = styled.p`
   font-size: 0.8rem;
+  cursor: pointer;
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 import { COLORS, Theme, Styles } from "constants/index";
-import { RiArrowRightSLine } from "react-icons/ri";
+import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 import { AiOutlineCheck } from "react-icons/ai";
 
 const {
@@ -16,6 +16,8 @@ const {
   dustyGray,
   blue,
 } = COLORS;
+
+export const StyledLeftArrow = styled(RiArrowLeftSLine)``;
 
 export const Container = styled.div`
   height: 100%;

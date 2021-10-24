@@ -19,9 +19,8 @@ import {
   RightArrow,
   SecondDrawer,
   RightCheckIcon,
+  StyledLeftArrow,
 } from "./styles";
-
-import { RiArrowLeftSLine } from "react-icons/ri";
 
 import { Theme } from "constants/index";
 
@@ -148,7 +147,7 @@ const SideSection = ({ item }) => {
   return (
     <Container>
       <Label onClick={() => history.push("/")}>
-        <RiArrowLeftSLine size={16} />
+        <StyledLeftArrow size={16} />
         <Span>All teams</Span>
       </Label>
       <Img alt="img" src={item?.["img"]} />
