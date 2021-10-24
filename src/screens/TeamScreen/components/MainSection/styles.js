@@ -142,3 +142,56 @@ export const ButtonLabel = styled.p`
   font-size: 0.8rem;
   font-weight: 600;
 `;
+
+export const MeetBtnContainer = styled.div`
+  border-radius: 0.2rem;
+  border: 1px solid #fff;
+  padding: 0.2rem 0.4rem;
+  position: absolute;
+  font-weight: 500;
+  right: 5.2rem;
+  height: 1.35rem;
+  border-right: none;
+  cursor: pointer;
+  bottom: 0.9rem;
+  color: #fff;
+  font-size: 0.6rem;
+  margin-right: 1.4rem;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      &:hover {
+        background: ${yellow};
+        color: #000;
+      }
+    `};
+  ${Styles.RBC};
+`;
+
+export const DropdownArrowContainer = styled.div`
+  border: 1px solid #fff;
+  padding: 0.2rem 0.1rem;
+  position: absolute;
+  font-weight: 500;
+  right: 5.4rem;
+  height: 1.35rem;
+  border-radius: 0.2rem;
+  bottom: 0.9rem;
+  color: #fff;
+  &:hover {
+    background: ${yellow};
+    color: #000;
+  }
+`;
+
+export const VideoPlayerImgContainer = styled.img`
+  width: 1rem;
+  height: 1rem;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  width: 7rem;
+  border-radius: 0.2rem;
+  border: 1px solid #fff;
+`;
