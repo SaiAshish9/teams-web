@@ -13,16 +13,43 @@ export const Container = styled.div`
   z-index: 1;
 `;
 
-export const ShiftUpwards = css`
-  position: relative;
-  bottom: 0.6rem;
-`;
-
 export const Header = styled.div`
   ${Styles.RBC};
   justify-content: flex-start;
   align-items: center !important;
   padding-top: 1rem;
+  position: relative;
+`;
+
+export const DotsImg = styled.img`
+  width: 1.7rem;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  margin-right: 1.5rem;
+  bottom: 0.6rem;
+  align-self: flex-end;
+  &:hover {
+    background: ${yellow};
+  }
+`;
+
+export const InfoImgContainer = styled.img`
+  width: 1.8rem;
+  cursor: pointer;
+  position: absolute;
+  right: 2rem;
+  margin-right: 1.2rem;
+  bottom: 0.6rem;
+  align-self: flex-end;
+  &:hover {
+    background: ${yellow};
+  }
+`;
+
+export const ShiftUpwards = css`
+  position: relative;
+  bottom: 0.6rem;
 `;
 
 export const Label = styled.p`
@@ -96,7 +123,7 @@ export const Button = styled.div`
   padding: 0 0.2rem;
   border-radius: 0.4rem;
   margin-top: 1rem;
-  margin-left: 4rem;
+  margin-left: 3.4rem;
   cursor: pointer;
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&

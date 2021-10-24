@@ -144,11 +144,22 @@ const SideSection = ({ item }) => {
 
   useOutsideAlerter(settingsDropdownRef);
 
+  const [allTeamsHovered, setAllTeamsHovered] = useState(false);
+
   return (
     <Container>
-      <Label onClick={() => history.push("/")}>
-        <StyledLeftArrow size={16} />
-        <Span>All teams</Span>
+      <Label
+        onMouseEnter={() => setAllTeamsHovered(true)}
+        onMouseLeave={() => setAllTeamsHovered(false)}
+        onClick={() => history.push("/")}
+      >
+        <StyledLeftArrow size={16} selected={+allTeamsHovered} />
+        <Span
+          onMouseEnter={() => setAllTeamsHovered(true)}
+          onMouseLeave={() => setAllTeamsHovered(false)}
+        >
+          All teams
+        </Span>
       </Label>
       <Img alt="img" src={item?.["img"]} />
       <Row>

@@ -17,7 +17,16 @@ const {
   blue,
 } = COLORS;
 
-export const StyledLeftArrow = styled(RiArrowLeftSLine)``;
+export const StyledLeftArrow = styled(RiArrowLeftSLine)`
+  ${({ theme: { current }, selected }) =>
+    current === Theme.highContrast &&
+    selected === 1 &&
+    css`
+      background: yellow;
+      color: #000;
+      border-radius: 0.2rem;
+    `};
+`;
 
 export const Container = styled.div`
   height: 100%;
