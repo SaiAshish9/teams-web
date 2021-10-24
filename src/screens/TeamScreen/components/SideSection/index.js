@@ -23,11 +23,7 @@ import {
 
 import { RiArrowLeftSLine } from "react-icons/ri";
 
-import { useHistory, useLocation } from "react-router-dom";
-
 import { Theme } from "constants/index";
-
-import TEAMS_DATA from "constants/data";
 
 import ThreeDotsDarkImg from "assets/images/sidebar/threeDots.svg";
 import ThreeDotsFilledImg from "assets/images/sidebar/threeDots-filled.svg";
@@ -49,9 +45,9 @@ import SettingsIconBlack from "assets/images/teams/settingsBlack.svg";
 
 import { useStore } from "store";
 
-const SideSection = () => {
-  const history = useHistory();
-  const search = useLocation()?.search;
+import { useHistory } from "react-router-dom";
+
+const SideSection = ({ item }) => {
   const settingsDropdownRef = useRef(null);
 
   const [showSelectedIcon, setShowSelectedIcon] = useState(false);
@@ -62,9 +58,7 @@ const SideSection = () => {
 
   const [openSecondDrawer, setOpenSecondDrawer] = useState(false);
 
-  const item = TEAMS_DATA.filter(
-    (x) => x["text"] === decodeURI(search?.split("=")?.[1])
-  )?.[0];
+  const history = useHistory();
 
   const {
     state: { theme },
