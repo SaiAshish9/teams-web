@@ -44,6 +44,8 @@ export const Item = styled.div`
   border: 1px solid #fff;
   padding: 0.7rem 0.7rem;
   width: 86%;
+  border-bottom-right-radius: 0.27rem;
+  border-bottom-left-radius: 0.27rem;
 `;
 
 export const ItemContainer = styled.div`
