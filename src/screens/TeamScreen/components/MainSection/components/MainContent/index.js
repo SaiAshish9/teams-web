@@ -11,9 +11,18 @@ import {
   ProfileImgContainer,
   ProfileImg,
   ItemTitle,
+  YellowContainer,
+  SecondItemContainer,
+  ThirdItemContainer,
+  CalenderImgContainer,
+  ThreeDotsImgContainer,
 } from "./styles";
 
 import ProfileImgAvatar from "assets/images/mainContent/profileImg.png";
+import CalendarHCSelectedIcon from "assets/images/sidebar/calendarIconHCSelected.svg";
+import ThreeDotsHCSelectedIcon from "assets/images/sidebar/threeDotsHCSelected.svg";
+
+import { IoReturnDownBack } from "react-icons/io5";
 
 const MainContent = ({ title }) => {
   return (
@@ -34,10 +43,24 @@ const MainContent = ({ title }) => {
           </ProfileImgContainer>
           <Item>
             <ItemTitle>
-              Shaily Malik <span style={{ marginRight: "0.4rem" }} />
+              Teacher <span style={{ marginRight: "0.3rem" }} />
               8/24/2020, 10:04 AM <br />
               Scheduled a meeting
             </ItemTitle>
+            <YellowContainer>
+              <CalenderImgContainer src={CalendarHCSelectedIcon} alt="img" />
+              <p>
+                {title?.text}
+                <br />
+                Monday, August 24, 2020 @ 11:00 AM
+              </p>
+              <ThreeDotsImgContainer src={ThreeDotsHCSelectedIcon} alt="img" />
+            </YellowContainer>
+            <SecondItemContainer>12 replies from teacher.</SecondItemContainer>
+            <ThirdItemContainer>
+              <IoReturnDownBack size={16} style={{ marginRight: "0.5rem" }} />
+              Reply
+            </ThirdItemContainer>
           </Item>
         </ItemContainer>
       </MainComponent>

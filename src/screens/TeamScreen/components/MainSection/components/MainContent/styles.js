@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { COLORS } from "constants/index";
+import { COLORS, Styles } from "constants/index";
 
-const { white } = COLORS;
+const { white, yellow, blue } = COLORS;
 
 export const Container = styled.div`
   width: 100%;
@@ -37,12 +37,11 @@ export const Description = styled.p`
 
 export const Img = styled.img`
   width: 231px;
-  margin: 2rem auto 3rem;
+  margin: 2rem auto 1.2rem;
 `;
 
 export const Item = styled.div`
   border: 1px solid #fff;
-  padding: 0.7rem 0.7rem;
   width: 86%;
   border-bottom-right-radius: 0.27rem;
   border-bottom-left-radius: 0.27rem;
@@ -72,4 +71,60 @@ export const ItemTitle = styled.p`
   color: #fff;
   font-weight: 300;
   font-size: 0.75rem;
+  padding: 0.7rem 0.7rem;
+`;
+
+export const SecondItemContainer = styled.div`
+  border-top: 2px solid #fff;
+  width: 100% !important;
+  color: yellow;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.7rem;
+  cursor: pointer;
+  &:hover {
+    background: yellow;
+    color: #000;
+  }
+`;
+
+export const ThirdItemContainer = styled.div`
+  border-top: 2px solid #fff;
+  width: 100% !important;
+  color: yellow;
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.7rem;
+  cursor: pointer;
+  &:hover {
+    background: yellow;
+    color: #000;
+  }
+`;
+
+export const YellowContainer = styled.div`
+  background: ${yellow};
+  padding: 0.7rem 0rem;
+  border-top: 2px solid #fff;
+  font-size: 0.81rem;
+  &:hover {
+    background: ${blue};
+  }
+  cursor: pointer;
+  ${Styles.RBC};
+  justify-content: flex-start;
+  position: relative;
+`;
+
+export const CalenderImgContainer = styled.img`
+  width: 3rem;
+  height: 3rem;
+`;
+
+export const ThreeDotsImgContainer = styled.img`
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  right: 0.7rem;
+  top: 27%;
 `;
