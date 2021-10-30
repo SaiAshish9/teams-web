@@ -94,7 +94,7 @@ const MainSection = ({ item }) => {
           />
           <p>Meet</p>
         </MeetBtnContainer>
-        <DropdownArrowContainer o>
+        <DropdownArrowContainer>
           <IoIosArrowDown />
         </DropdownArrowContainer>
       </Header>

@@ -37,7 +37,7 @@ export const Description = styled.p`
 
 export const Img = styled.img`
   width: 231px;
-  margin: 2rem auto 1.2rem;
+  margin: 2rem auto 2.7rem;
 `;
 
 export const Item = styled.div`
