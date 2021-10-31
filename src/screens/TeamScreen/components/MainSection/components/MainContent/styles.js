@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { IoMdArrowDropright } from "react-icons/io";
+
 import { COLORS, Styles } from "constants/index";
 
 const { white, yellow, blue } = COLORS;
@@ -15,9 +17,7 @@ export const Container = styled.div`
   }
 `;
 
-export const MainComponent = styled.div`
-  height: 90vh;
-`;
+export const MainComponent = styled.div``;
 
 export const Title = styled.p`
   color: ${white};
@@ -25,6 +25,11 @@ export const Title = styled.p`
   margin-top: 3.6rem;
   font-size: 1.1rem;
   font-weight: 600;
+`;
+
+export const UpperCont = styled.div`
+  border-top: 2.7px solid
+    ${({ highlight }) => (highlight === 1 ? "yellow" : "transparent")};
 `;
 
 export const Description = styled.p`
@@ -40,6 +45,8 @@ export const Img = styled.img`
   margin: 2rem auto 2.7rem;
 `;
 
+export const View = styled.div``;
+
 export const Item = styled.div`
   border: 1px solid #fff;
   width: 86%;
@@ -49,6 +56,37 @@ export const Item = styled.div`
 
 export const ItemContainer = styled.div`
   display: flex;
+  margin-bottom: ${({ last }) => (last === 1 ? "0rem" : "0.9rem")};
+`;
+
+export const Divider = styled.div`
+  border-top: 2px solid #fff;
+  margin-bottom: 0.9rem;
+  width: calc(50% - 4rem);
+`;
+
+export const DividerContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 3rem;
+`;
+
+export const DividerTitleContainer = styled.div`
+  text-align: center;
+  padding: 0px;
+  ${Styles.RBC};
+  width: 5.4rem;
+`;
+
+export const DividerTitle = styled.p`
+  color: #fff;
+  padding: 0px;
+  font-size: 0.7rem;
+  line-height: 0;
+  position: relative;
+  bottom: 0.4rem;
 `;
 
 export const ProfileImgContainer = styled.div`
@@ -59,12 +97,22 @@ export const ProfileImgContainer = styled.div`
   margin-right: 0.9rem;
   position: relative;
   top: 0.5rem;
+  cursor: pointer;
 `;
 
 export const ProfileImg = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 50%;
+`;
+
+export const ProfileImgIcon = styled.img`
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 0.35rem;
+  position: absolute;
+  right: 0;
+  bottom: -0.5px;
 `;
 
 export const ItemTitle = styled.p`
@@ -78,13 +126,19 @@ export const SecondItemContainer = styled.div`
   border-top: 2px solid #fff;
   width: 100% !important;
   color: yellow;
-  padding: 0.4rem 0.7rem;
+  padding: 0.4rem 0.1rem;
   font-size: 0.7rem;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   &:hover {
     background: yellow;
     color: #000;
   }
+`;
+
+export const StyledArrowRight = styled(IoMdArrowDropright)`
+  color: #000;
 `;
 
 export const ThirdItemContainer = styled.div`
@@ -104,7 +158,7 @@ export const ThirdItemContainer = styled.div`
 
 export const YellowContainer = styled.div`
   background: ${yellow};
-  padding: 0.7rem 0rem;
+  padding: 0.4rem 0rem;
   border-top: 2px solid #fff;
   font-size: 0.81rem;
   &:hover {
