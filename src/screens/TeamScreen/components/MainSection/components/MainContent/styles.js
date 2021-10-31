@@ -99,6 +99,7 @@ export const Item = styled.div`
   width: 86%;
   border-bottom-right-radius: 0.27rem;
   border-bottom-left-radius: 0.27rem;
+  position: relative;
 `;
 
 export const ItemContainer = styled.div`
@@ -228,4 +229,31 @@ export const ThreeDotsImgContainer = styled.img`
   position: absolute;
   right: 0.7rem;
   top: 27%;
+`;
+
+export const EmojiContainer = styled.div`
+  background: #000;
+  border: 1px solid #fff;
+  border-radius: 0.2rem;
+  padding: 0.2rem 0.4rem;
+  position: absolute;
+  right: 7px;
+  top: -1.4rem;
+  ${Styles.RBC};
+`;
+
+export const Emojis = styled.div`
+  font-size: 1rem;
+`;
+
+export const EmojiDotsImg = styled.img`
+  width: 1.5rem;
+`;
+
+export const EmojiVerticalDivider = styled.div`
+  width: 2px;
+  height: 1rem;
+  background: #fff;
+  margin-left: 0.1rem;
+  border-radius: 4px;
 `;

@@ -24,17 +24,23 @@ import {
   DividerContainer,
   DividerTitle,
   DividerTitleContainer,
+  EmojiContainer,
+  Emojis,
+  EmojiDotsImg,
+  EmojiVerticalDivider,
 } from "./styles";
 
 import ProfileImgAvatar from "assets/images/mainContent/profileImg.png";
 import CalendarHCSelectedIcon from "assets/images/sidebar/calendarIconHCSelected.svg";
 import ThreeDotsHCSelectedIcon from "assets/images/sidebar/threeDotsHCSelected.svg";
 import CrossIcon from "assets/images/teams/crossIcon.svg";
+import ThreeDotsImg from "assets/images/sidebar/threeDots-white.svg";
 
 import { IoReturnDownBack } from "react-icons/io5";
 
 const MainContent = ({ title }) => {
   const [highlighted, setHighlighted] = useState(false);
+  const [highlightedCount, setHighlightedCount] = useState(-1);
   const [scrolled, setScrolled] = useState(false);
 
   async function scrollElement() {
@@ -71,9 +77,15 @@ const MainContent = ({ title }) => {
               </ProfileImgContainer>
               <Item>
                 <UpperCont
-                  onMouseEnter={() => setHighlighted(true)}
-                  onMouseLeave={() => setHighlighted(false)}
-                  highlight={+highlighted}
+                  onMouseEnter={() => {
+                    setHighlightedCount(i);
+                    setHighlighted(true);
+                  }}
+                  onMouseLeave={() => {
+                    setHighlightedCount(-1);
+                    setHighlighted(false);
+                  }}
+                  highlight={+(highlightedCount === i)}
                 >
                   <ItemTitle>
                     Teacher <span style={{ marginRight: "0.3rem" }} />
@@ -107,6 +119,13 @@ const MainContent = ({ title }) => {
                   />
                   Reply
                 </ThirdItemContainer>
+                {highlightedCount === i && (
+                  <EmojiContainer>
+                    <Emojis>👍🏻 ❤️ 😁 😲 😟 😡</Emojis>
+                    <EmojiVerticalDivider />
+                    <EmojiDotsImg alt="img" src={ThreeDotsImg} />
+                  </EmojiContainer>
+                )}
               </Item>
             </ItemContainer>
             {i % 3 === 0 && (
