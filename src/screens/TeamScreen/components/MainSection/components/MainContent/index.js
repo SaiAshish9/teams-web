@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Container,
@@ -35,9 +35,23 @@ import { IoReturnDownBack } from "react-icons/io5";
 
 const MainContent = ({ title }) => {
   const [highlighted, setHighlighted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  async function scrollElement() {
+    return setTimeout(() => {
+      var element = document.getElementById("teams-container");
+      element.scrollTop = element.scrollHeight;
+      setScrolled(true);
+    }, 500);
+  }
+
+  useEffect(() => {
+    const timer = scrollElement();
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <Container>
+    <Container visibility={+scrolled} id="teams-container">
       <MainComponent>
         <Title>Welcome to {title?.text}</Title>
         <Description>

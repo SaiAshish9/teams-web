@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { IoMdArrowDropright } from "react-icons/io";
 
-import { COLORS, Styles } from "constants/index";
+import { COLORS, Styles, Theme } from "constants/index";
 
 const { white, yellow, blue } = COLORS;
 
@@ -12,12 +12,59 @@ export const Container = styled.div`
   margin-top: 0rem;
   padding-top: 2rem;
   overflow-y: scroll;
-  &::-webkit-scrollbar {
-    display: none;
+  ::-webkit-scrollbar {
+    width: 6.3px;
   }
+  visibility: ${({ visibility }) => (visibility === 1 ? "visible" : "hidden")};
+
+  ::-webkit-scrollbar-track {
+    border-radius: 9px;
+  }
+
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      ::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 8px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      ::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 8px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      ::-webkit-scrollbar-thumb {
+        background: #fff;
+        border-radius: 8px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #fff;
+        cursor: pointer;
+      }
+    `};
 `;
 
-export const MainComponent = styled.div``;
+export const MainComponent = styled.div`
+  padding-right: 2rem;
+`;
 
 export const Title = styled.p`
   color: ${white};
