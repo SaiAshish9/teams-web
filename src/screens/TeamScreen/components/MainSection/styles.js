@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 import { Theme, Styles, COLORS } from "constants/index";
 
-const { yellow, blue, bigStone, dustyGray, silverChalice, melrose } = COLORS;
+const { yellow, blue, bigStone, dustyGray, eastBay, melrose } = COLORS;
 
 export const Container = styled.div`
   padding: 1rem 1.5rem;
@@ -170,6 +170,15 @@ export const Button = styled.div`
         background: ${melrose};
       }
     `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      background: ${bigStone};
+      color: #fff;
+      &:hover {
+        background: ${eastBay};
+      }
+    `};
 `;
 
 export const Image = styled.img`
@@ -201,6 +210,11 @@ export const MeetBtnContainer = styled.div`
         background: ${yellow};
         color: #000;
       }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      border: 1px solid #999;
     `};
   ${Styles.RBC};
 `;

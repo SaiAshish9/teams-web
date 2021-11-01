@@ -35,7 +35,9 @@ import CalendarHCSelectedIcon from "assets/images/sidebar/calendarIconHCSelected
 import CalendarIconWhite from "assets/images/sidebar/calendarIcon-white.svg";
 import ThreeDotsHCSelectedIcon from "assets/images/sidebar/threeDotsHCSelected.svg";
 import CrossIcon from "assets/images/teams/crossIcon.svg";
+import CrossIconOrange from "assets/images/teams/crossIconOrange.svg";
 import ThreeDotsImg from "assets/images/sidebar/threeDots-white.svg";
+import ThreeDotsGrayImg from "assets/images/sidebar/threeDots.svg";
 
 import { IoReturnDownBack } from "react-icons/io5";
 import { Theme } from "constants/index";
@@ -82,7 +84,10 @@ const MainContent = ({ title }) => {
             <ItemContainer last={+(i === 7)}>
               <ProfileImgContainer>
                 <ProfileImg src={ProfileImgAvatar} alt="img" />
-                <ProfileImgIcon src={CrossIcon} alt="img" />
+                <ProfileImgIcon
+                  src={theme === Theme.light ? CrossIconOrange : CrossIcon}
+                  alt="img"
+                />
               </ProfileImgContainer>
               <Item>
                 <UpperCont
@@ -143,7 +148,12 @@ const MainContent = ({ title }) => {
                   <EmojiContainer>
                     <Emojis>👍🏻 ❤️ 😁 😲 😟 😡</Emojis>
                     <EmojiVerticalDivider />
-                    <EmojiDotsImg alt="img" src={ThreeDotsImg} />
+                    <EmojiDotsImg
+                      alt="img"
+                      src={
+                        theme === Theme.dark ? ThreeDotsGrayImg : ThreeDotsImg
+                      }
+                    />
                   </EmojiContainer>
                 )}
               </Item>

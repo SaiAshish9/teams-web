@@ -28,13 +28,13 @@ export const Container = styled.div`
     css`
       background: ${mineShaft2};
       box-shadow: rgb(0 0 0 / 50%) 0px 0.2rem 1.6rem 0px;
-    `}
+    `};
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`
       background: #000;
       border: 1px solid #fff;
-    `}
+    `};
 `;
 
 export const Content = styled.div`

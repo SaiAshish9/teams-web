@@ -13,6 +13,7 @@ const {
   melrose,
   boulder,
   dustyGray,
+  gray,
 } = COLORS;
 
 export const Container = styled.div`
@@ -122,6 +123,7 @@ export const Item = styled.div`
     current === Theme.dark &&
     css`
       background: ${mineShaft2};
+      box-shadow: rgb(0 0 0 / 50%) 0px 0.2rem 1.6rem 0px;
     `};
 `;
 
@@ -187,6 +189,11 @@ export const ProfileImgContainer = styled.div`
   position: relative;
   top: 0.5rem;
   cursor: pointer;
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      border: 2px solid transparent;
+    `};
 `;
 
 export const ProfileImg = styled.img`
@@ -320,14 +327,24 @@ export const ThreeDotsImgContainer = styled.img`
 `;
 
 export const EmojiContainer = styled.div`
-  background: #000;
-  border: 1px solid #fff;
   border-radius: 0.2rem;
   padding: 0.2rem 0.4rem;
   position: absolute;
   right: 7px;
   top: -1.4rem;
   ${Styles.RBC};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      background: ${mineShaft2};
+      box-shadow: rgb(0 0 0 / 50%) 0px 0.2rem 1.6rem 0px;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: #000;
+      border: 1px solid #fff;
+    `};
 `;
 
 export const Emojis = styled.div`
@@ -341,7 +358,16 @@ export const EmojiDotsImg = styled.img`
 export const EmojiVerticalDivider = styled.div`
   width: 2px;
   height: 1rem;
-  background: #fff;
   margin-left: 0.1rem;
   border-radius: 4px;
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      background: ${gray};
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: #fff;
+    `};
 `;
