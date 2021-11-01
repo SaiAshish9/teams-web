@@ -102,14 +102,14 @@ const MainContent = ({ title }) => {
                   highlight={+(highlightedCount === i)}
                 >
                   <ItemTitle>
-                    Teacher <span style={{ marginRight: "0.3rem" }} />
+                    <b>Teacher</b> <span style={{ marginRight: "0.3rem" }} />
                     8/24/2020, 10:04 AM <br />
                     Scheduled a meeting
                   </ItemTitle>
                   <YellowContainer>
                     <CalenderImgContainer
                       src={
-                        theme === Theme.dark
+                        theme !== Theme.highContrast
                           ? CalendarIconWhite
                           : CalendarHCSelectedIcon
                       }
@@ -122,7 +122,7 @@ const MainContent = ({ title }) => {
                     </p>
                     <ThreeDotsImgContainer
                       src={
-                        theme === Theme.dark
+                        theme !== Theme.highContrast
                           ? ThreeDotsImg
                           : ThreeDotsHCSelectedIcon
                       }
@@ -151,7 +151,7 @@ const MainContent = ({ title }) => {
                     <EmojiDotsImg
                       alt="img"
                       src={
-                        theme === Theme.dark ? ThreeDotsGrayImg : ThreeDotsImg
+                        theme !== Theme.highContrast ? ThreeDotsGrayImg : ThreeDotsImg
                       }
                     />
                   </EmojiContainer>

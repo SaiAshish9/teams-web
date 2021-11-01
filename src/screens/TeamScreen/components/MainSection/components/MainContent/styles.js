@@ -82,6 +82,11 @@ export const Title = styled.p`
   margin-top: 3.6rem;
   font-size: 1.1rem;
   font-weight: 600;
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+    `};
 `;
 
 export const UpperCont = styled.div`
@@ -100,6 +105,11 @@ export const Description = styled.p`
   margin-top: 0.5rem;
   font-size: 1rem;
   font-weight: 300;
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+    `};
 `;
 
 export const Img = styled.img`
@@ -114,6 +124,8 @@ export const Item = styled.div`
   border-bottom-right-radius: 0.27rem;
   border-bottom-left-radius: 0.27rem;
   position: relative;
+  background: ${white};
+  box-shadow: 0 0.2rem 1.6rem 0 rgb(37 36 35 / 14%);
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`
@@ -144,6 +156,11 @@ export const Divider = styled.div`
     current === Theme.dark &&
     css`
       border-top: 1px solid ${boulder};
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      border-top: 1px solid rgba(153, 153, 153, 0.3);
     `};
 `;
 
@@ -216,6 +233,11 @@ export const ItemTitle = styled.p`
   font-weight: 300;
   font-size: 0.75rem;
   padding: 0.7rem 0.7rem;
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+    `};
 `;
 
 export const SecondItemContainer = styled.div`
@@ -241,6 +263,11 @@ export const SecondItemContainer = styled.div`
     css`
       color: ${melrose};
     `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: ${bigStone};
+    `};
 `;
 
 export const StyledArrowRight = styled(IoMdArrowDropright)`
@@ -256,6 +283,12 @@ export const StyledArrowRight = styled(IoMdArrowDropright)`
     hovered === 1 &&
     css`
       color: #fff;
+    `};
+  ${({ theme: { current }, hovered }) =>
+    current === Theme.light &&
+    hovered === 1 &&
+    css`
+      color: #999;
     `};
 `;
 
@@ -286,6 +319,11 @@ export const ThirdItemContainer = styled.div`
       &:hover {
         color: ${melrose};
       }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: ${gray};
     `}
 `;
 
@@ -303,6 +341,12 @@ export const YellowContainer = styled.div`
     `};
   ${({ theme: { current } }) =>
     current === Theme.dark &&
+    css`
+      color: #fff;
+      background: ${bigStone};
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
     css`
       color: #fff;
       background: ${bigStone};
@@ -332,6 +376,8 @@ export const EmojiContainer = styled.div`
   position: absolute;
   right: 7px;
   top: -1.4rem;
+  background: ${white};
+  box-shadow: 0 0.2rem 1.6rem 0 rgb(37 36 35 / 18%);
   ${Styles.RBC};
   ${({ theme: { current } }) =>
     current === Theme.dark &&
@@ -369,5 +415,11 @@ export const EmojiVerticalDivider = styled.div`
     current === Theme.highContrast &&
     css`
       background: #fff;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      width: 1.5px;
+      background: #999;
     `};
 `;
