@@ -42,6 +42,7 @@ const MainContent = ({ title }) => {
   const [highlighted, setHighlighted] = useState(false);
   const [highlightedCount, setHighlightedCount] = useState(-1);
   const [scrolled, setScrolled] = useState(false);
+  const [secondItemHovered, setSecondItemHovered] = useState(-1);
 
   async function scrollElement() {
     return setTimeout(() => {
@@ -108,8 +109,11 @@ const MainContent = ({ title }) => {
                     />
                   </YellowContainer>
                 </UpperCont>
-                <SecondItemContainer>
-                  <StyledArrowRight size={18} />
+                <SecondItemContainer
+                  onMouseEnter={() => setSecondItemHovered(true)}
+                  onMouseLeave={() => setSecondItemHovered(false)}
+                >
+                  <StyledArrowRight size={18} hovered={+secondItemHovered} />
                   12 replies from teacher.
                 </SecondItemContainer>
                 <ThirdItemContainer>

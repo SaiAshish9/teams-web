@@ -4,7 +4,7 @@ import { IoMdArrowDropright } from "react-icons/io";
 
 import { COLORS, Styles, Theme } from "constants/index";
 
-const { white, yellow, blue } = COLORS;
+const { white, yellow, blue, bigStone, mineShaft2, melrose } = COLORS;
 
 export const Container = styled.div`
   width: 100%;
@@ -75,8 +75,13 @@ export const Title = styled.p`
 `;
 
 export const UpperCont = styled.div`
-  border-top: 2.7px solid
-    ${({ highlight }) => (highlight === 1 ? "yellow" : "transparent")};
+  border-top: 2.7px solid transparent;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border-top: 2.7px solid
+        ${({ highlight }) => (highlight === 1 ? "yellow" : "transparent")};
+    `};
 `;
 
 export const Description = styled.p`
@@ -95,11 +100,20 @@ export const Img = styled.img`
 export const View = styled.div``;
 
 export const Item = styled.div`
-  border: 1px solid #fff;
   width: 86%;
   border-bottom-right-radius: 0.27rem;
   border-bottom-left-radius: 0.27rem;
   position: relative;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border: 1px solid #fff;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      background: ${mineShaft2};
+    `};
 `;
 
 export const ItemContainer = styled.div`
@@ -171,47 +185,94 @@ export const ItemTitle = styled.p`
 `;
 
 export const SecondItemContainer = styled.div`
-  border-top: 2px solid #fff;
   width: 100% !important;
-  color: yellow;
   padding: 0.4rem 0.1rem;
   font-size: 0.7rem;
   display: flex;
   align-items: center;
   cursor: pointer;
-  &:hover {
-    background: yellow;
-    color: #000;
-  }
+
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border-top: 2px solid #fff;
+      color: yellow;
+      &:hover {
+        background: yellow;
+        color: #000;
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      color: ${melrose};
+    `};
 `;
 
 export const StyledArrowRight = styled(IoMdArrowDropright)`
-  color: #000;
+  color: transparent;
+  ${({ theme: { current }, hovered }) =>
+    current === Theme.highContrast &&
+    hovered === 1 &&
+    css`
+      color: #000;
+    `};
+  ${({ theme: { current }, hovered }) =>
+    current === Theme.dark &&
+    hovered === 1 &&
+    css`
+      color: #fff;
+    `};
 `;
 
 export const ThirdItemContainer = styled.div`
-  border-top: 2px solid #fff;
   width: 100% !important;
-  color: yellow;
   display: flex;
   align-items: center;
   padding: 0.4rem 0.7rem;
   font-size: 0.7rem;
   cursor: pointer;
-  &:hover {
-    background: yellow;
-    color: #000;
-  }
+
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border-top: 2px solid #fff;
+      color: yellow;
+
+      &:hover {
+        background: yellow;
+        color: #000;
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      color: #fff;
+
+      &:hover {
+        color: ${melrose};
+      }
+    `}
 `;
 
 export const YellowContainer = styled.div`
-  background: ${yellow};
   padding: 0.4rem 0rem;
-  border-top: 2px solid #fff;
   font-size: 0.81rem;
-  &:hover {
-    background: ${blue};
-  }
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border-top: 2px solid #fff;
+      background: ${yellow};
+      &:hover {
+        background: ${blue};
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      color: #fff;
+      background: ${bigStone};
+    `};
   cursor: pointer;
   ${Styles.RBC};
   justify-content: flex-start;

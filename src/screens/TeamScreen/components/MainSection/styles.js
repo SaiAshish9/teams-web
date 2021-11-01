@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 import { Theme, Styles, COLORS } from "constants/index";
 
-const { yellow, blue } = COLORS;
+const { yellow, blue, bigStone, dustyGray, silverChalice, melrose } = COLORS;
 
 export const Container = styled.div`
   padding: 1rem 1.5rem;
@@ -29,9 +29,13 @@ export const DotsImg = styled.img`
   margin-right: 1.5rem;
   bottom: 0.6rem;
   align-self: flex-end;
-  &:hover {
-    background: ${yellow};
-  }
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      &:hover {
+        background: ${yellow};
+      }
+    `};
 `;
 
 export const InfoImgContainer = styled.img`
@@ -42,9 +46,13 @@ export const InfoImgContainer = styled.img`
   margin-right: 1.2rem;
   bottom: 0.6rem;
   align-self: flex-end;
-  &:hover {
-    background: ${yellow};
-  }
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      &:hover {
+        background: ${yellow};
+      }
+    `};
 `;
 
 export const ShiftUpwards = css`
@@ -67,6 +75,11 @@ export const Label = styled.p`
     `};
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
+    css`
+      color: #fff;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
     css`
       color: #fff;
     `};
@@ -105,6 +118,22 @@ export const TabOption = styled.div`
         `};
       }
     `};
+  ${({ theme: { current }, selected }) =>
+    current === Theme.dark &&
+    css`
+      color: ${selected === 1 ? "#fff" : dustyGray};
+      ${selected &&
+      css`
+        border-bottom: 0.2rem solid ${bigStone};
+      `};
+      &:hover {
+        ${!selected &&
+        css`
+          color: #fff;
+          border-bottom: 0.2rem solid ${dustyGray};
+        `};
+      }
+    `};
   font-size: 0.8rem;
   height: 2.25rem;
   cursor: pointer;
@@ -115,7 +144,6 @@ export const TabOptionContainer = styled.div`
 `;
 
 export const Button = styled.div`
-  background: #fff;
   width: 10.4rem;
   height: 2rem;
   ${Styles.RBC};
@@ -128,8 +156,18 @@ export const Button = styled.div`
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`
+      background: #fff;
       &:hover {
         background: ${yellow};
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      background: ${bigStone};
+      color: #fff;
+      &:hover {
+        background: ${melrose};
       }
     `};
 `;
@@ -146,16 +184,15 @@ export const ButtonLabel = styled.p`
 export const MeetBtnContainer = styled.div`
   border-radius: 0.2rem;
   border: 1px solid #fff;
-  padding: 0.2rem 0.4rem;
+  padding: 0.4rem 0.5rem;
   position: absolute;
-  font-weight: 500;
-  right: 5.2rem;
+  font-weight: 300;
+  right: 4rem;
   height: 1.35rem;
-  border-right: none;
   cursor: pointer;
   bottom: 0.9rem;
   color: #fff;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   margin-right: 1.4rem;
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
@@ -185,8 +222,9 @@ export const DropdownArrowContainer = styled.div`
 `;
 
 export const VideoPlayerImgContainer = styled.img`
-  width: 1rem;
-  height: 1rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: 0.1rem;
 `;
 
 export const Row = styled.div`
