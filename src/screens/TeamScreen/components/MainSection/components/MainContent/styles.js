@@ -4,7 +4,16 @@ import { IoMdArrowDropright } from "react-icons/io";
 
 import { COLORS, Styles, Theme } from "constants/index";
 
-const { white, yellow, blue, bigStone, mineShaft2, melrose } = COLORS;
+const {
+  white,
+  yellow,
+  blue,
+  bigStone,
+  mineShaft2,
+  melrose,
+  boulder,
+  dustyGray,
+} = COLORS;
 
 export const Container = styled.div`
   width: 100%;
@@ -122,9 +131,18 @@ export const ItemContainer = styled.div`
 `;
 
 export const Divider = styled.div`
-  border-top: 2px solid #fff;
   margin-bottom: 0.9rem;
   width: calc(50% - 4rem);
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border-top: 2px solid #fff;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      border-top: 1px solid ${boulder};
+    `};
 `;
 
 export const DividerContainer = styled.div`
@@ -143,12 +161,21 @@ export const DividerTitleContainer = styled.div`
 `;
 
 export const DividerTitle = styled.p`
-  color: #fff;
   padding: 0px;
   font-size: 0.7rem;
   line-height: 0;
   position: relative;
   bottom: 0.4rem;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: #fff;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      color: ${dustyGray};
+    `};
 `;
 
 export const ProfileImgContainer = styled.div`

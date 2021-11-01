@@ -32,11 +32,15 @@ import {
 
 import ProfileImgAvatar from "assets/images/mainContent/profileImg.png";
 import CalendarHCSelectedIcon from "assets/images/sidebar/calendarIconHCSelected.svg";
+import CalendarIconWhite from "assets/images/sidebar/calendarIcon-white.svg";
 import ThreeDotsHCSelectedIcon from "assets/images/sidebar/threeDotsHCSelected.svg";
 import CrossIcon from "assets/images/teams/crossIcon.svg";
 import ThreeDotsImg from "assets/images/sidebar/threeDots-white.svg";
 
 import { IoReturnDownBack } from "react-icons/io5";
+import { Theme } from "constants/index";
+
+import { useStore } from "store";
 
 const MainContent = ({ title }) => {
   const [highlighted, setHighlighted] = useState(false);
@@ -56,6 +60,10 @@ const MainContent = ({ title }) => {
     const timer = scrollElement();
     return () => clearTimeout(timer);
   }, []);
+
+  const {
+    state: { theme },
+  } = useStore();
 
   return (
     <Container visibility={+scrolled} id="teams-container">
@@ -95,7 +103,11 @@ const MainContent = ({ title }) => {
                   </ItemTitle>
                   <YellowContainer>
                     <CalenderImgContainer
-                      src={CalendarHCSelectedIcon}
+                      src={
+                        theme === Theme.dark
+                          ? CalendarIconWhite
+                          : CalendarHCSelectedIcon
+                      }
                       alt="img"
                     />
                     <p>
@@ -104,7 +116,11 @@ const MainContent = ({ title }) => {
                       Monday, August 24, 2020 @ 11:00 AM
                     </p>
                     <ThreeDotsImgContainer
-                      src={ThreeDotsHCSelectedIcon}
+                      src={
+                        theme === Theme.dark
+                          ? ThreeDotsImg
+                          : ThreeDotsHCSelectedIcon
+                      }
                       alt="img"
                     />
                   </YellowContainer>
