@@ -43,6 +43,7 @@ import { IoReturnDownBack } from "react-icons/io5";
 import { Theme } from "constants/index";
 
 import { useStore } from "store";
+import MeetSection from "screens/TeamScreen/components/MeetSection";
 
 const MainContent = ({ title }) => {
   const [highlighted, setHighlighted] = useState(false);
@@ -173,6 +174,7 @@ const MainContent = ({ title }) => {
             )}
           </View>
         ))}
+        <MeetSection />
       </MainComponent>
     </Container>
   );
