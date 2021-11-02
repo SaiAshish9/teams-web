@@ -40,6 +40,10 @@ const MainSection = ({ item }) => {
 
   const [hovered, setHovered] = useState(false);
 
+  const [infoHovered, setInfoHovered] = useState(false);
+
+  const [dotsHovered, setDotsHovered] = useState(false);
+
   const {
     state: { theme },
   } = useStore();
@@ -72,15 +76,25 @@ const MainSection = ({ item }) => {
           </TabOptionContainer>
         </Tabs>
         <DotsImg
+          onMouseEnter={() => setDotsHovered(true)}
+          onMouseLeave={() => setDotsHovered(false)}
           src={
-            theme === Theme.highContrast ? ThreeDotsWhiteImg : ThreeDotsDarkImg
+            theme === Theme.highContrast
+              ? dotsHovered
+                ? ThreeDotsDarkImg
+                : ThreeDotsWhiteImg
+              : ThreeDotsDarkImg
           }
           alt="img"
         />
         <InfoImgContainer
+          onMouseEnter={() => setInfoHovered(true)}
+          onMouseLeave={() => setInfoHovered(false)}
           src={
             theme === Theme.highContrast
-              ? InfoImg
+              ? infoHovered
+                ? InfoBlackImg
+                : InfoImg
               : theme === Theme.light
               ? InfoBlackImg
               : InfoImg
