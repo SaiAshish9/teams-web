@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { Styles } from "constants/index";
 
 export const Container = styled.div`
-  padding: 1rem 2rem;
   width: 100%;
+  ${Styles.RBC};
 `;
