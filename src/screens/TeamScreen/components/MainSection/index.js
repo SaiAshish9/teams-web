@@ -31,6 +31,7 @@ import VideoPlayerImg from "assets/images/mainContent/videoPlayer.svg";
 import VideoPlayerImgBlack from "assets/images/mainContent/videoPlayerB.svg";
 
 import InfoImg from "assets/images/mainContent/info.svg";
+import InfoBlackImg from "assets/images/mainContent/info-black.svg";
 
 const MainSection = ({ item }) => {
   // const history = useHistory();
@@ -77,7 +78,13 @@ const MainSection = ({ item }) => {
           alt="img"
         />
         <InfoImgContainer
-          src={theme === Theme.highContrast ? InfoImg : InfoImg}
+          src={
+            theme === Theme.highContrast
+              ? InfoImg
+              : theme === Theme.light
+              ? InfoBlackImg
+              : InfoImg
+          }
           alt="img"
         />
         <MeetBtnContainer
@@ -89,14 +96,13 @@ const MainSection = ({ item }) => {
             src={
               hovered && theme === Theme.highContrast
                 ? VideoPlayerImgBlack
+                : theme === Theme.light
+                ? VideoPlayerImgBlack
                 : VideoPlayerImg
             }
           />
           <p>Meet</p>
         </MeetBtnContainer>
-        {/* <DropdownArrowContainer>
-          <IoIosArrowDown />
-        </DropdownArrowContainer> */}
       </Header>
       <MainContent title={item} />
       <Button>

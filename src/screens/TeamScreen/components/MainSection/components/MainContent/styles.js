@@ -125,7 +125,7 @@ export const Item = styled.div`
   border-bottom-left-radius: 0.27rem;
   position: relative;
   background: ${white};
-  box-shadow: 0 0.2rem 1.6rem 0 rgb(37 36 35 / 14%);
+  box-shadow: 0 0.2rem 1.6rem 0 rgb(37 36 35 / 5%);
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`

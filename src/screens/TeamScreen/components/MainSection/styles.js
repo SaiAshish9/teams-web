@@ -134,6 +134,22 @@ export const TabOption = styled.div`
         `};
       }
     `};
+  ${({ theme: { current }, selected }) =>
+    current === Theme.light &&
+    css`
+      color: ${selected === 1 ? "#000" : dustyGray};
+      ${selected &&
+      css`
+        border-bottom: 0.2rem solid ${bigStone};
+      `};
+      &:hover {
+        ${!selected &&
+        css`
+          color: #000;
+          border-bottom: 0.2rem solid ${dustyGray};
+        `};
+      }
+    `};
   font-size: 0.8rem;
   height: 2.25rem;
   cursor: pointer;
@@ -215,6 +231,13 @@ export const MeetBtnContainer = styled.div`
     current === Theme.dark &&
     css`
       border: 1px solid #999;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      border: 1px solid #000;
+      color: #000;
+      background: #fff;
     `};
   ${Styles.RBC};
 `;
