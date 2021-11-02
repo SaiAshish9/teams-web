@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 import { COLORS, Theme, Styles } from "constants/index";
 
-const { mineShaft2, bigStone, scampi } = COLORS;
+const { blue, bigStone, scampi, yellow } = COLORS;
 
 export const Container = styled.div`
   width: 86%;
@@ -14,6 +14,7 @@ export const Container = styled.div`
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`
+      background: ${yellow};
       border: 1px solid #fff;
     `};
   ${({ theme: { current } }) =>
@@ -42,6 +43,16 @@ export const Button = styled.div`
         background: ${scampi};
       }
     `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: #000;
+      color: #fff;
+      &:hover {
+        background: ${blue};
+        color: #000;
+      }
+    `};
 `;
 
 export const Img = styled.img`
@@ -64,6 +75,13 @@ export const ProfileImgContainer = styled.div`
       color: #fff;
       border: 2px solid transparent;
     `};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: ${yellow};
+      color: #000;
+      border: 2px solid transparent;
+    `};
 `;
 
 export const Item = styled.div`
@@ -75,6 +93,11 @@ export const Header = styled.div`
   color: #fff;
   font-weight: 300;
   ${Styles.RBC};
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: #000;
+    `};
 `;
 
 export const Row = styled.div`
@@ -86,4 +109,9 @@ export const ProfileImg = styled.img`
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border: 1px solid #000;
+    `};
 `;

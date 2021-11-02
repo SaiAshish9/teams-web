@@ -130,6 +130,7 @@ export const Item = styled.div`
     current === Theme.highContrast &&
     css`
       border: 1px solid #fff;
+      background: #000;
     `};
   ${({ theme: { current } }) =>
     current === Theme.dark &&
