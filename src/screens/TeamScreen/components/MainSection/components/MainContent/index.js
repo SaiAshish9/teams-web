@@ -118,7 +118,9 @@ const MainContent = ({ title }) => {
                     <p>
                       {title?.text}
                       <br />
-                      Monday, August 24, 2020 @ 11:00 AM
+                      <span style={{ opacity: 0.8 }}>
+                        Monday, August 24, 2020 @ 11:00 AM
+                      </span>
                     </p>
                     <ThreeDotsImgContainer
                       src={
@@ -151,7 +153,9 @@ const MainContent = ({ title }) => {
                     <EmojiDotsImg
                       alt="img"
                       src={
-                        theme !== Theme.highContrast ? ThreeDotsGrayImg : ThreeDotsImg
+                        theme !== Theme.highContrast
+                          ? ThreeDotsGrayImg
+                          : ThreeDotsImg
                       }
                     />
                   </EmojiContainer>

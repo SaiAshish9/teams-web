@@ -329,7 +329,7 @@ export const ThirdItemContainer = styled.div`
 
 export const YellowContainer = styled.div`
   padding: 0.4rem 0rem;
-  font-size: 0.81rem;
+  font-size: 0.72rem;
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&
     css`
