@@ -116,14 +116,18 @@ export const Row = styled.div`
   align-items: center;
   border-radius: 0.27rem;
 
-  ${({ chat }) =>
-    chat === 1 &&
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
     css`
-      border: 1.8px solid #fff;
-      padding: 0.1rem 0.4rem;
-      position: relative;
-      left: -0.4rem;
-      padding-right: 0.1rem;
+      ${({ chat }) =>
+        chat === 1 &&
+        css`
+          border: 1.8px solid #fff;
+          padding: 0.1rem 0.4rem;
+          position: relative;
+          left: -0.4rem;
+          padding-right: 0.1rem;
+        `};
     `};
 `;
 
