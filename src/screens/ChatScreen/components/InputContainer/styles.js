@@ -33,4 +33,19 @@ export const EmojiCont = styled.div`
   ${Styles.RBC};
 `;
 
-export const Image = styled.div``;
+export const Image = styled.div`
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  ${Styles.RBC};
+  margin-right: ${({ last }) => (last !== 1 ? "0.2rem" : "0rem")};
+  border-radius: 0.2rem;
+  &:hover {
+    background: yellow;
+  }
+`;
+
+export const Row = styled.div`
+  display: flex;
+  align-items: center;
+`;

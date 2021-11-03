@@ -8,8 +8,8 @@ const Img = ({ color }) => {
       viewBox="-6 -6 32 32"
       xmlns="http://www.w3.org/2000/svg"
       role="presentation"
-      class="app-svg icons-format"
       fill="none"
+      class="app-svg icons-format"
     >
       <g class="icons-default-fill">
         <path

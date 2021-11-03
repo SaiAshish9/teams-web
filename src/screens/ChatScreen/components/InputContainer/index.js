@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, EmojiCont, Input, Image } from "./styles";
+import { Container, EmojiCont, Input, Image, Row } from "./styles";
 
 import Img1 from "./assets/img1";
 import Img2 from "./assets/img2";
@@ -17,17 +17,17 @@ import Img12 from "./assets/img12";
 
 const data = [
   <Img1 color="#fff" />,
-  <Img1 color="#fff" />,
-  <Img1 color="#fff" />,
-  <Img1 color="#fff" />,
-  <Img1 color="#fff" />,
-  <Img1 color="#fff" />,
-  <Img1 color="#fff" />,
-  <Img1 color="#fff" />,
-  <Img1 color="#fff" />,
-  <Img1 color="#fff" />,
-  <Img1 color="#fff" />,
-  <Img1 color="#fff" />,
+  <Img2 color="#fff" />,
+  <Img3 color="#fff" />,
+  <Img4 color="#fff" />,
+  <Img5 color="#fff" />,
+  <Img6 color="#fff" />,
+  <Img7 color="#fff" />,
+  <Img8 color="#fff" />,
+  <Img9 color="#fff" />,
+  <Img10 color="#fff" />,
+  <Img11 color="#fff" />,
+  <Img12 color="#fff" />,
 ];
 
 const InputContainer = () => {
@@ -35,9 +35,12 @@ const InputContainer = () => {
     <Container>
       <Input placeholder="Type a new message" />
       <EmojiCont>
-        {data.map((i, k) => (
-          <Image key={k}>{i} </Image>
-        ))}
+        <Row>
+          {data.slice(0, data.length - 1).map((i, k) => (
+            <Image key={k}>{i}</Image>
+          ))}
+        </Row>
+        <Image last={1}>{data.slice(-1)[0]}</Image>
       </EmojiCont>
     </Container>
   );
