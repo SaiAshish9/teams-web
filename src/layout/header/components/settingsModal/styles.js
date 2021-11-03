@@ -162,7 +162,7 @@ export const ListItem = styled.div`
     current == Theme.highContrast &&
     css`
       &:hover {
-        background: ${selected === 1 ? blue : yellow};
+        background: ${yellow};
         color: #000;
       }
     `}

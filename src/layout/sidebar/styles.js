@@ -80,7 +80,7 @@ export const ListItem = styled.div`
           left: -1px;
         `}
       &:hover {
-        background: ${selected === 1 ? blue : yellow};
+        background: ${yellow};
         color: #000;
       }
     `}
