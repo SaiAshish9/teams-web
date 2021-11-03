@@ -81,14 +81,25 @@ export const Container = styled.div`
 
 export const CloseIcon = styled(IoCloseOutline)`
   align-self: flex-end;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.6rem;
+  padding: 0.1rem;
+  border-radius: 0.2rem;
+  height: 1.6rem;
   margin-right: 1.6rem;
   cursor: pointer;
   color: ${silverChalice1};
   &:hover {
-    color: ${bigStone};0
+    color: ${bigStone};
   }
+  ${({ theme: { current } }) =>
+    current == Theme.highContrast &&
+    css`
+      color: #fff;
+      &:hover {
+        color: #000;
+        background: yellow;
+      }
+    `}
 `;
 
 export const Title = styled.p`
