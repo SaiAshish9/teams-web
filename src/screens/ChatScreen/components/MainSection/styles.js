@@ -13,6 +13,7 @@ const { yellow, bigStone, alto } = COLORS;
 export const Container = styled.div`
   height: 100%;
   width: 76.6%;
+  ${Styles.CBC};
 `;
 
 export const Header = styled.div`

@@ -26,6 +26,8 @@ import CreateTeamDarkImg from "assets/images/homeScreen/createTeamDark.svg";
 
 import { Theme } from "constants/index";
 
+import { InputContainer } from "..";
+
 import { useStore } from "store";
 
 const MainSection = () => {
@@ -96,6 +98,7 @@ const MainSection = () => {
           />
         </Row>
       </Header>
+      <InputContainer />
     </Container>
   );
 };
