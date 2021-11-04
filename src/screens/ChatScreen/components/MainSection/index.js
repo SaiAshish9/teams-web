@@ -29,6 +29,7 @@ import { Theme } from "constants/index";
 import { InputContainer } from "..";
 
 import { useStore } from "store";
+import { ChatContainer } from "./components";
 
 const MainSection = () => {
   const [selected, setSelected] = useState(0);
@@ -98,6 +99,7 @@ const MainSection = () => {
           />
         </Row>
       </Header>
+      <ChatContainer />
       <InputContainer />
     </Container>
   );

@@ -8,7 +8,7 @@ import { FiVideo } from "react-icons/fi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { IoCallOutline } from "react-icons/io5";
 
-const { yellow, bigStone, alto } = COLORS;
+const { yellow, bigStone } = COLORS;
 
 export const Container = styled.div`
   height: 100%;
