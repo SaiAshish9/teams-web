@@ -68,5 +68,6 @@ export const Container = styled.div`
 export const ImgContainer = styled.div`
   position: relative;
   display: flex;
-  align-self: flex-end;
+  margin-bottom: 0.7rem;
+  align-self: ${({ left }) => (left === 1 ? "flex-start" : "flex-end")};
 `;

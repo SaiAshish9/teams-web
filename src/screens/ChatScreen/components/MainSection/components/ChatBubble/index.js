@@ -1,20 +1,25 @@
 import React from "react";
-import { Container, Text, Desc, Img, Image, Parent } from "./styles";
+import { Container, Text, Desc, Img, Image, Parent, Row } from "./styles";
 
-import DiwaliImg from "assets/images/diwali.png";
 import TickIcon from "../ChatContainer/tickIcon";
 
-const ChatBubbleContainer = () => {
+const ChatBubbleContainer = ({ timeline, name, img, title, last }) => {
   return (
     <Parent>
       <Container>
-        <Text>5:13 PM</Text>
-        <Desc>Happy Diwali Everyone ❤️</Desc>
-        <Img src={DiwaliImg} alt="img" />
+        <Row>
+          {name && <Text style={{ marginRight: "0.7rem" }}>{name} </Text>}
+          <Text>{timeline}</Text>
+        </Row>
+
+        <Desc>{title}</Desc>
+        {img && <Img src={img} alt="img" />}
       </Container>
-      <Image>
-        <TickIcon />
-      </Image>
+      {last && (
+        <Image>
+          <TickIcon />
+        </Image>
+      )}
     </Parent>
   );
 };

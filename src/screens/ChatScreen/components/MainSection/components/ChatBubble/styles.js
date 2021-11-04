@@ -6,7 +6,7 @@ export const Container = styled.div`
   border-radius: 0.2rem;
   background: #19192a;
   width: fit-content;
-  align-self: flex-end;
+  align-self: ${({ left }) => (left === 1 ? "flex-start" : "flex-end")};
 `;
 
 export const Parent = styled.div`
@@ -38,4 +38,9 @@ export const Image = styled.div`
   left: 104%;
   bottom: 0.04rem;
   z-index: 10;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  align-items: center;
 `;
