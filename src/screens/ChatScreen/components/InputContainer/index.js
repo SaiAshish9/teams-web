@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { Container, EmojiCont, Input, Image, Row } from "./styles";
+import { Container, EmojiCont, Input, Image, Row, Img } from "./styles";
 
 import Img1 from "./assets/img1";
 import Img2 from "./assets/img2";
@@ -16,6 +16,7 @@ import Img11 from "./assets/img11";
 import Img12 from "./assets/img12";
 import { Theme, COLORS } from "constants/index";
 import { useStore } from "store";
+import OptionsImg from "assets/images/options.png";
 
 const data = [
   Img1,
@@ -46,23 +47,34 @@ const InputContainer = () => {
       <Input placeholder="Type a new message" />
       <EmojiCont>
         <Row>
-          {data.slice(0, data.length - 1).map((Component, k) => (
-            <Image
-              onMouseEnter={() => setHovered(k)}
-              onMouseLeave={() => setHovered(-1)}
-              key={k}
-            >
-              {theme === Theme.highContrast && (
-                <Component color={hovered === k ? "#000" : "#fff"} />
-              )}
-              {theme === Theme.dark && (
-                <Component
-                  color={hovered === k ? "none" : "#eee"}
-                  fillColor={hovered === k ? bigStone : "none"}
-                />
-              )}
-            </Image>
-          ))}
+          {data.slice(0, data.length - 1).map(
+            (Component, k) =>
+              !(theme === Theme.light && k > 5) && (
+                <Image
+                  onMouseEnter={() => setHovered(k)}
+                  onMouseLeave={() => setHovered(-1)}
+                  key={k}
+                >
+                  {theme === Theme.highContrast && (
+                    <Component color={hovered === k ? "#000" : "#fff"} />
+                  )}
+                  {theme === Theme.dark && (
+                    <Component
+                      color={hovered === k ? "none" : "#eee"}
+                      fillColor={hovered === k ? bigStone : "none"}
+                    />
+                  )}
+                  {theme === Theme.light && k < 6 && (
+                    <Component
+                      color={hovered === k ? "none" : "#000"}
+                      fillColor={hovered === k ? bigStone : "none"}
+                      dark={k > 6}
+                    />
+                  )}
+                </Image>
+              )
+          )}
+          {theme === Theme.light && <Img src={OptionsImg} alt="img" />}
         </Row>
         <Image
           onMouseEnter={() => setHovered(data.length - 1)}
@@ -78,6 +90,12 @@ const InputContainer = () => {
           {theme === Theme.dark && (
             <Img12
               color={hovered === data.length - 1 ? "none" : "#d1d1d1"}
+              fillColor={hovered === data.length - 1 ? bigStone : "none"}
+            />
+          )}
+          {theme === Theme.light && (
+            <Img12
+              color={hovered === data.length - 1 ? "none" : "#000"}
               fillColor={hovered === data.length - 1 ? bigStone : "none"}
             />
           )}

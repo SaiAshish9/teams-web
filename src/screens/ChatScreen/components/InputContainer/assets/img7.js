@@ -1,9 +1,13 @@
 import React from "react";
 
-const Img = ({}) => {
+const Img = ({ dark }) => {
   return (
     <img
-      src="https://statics.teams.cdn.office.net/evergreen-assets/apps/extensioncatalog_tabstreamname_smallimage.png?v=1.1"
+      src={
+        dark
+          ? "https://statics.teams.cdn.office.net/evergreen-assets/apps/extensioncatalog_tabstreamname_smallimage.png?v=1.1"
+          : "https://statics.teams.cdn.office.net/evergreen-assets/apps/extensioncatalog_tabstreamname_smallimage.png?v=1.1"
+      }
       alt="img"
       style={{ width: 16, height: 16 }}
     />

@@ -43,6 +43,20 @@ export const Input = styled.input`
         border-bottom: 2px solid ${bigStone} !important;
       }
     `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      background: #fff;
+      color: #000;
+      &::placeholder {
+        color: #000;
+        font-size: 0.8rem;
+        font-weight: 300;
+      }
+      &:focus {
+        border-bottom: 2px solid ${bigStone} !important;
+      }
+    `};
 `;
 
 export const EmojiCont = styled.div`
@@ -76,4 +90,13 @@ export const Image = styled.div`
 export const Row = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+`;
+
+export const Img = styled.img`
+  height: 2.1rem;
+  position: relative;
+  top: 0.3rem;
+  align-self: flex-start;
 `;
