@@ -13,12 +13,16 @@ const { yellow, bigStone } = COLORS;
 export const Container = styled.div`
   height: 100%;
   width: 76.6%;
+  position: relative;
+  z-index: 1;
   ${Styles.CBC};
 `;
 
 export const Header = styled.div`
   padding: 1.75rem 1.5rem 0;
   width: 100%;
+  position: relative;
+  z-index: 1;
   ${Styles.RBC};
   ${({ theme: { current } }) =>
     current === Theme.dark &&

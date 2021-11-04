@@ -373,10 +373,18 @@ export const ThreeDotsImgContainer = styled.img`
 
 export const EmojiContainer = styled.div`
   border-radius: 0.2rem;
-  padding: 0.2rem 0.4rem;
+  padding: 0.5rem 0.4rem;
   position: absolute;
   right: 7px;
   top: -1.4rem;
+  ${({ chat }) =>
+    chat === 1 &&
+    css`
+      z-index: 100;
+      width: 12rem;
+      right: 0px;
+      top: -2.5rem;
+    `};
   background: ${white};
   box-shadow: 0 0.2rem 1.6rem 0 rgb(37 36 35 / 18%);
   ${Styles.RBC};

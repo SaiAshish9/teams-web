@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Text,
@@ -12,11 +12,29 @@ import {
 
 import TickIcon from "../ChatContainer/tickIcon";
 import AvatarImage from "assets/images/avatar.jpeg";
+import ThreeDotsImg from "assets/images/sidebar/threeDots-white.svg";
+import ThreeDotsGrayImg from "assets/images/sidebar/threeDots.svg";
 
 import { Theme } from "constants/index";
 import { useStore } from "store";
+import {
+  EmojiContainer,
+  EmojiDotsImg,
+  Emojis,
+  EmojiVerticalDivider,
+} from "screens/TeamScreen/components/MainSection/components/MainContent/styles";
 
-const ChatBubbleContainer = ({ timeline, name, img, title, last, left }) => {
+const ChatBubbleContainer = ({
+  timeline,
+  name,
+  img,
+  title,
+  last,
+  left,
+  display,
+  onMouseEnter,
+  onMouseLeave,
+}) => {
   const {
     state: { theme },
   } = useStore();
@@ -25,7 +43,11 @@ const ChatBubbleContainer = ({ timeline, name, img, title, last, left }) => {
     <Parent left={left}>
       {left === 1 && <BubbleImg src={AvatarImage} alt="img" />}
 
-      <Container left={left}>
+      <Container
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+        left={left}
+      >
         <Row>
           {name && <Text style={{ marginRight: "0.7rem" }}>{name} </Text>}
           <Text>{timeline}</Text>
@@ -46,6 +68,16 @@ const ChatBubbleContainer = ({ timeline, name, img, title, last, left }) => {
             }
           />
         </Image>
+      )}
+      {display && (
+        <EmojiContainer chat={1}>
+          <Emojis>👍🏻 ❤️ 😁 😲 😟 😡</Emojis>
+          <EmojiVerticalDivider />
+          <EmojiDotsImg
+            alt="img"
+            src={theme !== Theme.highContrast ? ThreeDotsGrayImg : ThreeDotsImg}
+          />
+        </EmojiContainer>
       )}
     </Parent>
   );

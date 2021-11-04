@@ -6,6 +6,7 @@ export const Container = styled.div`
   padding: 0.5rem;
   border-radius: 0.2rem;
   background: #19192a;
+  cursor: text;
   width: fit-content;
   align-self: ${({ left }) => (left === 1 ? "flex-start" : "flex-end")};
   ${({ theme: { current }, left }) =>
