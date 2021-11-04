@@ -33,7 +33,7 @@ export const EmojiIconContainer = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 0.6rem;
-  height: 74%;
+  height: 76%;
   margin-top: 0.6rem;
   overflow-y: scroll;
   ::-webkit-scrollbar {
@@ -136,8 +136,11 @@ export const StyledSearchIcon = styled(AiOutlineSearch)`
 export const RedCont = styled.div`
   width: 2rem;
   height: 2rem;
+  ${Styles.RBC};
   border-radius: 0.2rem;
   cursor: pointer;
+  padding-left: 0.36rem;
+  border: 1px solid transparent;
   &:hover {
     border: 1px solid yellow;
   }

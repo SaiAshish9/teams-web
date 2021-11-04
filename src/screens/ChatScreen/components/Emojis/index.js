@@ -12,6 +12,17 @@ import {
   Row,
 } from "./styles";
 
+import SmileIcon from "./assets/smile";
+import Img2 from "./assets/img2";
+import Img3 from "./assets/img3";
+import Img4 from "./assets/img4";
+import Img5 from "./assets/img5";
+import Img6 from "./assets/img6";
+import Img7 from "./assets/img7";
+import Img8 from "./assets/img8";
+import Img9 from "./assets/img9";
+import { Img } from "layout/header/styles";
+
 const Emojis = () => {
   return (
     <Container>
@@ -32,9 +43,13 @@ const Emojis = () => {
         ))}
       </EmojiIconContainer>
       <Row>
-        {[...Array(9).keys()].map((i, k) => (
-          <RedCont key={k} />
-        ))}
+        {[SmileIcon, Img2, Img3, Img4, Img5, Img6, Img7, Img8, Img9].map(
+          (Component, k) => (
+            <RedCont key={k}>
+              <Component />
+            </RedCont>
+          )
+        )}
       </Row>
     </Container>
   );
