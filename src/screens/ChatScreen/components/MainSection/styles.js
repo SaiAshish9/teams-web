@@ -113,7 +113,7 @@ export const Option = styled.div`
     current === Theme.dark &&
     css`
       color: #fff;
-      border: 1px solid #fff;
+      border: 1px solid #797979;
       &:hover {
         background: #292929;
       }

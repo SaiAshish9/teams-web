@@ -1,6 +1,6 @@
 import React from "react";
 
-const Img = ({ color }) => {
+const Img = ({ color, fillColor = "none" }) => {
   return (
     <svg
       viewBox="-6 -6 32 32"
@@ -12,7 +12,7 @@ const Img = ({ color }) => {
       class="app-svg icons-emoji"
     >
       <g class="icons-default-fill">
-        <g class="icons-filled">
+        <g fill={fillColor} class="icons-filled">
           <path d="M7.5 9.5C8.05228 9.5 8.5 9.05228 8.5 8.5C8.5 7.94772 8.05228 7.5 7.5 7.5C6.94772 7.5 6.5 7.94772 6.5 8.5C6.5 9.05228 6.94772 9.5 7.5 9.5Z"></path>
           <path d="M11.75 12.5C11.75 13.4665 10.9665 14.25 10 14.25C9.0335 14.25 8.25 13.4665 8.25 12.5C8.25 11.5335 9.0335 10.75 10 10.75C10.9665 10.75 11.75 11.5335 11.75 12.5Z"></path>
           <path d="M12.5 9.5C13.0523 9.5 13.5 9.05228 13.5 8.5C13.5 7.94772 13.0523 7.5 12.5 7.5C11.9477 7.5 11.5 7.94772 11.5 8.5C11.5 9.05228 11.9477 9.5 12.5 9.5Z"></path>
