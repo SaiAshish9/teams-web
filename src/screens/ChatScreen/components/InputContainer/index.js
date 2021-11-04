@@ -39,6 +39,8 @@ const { bigStone } = COLORS;
 const InputContainer = () => {
   const [hovered, setHovered] = useState(-1);
 
+  const [clicked, setClicked] = useState(false);
+
   const {
     state: { theme },
   } = useStore();
@@ -55,9 +57,23 @@ const InputContainer = () => {
                   onMouseEnter={() => setHovered(k)}
                   onMouseLeave={() => setHovered(-1)}
                   key={k}
+                  onClick={() => {
+                    if (k === 3) {
+                      setClicked(true);
+                    }
+                    if (clicked) setClicked((c) => !c);
+                  }}
                 >
                   {theme === Theme.highContrast && (
-                    <Component color={hovered === k ? "#000" : "#fff"} />
+                    <Component
+                      color={
+                        hovered === k
+                          ? "#000"
+                          : clicked && k === 3
+                          ? "yellow"
+                          : "#fff"
+                      }
+                    />
                   )}
                   {theme === Theme.dark && (
                     <Component
@@ -102,7 +118,7 @@ const InputContainer = () => {
           )}
         </Image>
       </EmojiCont>
-      <Emojis />
+      {clicked && <Emojis />}
     </Container>
   );
 };
