@@ -6,6 +6,7 @@ const { yellow, bigStone, gray } = COLORS;
 
 export const Container = styled.div`
   width: 70%;
+  position: relative;
 `;
 
 export const Input = styled.input`

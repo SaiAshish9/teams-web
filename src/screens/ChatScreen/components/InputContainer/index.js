@@ -17,6 +17,7 @@ import Img12 from "./assets/img12";
 import { Theme, COLORS } from "constants/index";
 import { useStore } from "store";
 import OptionsImg from "assets/images/options.png";
+import Emojis from "../Emojis";
 
 const data = [
   Img1,
@@ -101,6 +102,7 @@ const InputContainer = () => {
           )}
         </Image>
       </EmojiCont>
+      <Emojis />
     </Container>
   );
 };
