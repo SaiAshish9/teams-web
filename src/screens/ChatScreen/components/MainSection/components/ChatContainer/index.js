@@ -16,7 +16,12 @@ const ChatContainer = () => {
         />
       </ImgContainer>
       <ImgContainer left={1}>
-        <ChatBubble name="Sai" title="Happy Diwali Bois ✨" timeline="5:13 PM" />
+        <ChatBubble
+          left={1}
+          name="Sai"
+          title="Happy Diwali Bois ✨"
+          timeline="5:13 PM"
+        />
       </ImgContainer>
     </Container>
   );

@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { Theme } from "constants/index";
 
 export const Container = styled.div`
   border: 1px solid #fff;
@@ -7,17 +8,36 @@ export const Container = styled.div`
   background: #19192a;
   width: fit-content;
   align-self: ${({ left }) => (left === 1 ? "flex-start" : "flex-end")};
+  ${({ theme: { current }, left }) =>
+    current === Theme.light &&
+    css`
+      background: ${left === 1 ? "#fff" : "#e9eaf6"};
+    `}
+  ${({ theme: { current }, left }) =>
+    current === Theme.dark &&
+    css`
+      border: 1px solid transparent;
+      background: ${left === 1 ? "#292929" : "#323347"};
+    `}
 `;
 
 export const Parent = styled.div`
   position: relative;
   z-index: 1;
+  display: flex;
+  align-items: center;
+  left: ${({ left }) => (left === 1 ? "-2.5rem" : "0rem")};
 `;
 
 export const Text = styled.p`
   color: #fff;
   font-size: 0.63rem;
   white-space: nowrap;
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+    `}
 `;
 
 export const Desc = styled.p`
@@ -25,6 +45,11 @@ export const Desc = styled.p`
   font-size: 0.63rem;
   white-space: nowrap;
   margin-top: 0.1rem;
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+    `}
 `;
 
 export const Img = styled.img`
@@ -43,4 +68,12 @@ export const Image = styled.div`
 export const Row = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const BubbleImg = styled.img`
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+  border: 2px solid #fff;
+  margin-right: 0.5rem;
 `;

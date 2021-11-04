@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Container,
   EmojiIcon,
@@ -105,32 +105,57 @@ const data = [
   "https://statics.teams.cdn.office.net/evergreen-assets/personal-expressions/v1/assets/emoticons/wink/default/60_f.png?etag=v9",
 ];
 
-const Emojis = () => {
-  return (
-    <Container>
-      <ParentInputContainer>
-        <InputCont placeholder="Find something fun" />
-        <StyledSearchIcon />
-      </ParentInputContainer>
+const Emojis = ({ setClicked }) => {
+  const emojisRef = useRef(null);
 
-      <Label>Smilies</Label>
-      <EmojiIconContainer>
-        {data.map((i, k) => (
-          <EmojiIcon key={k}>
-            <EmojiIconImg src={i} alt="img" />
-          </EmojiIcon>
-        ))}
-      </EmojiIconContainer>
-      <Row>
-        {[SmileIcon, Img2, Img3, Img4, Img5, Img6, Img7, Img8, Img9].map(
-          (Component, k) => (
-            <RedCont key={k}>
-              <Component />
-            </RedCont>
-          )
-        )}
-      </Row>
-    </Container>
+  function useOutsideAlerter(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (
+          ref.current &&
+          !ref.current.contains(event.target) &&
+          event.target.id !== "chat-screen-dots"
+        ) {
+          setClicked(false);
+        }
+      }
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  useOutsideAlerter(emojisRef);
+
+  return (
+    <div ref={emojisRef}>
+      <Container id="chat-screen-dots">
+        <ParentInputContainer>
+          <InputCont placeholder="Find something fun" />
+          <StyledSearchIcon />
+        </ParentInputContainer>
+
+        <Label>Smilies</Label>
+        <EmojiIconContainer>
+          {data.map((i, k) => (
+            <EmojiIcon onClick={() => setClicked(false)} key={k}>
+              <EmojiIconImg src={i} alt="img" />
+            </EmojiIcon>
+          ))}
+        </EmojiIconContainer>
+        <Row>
+          {[SmileIcon, Img2, Img3, Img4, Img5, Img6, Img7, Img8, Img9].map(
+            (Component, k) => (
+              <RedCont key={k}>
+                <Component />
+              </RedCont>
+            )
+          )}
+        </Row>
+      </Container>
+    </div>
   );
 };
 

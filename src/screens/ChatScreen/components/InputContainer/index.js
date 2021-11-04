@@ -118,7 +118,7 @@ const InputContainer = () => {
           )}
         </Image>
       </EmojiCont>
-      {clicked && <Emojis />}
+      {clicked && <Emojis setClicked={setClicked} />}
     </Container>
   );
 };
