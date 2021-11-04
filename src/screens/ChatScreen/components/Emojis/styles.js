@@ -93,6 +93,9 @@ export const EmojiIcon = styled.div`
   border-radius: 0.1rem;
   ${Styles.RBC};
   cursor: pointer;
+  &:hover {
+    border: 1px solid yellow;
+  }
 `;
 
 export const EmojiIconImg = styled.img`
