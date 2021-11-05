@@ -34,7 +34,7 @@ import { useStore } from "store";
 
 const SideSection = () => {
   const [hovered, setHovered] = useState(false);
-  const [itemHovered, setItemHovered] = useState(false);
+  const [itemHovered, setItemHovered] = useState(-1);
   const [contentHovered, setContentHovered] = useState(false);
   const [clicked, setClicked] = useState(false);
 
@@ -106,15 +106,15 @@ const SideSection = () => {
               key={k}
               onClick={() => setSelected(k)}
               selected={+(selected === k)}
-              onMouseEnter={() => setItemHovered(true)}
-              onMouseLeave={() => setItemHovered(false)}
+              onMouseEnter={() => setItemHovered(k)}
+              onMouseLeave={() => setItemHovered(-1)}
             >
               <Avatar alt="img" src={i.img} />
               <ListItemContent>
                 <ListItemComponent>
                   <ListItemLabel
                     selected={+(selected === k)}
-                    itemHovered={+itemHovered}
+                    itemHovered={+(itemHovered === k)}
                   >
                     {i.title}
                   </ListItemLabel>

@@ -57,8 +57,6 @@ import { useStore } from "store";
 import { Theme } from "constants/index";
 
 const Sidebar = () => {
-  const [selected, setSelected] = useState(3);
-  const [listItemClicked, setListItemClicked] = useState(3);
   const [downloadIconHovered, setDownloadIconHovered] = useState(false);
   const history = useHistory();
 
@@ -75,6 +73,7 @@ const Sidebar = () => {
           : CalendarIconFilled,
       text: "Calendar",
       path: "/calendar",
+      id: 0,
     },
     {
       icon: theme === Theme.highContrast ? BellIconHC : BellIcon,
@@ -82,6 +81,7 @@ const Sidebar = () => {
         theme === Theme.highContrast ? BellIconHCSelected : BellIconFilled,
       text: "Activity",
       path: "/activity",
+      id: 1,
     },
     {
       icon: theme === Theme.highContrast ? ChatIconHC : ChatIcon,
@@ -89,6 +89,7 @@ const Sidebar = () => {
         theme === Theme.highContrast ? ChatIconHCSelected : ChatIconFilled,
       text: "Chat",
       path: "/chat",
+      id: 2,
     },
     {
       icon: theme === Theme.highContrast ? TeamsHCIcon : TeamsIcon,
@@ -96,6 +97,7 @@ const Sidebar = () => {
         theme === Theme.highContrast ? TeamsHCSelectedIcon : TeamsIconFilled,
       text: "Teams",
       path: "/",
+      id: 3,
     },
     {
       icon: theme === Theme.highContrast ? AssignmentsHCIcon : AssignmentsIcon,
@@ -105,6 +107,7 @@ const Sidebar = () => {
           : AssignmentsIconFilled,
       text: "Assignments",
       path: "/assignments",
+      id: 4,
     },
     {
       icon: theme === Theme.highContrast ? CallIconHC : CallIcon,
@@ -112,6 +115,7 @@ const Sidebar = () => {
         theme === Theme.highContrast ? CallIconHCSelected : CallIconFilled,
       text: "Calls",
       path: "/calls",
+      id: 5,
     },
     {
       icon: theme === Theme.highContrast ? ThreeDotsIconHC : ThreeDotsIcon,
@@ -120,7 +124,8 @@ const Sidebar = () => {
           ? ThreeDotsIconHCSelected
           : ThreeDotsIconFilled,
       text: "",
-      path: "/",
+      path: "",
+      id: 6,
     },
     {
       icon: theme === Theme.highContrast ? AppsIconHC : AppsIcon,
@@ -128,6 +133,7 @@ const Sidebar = () => {
         theme === Theme.highContrast ? AppsIconHCSelected : AppsIconFilled,
       text: "Apps",
       path: "/apps",
+      id: 7,
     },
     {
       icon: theme === Theme.highContrast ? HelpIconHC : HelpIcon,
@@ -135,8 +141,17 @@ const Sidebar = () => {
         theme === Theme.highContrast ? HelpIconHCSelected : HelpIconFilled,
       text: "Help",
       path: "/help",
+      id: 8,
     },
   ];
+
+  const itemSelected = icons.filter(
+    (x) => x["path"] === history.location.pathname
+  )[0]["id"];
+
+  const [selected, setSelected] = useState(itemSelected);
+
+  const [listItemClicked, setListItemClicked] = useState(itemSelected);
 
   return (
     <Container>

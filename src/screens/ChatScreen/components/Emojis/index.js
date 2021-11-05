@@ -105,7 +105,7 @@ const data = [
   "https://statics.teams.cdn.office.net/evergreen-assets/personal-expressions/v1/assets/emoticons/wink/default/60_f.png?etag=v9",
 ];
 
-const Emojis = ({ setClicked }) => {
+const Emojis = ({ setClicked, selectedEmoji, setSelectedEmoji, onClick }) => {
   const emojisRef = useRef(null);
 
   function useOutsideAlerter(ref) {
@@ -140,7 +140,14 @@ const Emojis = ({ setClicked }) => {
         <Label>Smilies</Label>
         <EmojiIconContainer>
           {data.map((i, k) => (
-            <EmojiIcon onClick={() => setClicked(false)} key={k}>
+            <EmojiIcon
+              onClick={() => {
+                setClicked(false);
+                setSelectedEmoji([...selectedEmoji, i]);
+                onClick();
+              }}
+              key={k}
+            >
               <EmojiIconImg src={i} alt="img" />
             </EmojiIcon>
           ))}

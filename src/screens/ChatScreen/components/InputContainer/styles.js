@@ -2,62 +2,36 @@ import styled, { css } from "styled-components";
 
 import { Styles, COLORS, Theme } from "constants/index";
 
-const { yellow, bigStone, gray } = COLORS;
+const { yellow, bigStone } = COLORS;
 
 export const Container = styled.div`
   width: 70%;
   position: relative;
-`;
 
-export const Input = styled.input`
-  width: 100%;
-  height: 2.4rem;
-  background: transparent;
-  ${Styles.HideBorder};
-  border-radius: 0.2rem;
-  padding: 0.5rem 0.8rem;
-  color: #fff;
-  border: 2px solid transparent !important;
-  ${({ theme: { current } }) =>
-    current === Theme.highContrast &&
-    css`
-      border: 1px solid #fff !important;
-      &::placeholder {
+  [data-placeholder]:empty:before {
+    content: attr(data-placeholder);
+    ${({ theme: { current } }) =>
+      current === Theme.highContrast &&
+      css`
         color: #fff;
         font-size: 0.8rem;
         font-weight: 300;
-      }
-      &:focus {
-        border-bottom: 2px solid ${yellow} !important;
-      }
-    `};
-  ${({ theme: { current } }) =>
-    current === Theme.dark &&
-    css`
-      background: #292929;
-      &::placeholder {
+      `};
+    ${({ theme: { current } }) =>
+      current === Theme.dark &&
+      css`
         color: #d1d1d1;
         font-size: 0.8rem;
         font-weight: 300;
-      }
-      &:focus {
-        border-bottom: 2px solid ${bigStone} !important;
-      }
-    `};
-  ${({ theme: { current } }) =>
-    current === Theme.light &&
-    css`
-      background: #fff;
-      color: #000;
-      &::placeholder {
+      `};
+    ${({ theme: { current } }) =>
+      current === Theme.light &&
+      css`
         color: #000;
         font-size: 0.8rem;
         font-weight: 300;
-      }
-      &:focus {
-        border-bottom: 2px solid ${bigStone} !important;
-      }
-    `};
+      `};
+  }
 `;
 
 export const EmojiCont = styled.div`
@@ -100,4 +74,76 @@ export const Img = styled.img`
   position: relative;
   top: 0.3rem;
   align-self: flex-start;
+`;
+
+export const Input = styled.p`
+  width: 100%;
+  background: transparent;
+  ${Styles.HideBorder};
+  display: flex;
+  border-radius: 0.2rem;
+  overflow: hidden;
+  padding: 0.4rem 0.8rem;
+  display: flex;
+  align-items: center;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 300;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      color: #d1d1d1;
+      font-size: 0.8rem;
+      font-weight: 300;
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+      font-size: 0.8rem;
+      font-weight: 300;
+    `};
+  border: 2px solid transparent !important;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border: 1px solid #fff !important;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 300;
+      &:focus {
+        border-bottom: 2px solid ${yellow} !important;
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.dark &&
+    css`
+      background: #292929;
+      &:focus {
+        border-bottom: 2px solid ${bigStone} !important;
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      background: #fff;
+      color: #000;
+      &:focus {
+        border-bottom: 2px solid ${bigStone} !important;
+      }
+    `};
+`;
+
+export const EmojiIconContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const EmojiIcon = styled.img`
+  width: 1rem;
+  height: 100%;
 `;
