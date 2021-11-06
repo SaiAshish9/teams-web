@@ -18,6 +18,8 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowCont,
+  TeamsContainer,
+  GeneralsContainer,
 } from "./styles";
 
 import CreateTeamImg from "assets/images/homeScreen/createTeam.svg";
@@ -38,6 +40,7 @@ const Sidebar = () => {
   } = useStore();
 
   const [open, setOpen] = useState(true);
+  const [selected, setSelected] = useState(-1);
 
   return (
     <Container>
@@ -58,23 +61,31 @@ const Sidebar = () => {
 
         {open &&
           TEAMS_DATA.map((i, k) => (
-            <Component key={k}>
-              <LabelCont>
-                <ArrowRight />
-                <LabelImg src={i.img} alt="img" />
-                <Label>{i.text}</Label>
-              </LabelCont>
-              <Img
-                src={
-                  theme === Theme.light
-                    ? ThreeDots
-                    : theme === Theme.highContrast
-                    ? ThreeDotsDark
-                    : ThreeDots
-                }
-                alt="img"
-              />
-            </Component>
+            <TeamsContainer
+              onClick={() =>
+                selected === k ? setSelected(-1) : setSelected(k)
+              }
+              key={k}
+            >
+              <Component>
+                <LabelCont>
+                  {selected === k ? <ArrowDown /> : <ArrowRight />}
+                  <LabelImg src={i.img} alt="img" />
+                  <Label>{i.text}</Label>
+                </LabelCont>
+                <Img
+                  src={
+                    theme === Theme.light
+                      ? ThreeDots
+                      : theme === Theme.highContrast
+                      ? ThreeDotsDark
+                      : ThreeDots
+                  }
+                  alt="img"
+                />
+              </Component>
+              {selected === k && <GeneralsContainer>General</GeneralsContainer>}
+            </TeamsContainer>
           ))}
       </Content>
       <Footer>

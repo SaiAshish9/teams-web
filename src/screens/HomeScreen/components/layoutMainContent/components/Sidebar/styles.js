@@ -193,7 +193,6 @@ export const Label = styled.p`
 export const Component = styled.div`
   ${Styles.RBC};
   cursor: pointer;
-  margin: 1rem 0;
   color: #8d8d8d;
   &:hover {
     background: #242424;
@@ -238,4 +237,17 @@ export const ArrowCont = styled.div`
   &:hover {
     color: #fff;
   }
+`;
+
+export const TeamsContainer = styled.div`
+  margin: 0rem 0 0.5rem;
+`;
+
+export const GeneralsContainer = styled.div`
+  background: #242424;
+  color: #fff;
+  padding: 0.4rem 0;
+  font-size: 0.7rem;
+  border-radius: 0.2rem;
+  padding-left: 3.4rem;
 `;
