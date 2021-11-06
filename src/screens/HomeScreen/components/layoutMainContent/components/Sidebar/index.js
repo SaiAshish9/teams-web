@@ -27,7 +27,9 @@ import CreateTeamImg from "assets/images/homeScreen/createTeam.svg";
 import CreateTeamYellowImg from "assets/images/homeScreen/createTeamYellow.svg";
 import CreateTeamGrayImg from "assets/images/homeScreen/createTeamGray.svg";
 import CreateTeamHCImg from "assets/images/homeScreen/createTeamHC.svg";
+import CreateThemeDarkImg from "assets/images/homeScreen/createTeamDark.svg";
 import SettingsIcon from "assets/images/navbar/settings.svg";
+import SettingsIconBlue from "assets/images/navbar/settingsBlue.svg";
 import SettingsIconBlack from "assets/images/navbar/settingsBlack.svg";
 import SettingsIconHC from "assets/images/navbar/settingsHC.svg";
 import ThreeDotsDark from "assets/images/sidebar/threeDots-white.svg";
@@ -48,6 +50,7 @@ const Sidebar = ({ setItemSelected }) => {
   const [settingsHovered, setSettingsHovered] = useState(-1);
   const [footerContentHovered, setFooterContentHovered] = useState(false);
   const [settingsIconHovered, setSettingsIconHovered] = useState(false);
+  const [generalSettingsHovered, setGeneralSettingsHovered] = useState(-1);
 
   function handleClick(k) {
     if (selected === k) {
@@ -75,13 +78,11 @@ const Sidebar = ({ setItemSelected }) => {
 
         {open &&
           TEAMS_DATA.map((i, k) => (
-            <TeamsContainer
-              onMouseEnter={() => setSettingsHovered(k)}
-              onMouseLeave={() => setSettingsHovered(-1)}
-              onClick={() => handleClick(k)}
-              key={k}
-            >
-              <Component>
+            <TeamsContainer onClick={() => handleClick(k)} key={k}>
+              <Component
+                onMouseEnter={() => setSettingsHovered(k)}
+                onMouseLeave={() => setSettingsHovered(-1)}
+              >
                 <LabelCont>
                   {selected === k ? <ArrowDown /> : <ArrowRight />}
                   <LabelImg src={i.img} alt="img" />
@@ -100,7 +101,29 @@ const Sidebar = ({ setItemSelected }) => {
                   alt="img"
                 />
               </Component>
-              {selected === k && <GeneralsContainer>General</GeneralsContainer>}
+              {selected === k && (
+                <GeneralsContainer
+                  onMouseEnter={() => setGeneralSettingsHovered(k)}
+                  onMouseLeave={() => setGeneralSettingsHovered(-1)}
+                >
+                  General
+                  {generalSettingsHovered === k && (
+                    <Img
+                      style={{ width: "2rem", height: "2rem" }}
+                      src={
+                        theme === Theme.light
+                          ? ThreeDots
+                          : theme === Theme.highContrast
+                          ? generalSettingsHovered === k
+                            ? ThreeDotsHC
+                            : ThreeDotsDark
+                          : ThreeDots
+                      }
+                      alt="img"
+                    />
+                  )}
+                </GeneralsContainer>
+              )}
             </TeamsContainer>
           ))}
       </Content>
@@ -116,14 +139,18 @@ const Sidebar = ({ setItemSelected }) => {
                   ? CreateTeamYellowImg
                   : CreateTeamImg
                 : theme === Theme.light
-                ? CreateTeamHCImg
+                ? footerContentHovered
+                  ? CreateThemeDarkImg
+                  : CreateTeamHCImg
                 : theme === Theme.dark
                 ? CreateTeamGrayImg
                 : CreateTeamImg
             }
             alt="img"
           />
-          <FooterLabel>Join or create a team</FooterLabel>
+          <FooterLabel hovered={+footerContentHovered}>
+            Join or create a team
+          </FooterLabel>
         </FooterCont>
         <SettingsIconCont
           onMouseEnter={() => setSettingsIconHovered(true)}
@@ -136,7 +163,9 @@ const Sidebar = ({ setItemSelected }) => {
                   ? SettingsIconBlack
                   : SettingsIcon
                 : theme === Theme.light
-                ? SettingsIconHC
+                ? settingsIconHovered
+                  ? SettingsIconBlue
+                  : SettingsIconHC
                 : SettingsIcon
             }
             alt="img"

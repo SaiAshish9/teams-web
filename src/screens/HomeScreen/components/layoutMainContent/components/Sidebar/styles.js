@@ -5,7 +5,7 @@ import { Theme, COLORS, Styles } from "constants/index";
 import { BsFilter } from "react-icons/bs";
 import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 
-const { dustyGray, blue } = COLORS;
+const { dustyGray, blue, bigStone } = COLORS;
 
 export const Container = styled.div`
   height: 100%;
@@ -202,6 +202,12 @@ export const FooterLabel = styled.p`
     css`
       color: yellow;
     `};
+  ${({ theme: { current }, hovered }) =>
+    current === Theme.light &&
+    hovered === 1 &&
+    css`
+      color: ${bigStone};
+    `};
 `;
 
 export const Label = styled.p`
@@ -299,8 +305,9 @@ export const TeamsContainer = styled.div`
 export const GeneralsContainer = styled.div`
   background: #242424;
   color: #fff;
-  padding: 0.4rem 0;
+  height: 1.5rem;
   cursor: pointer;
+  ${Styles.RBC};
   font-size: 0.7rem;
   border-radius: 0.2rem;
   padding-left: 3.4rem;
