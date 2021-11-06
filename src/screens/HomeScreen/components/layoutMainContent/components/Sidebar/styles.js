@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { Theme, COLORS, Styles } from "constants/index";
 
 import { BsFilter } from "react-icons/bs";
+import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 
 const { dustyGray } = COLORS;
 
@@ -100,15 +101,9 @@ export const Row = styled.div`
     `};
 `;
 
-export const Label = styled.p`
-  color: #8d8d8d;
-  font-size: 0.6rem;
-  margin: 1rem 0;
-  cursor: pointer;
-`;
-
 export const Content = styled.div`
   padding: 0 1rem;
+  padding-left: 0.63rem;
   height: calc(100% - 7.2rem);
   overflow: hidden;
   overflow-y: scroll;
@@ -176,12 +171,6 @@ export const Footer = styled.div`
     `};
 `;
 
-export const FooterLabel = styled.p`
-  color: #8d8d8d;
-  font-size: 0.81rem;
-  margin-left: 0.1rem;
-`;
-
 export const Img = styled.img`
   width: 2rem;
 `;
@@ -189,4 +178,59 @@ export const Img = styled.img`
 export const FooterCont = styled.div`
   display: flex;
   align-items: center;
+`;
+
+export const FooterLabel = styled.p`
+  color: #8d8d8d;
+  font-size: 0.81rem;
+  margin-left: 0.1rem;
+`;
+
+export const Label = styled.p`
+  font-size: 0.66rem;
+`;
+
+export const Component = styled.div`
+  ${Styles.RBC};
+  cursor: pointer;
+  margin: 1rem 0;
+  color: #8d8d8d;
+  &:hover {
+    background: #242424;
+    color: #fff;
+  }
+`;
+
+export const LabelImg = styled.img`
+  height: 2rem;
+  width: 2rem;
+  border-radius: 0.4rem;
+  border: 2px solid transparent;
+  margin-right: 0.5rem;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border: 2px solid white;
+    `};
+`;
+
+export const LabelCont = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const ArrowRight = styled(IoMdArrowDropright)`
+  font-size: 0.9rem;
+`;
+
+export const ArrowDown = styled(IoMdArrowDropdown)`
+  font-size: 0.9rem;
+`;
+
+export const ArrowCont = styled.div`
+  position: relative;
+  display: flex;
+  margin: 1rem 0;
+  align-items: center;
+  color: #8d8d8d;
 `;

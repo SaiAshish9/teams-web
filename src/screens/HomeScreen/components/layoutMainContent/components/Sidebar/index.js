@@ -12,6 +12,12 @@ import {
   FooterLabel,
   Img,
   FooterCont,
+  Component,
+  LabelImg,
+  LabelCont,
+  ArrowDown,
+  ArrowRight,
+  ArrowCont,
 } from "./styles";
 
 import CreateTeamImg from "assets/images/homeScreen/createTeam.svg";
@@ -19,6 +25,8 @@ import CreateTeamGrayImg from "assets/images/homeScreen/createTeamGray.svg";
 import CreateTeamHCImg from "assets/images/homeScreen/createTeamHC.svg";
 import SettingsIcon from "assets/images/navbar/settings.svg";
 import SettingsIconHC from "assets/images/navbar/settingsHC.svg";
+import ThreeDotsDark from "assets/images/sidebar/threeDots-white.svg";
+import ThreeDots from "assets/images/sidebar/threeDots.svg";
 
 import { TEAMS_DATA, Theme } from "constants/index";
 
@@ -41,10 +49,29 @@ const Sidebar = () => {
         </Row>
       </Header>
       <Content>
-        <Label>Your Teams</Label>
+        <ArrowCont>
+          <ArrowDown />
+          <Label>Your Teams</Label>
+        </ArrowCont>
 
         {TEAMS_DATA.map((i, k) => (
-          <Label key={k}>{i.text}</Label>
+          <Component key={k}>
+            <LabelCont>
+              <ArrowRight />
+              <LabelImg src={i.img} alt="img" />
+              <Label>{i.text}</Label>
+            </LabelCont>
+            <Img
+              src={
+                theme === Theme.light
+                  ? ThreeDots
+                  : theme === Theme.highContrast
+                  ? ThreeDotsDark
+                  : ThreeDots
+              }
+              alt="img"
+            />
+          </Component>
         ))}
       </Content>
       <Footer>
