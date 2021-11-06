@@ -94,7 +94,7 @@ const Sidebar = ({ setItemSelected }) => {
         <FooterCont>
           <Img
             src={
-              theme === Theme.highContrast && hovered
+              theme === Theme.highContrast
                 ? CreateTeamHCImg
                 : theme === Theme.light
                 ? CreateTeamHCImg
@@ -108,7 +108,7 @@ const Sidebar = ({ setItemSelected }) => {
         </FooterCont>
         <Img
           src={
-            theme === Theme.highContrast && hovered
+            theme === Theme.highContrast
               ? SettingsIconHC
               : theme === Theme.light
               ? SettingsIconHC

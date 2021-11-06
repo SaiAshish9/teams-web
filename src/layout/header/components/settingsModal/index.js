@@ -92,11 +92,12 @@ const SettingsModal = ({ open, setOpen }) => {
   const [mainContentHovered, setMainContentHovered] = useState(false);
 
   const {
-    state: { theme },
+    state: { theme, layout },
     actions: { setTheme, setLayout },
   } = useStore();
 
   const [themeSelected, setThemeSelected] = useState(theme);
+  const [layoutSelected, setLayoutSelected] = useState(layout);
 
   const data = [
     {
@@ -245,9 +246,10 @@ const SettingsModal = ({ open, setOpen }) => {
               {LayoutData.map((i, k) => (
                 <ThemeImgContainer
                   key={k}
-                  selected={+(k === 0)}
+                  selected={+(i.key === layoutSelected)}
                   onClick={() => {
                     setLayout(i.key);
+                    setLayoutSelected(i.key);
                   }}
                 >
                   <ThemeImg src={i.img} />
