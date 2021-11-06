@@ -4,18 +4,15 @@ import { Container } from "./styles";
 import { Sidebar } from "./components";
 import { MainSection } from "screens/TeamScreen/components";
 import { TEAMS_DATA } from "constants/index";
+import { useState } from "react/cjs/react.development";
 
 const LayoutMainContent = () => {
-  // const search = useLocation()?.search;
-
-  // const item = TEAMS_DATA.filter(
-  //   (x) => x["text"] === decodeURI(search?.split("=")?.[1])
-  // )?.[0];
+  const [itemSelected, setItemSelected] = useState(0);
 
   return (
     <Container>
-      <Sidebar />
-      <MainSection item={TEAMS_DATA[0]} />
+      <Sidebar setItemSelected={setItemSelected} />
+      <MainSection item={TEAMS_DATA[itemSelected]} />
     </Container>
   );
 };

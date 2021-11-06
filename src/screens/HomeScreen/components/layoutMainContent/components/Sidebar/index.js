@@ -34,13 +34,20 @@ import { TEAMS_DATA, Theme } from "constants/index";
 
 import { useStore } from "store";
 
-const Sidebar = () => {
+const Sidebar = ({ setItemSelected }) => {
   const {
     state: { theme },
   } = useStore();
 
   const [open, setOpen] = useState(true);
   const [selected, setSelected] = useState(-1);
+
+  function handleClick(k) {
+    if (selected === k) {
+      setSelected(-1);
+    } else setSelected(k);
+    setItemSelected(k);
+  }
 
   return (
     <Container>
@@ -61,12 +68,7 @@ const Sidebar = () => {
 
         {open &&
           TEAMS_DATA.map((i, k) => (
-            <TeamsContainer
-              onClick={() =>
-                selected === k ? setSelected(-1) : setSelected(k)
-              }
-              key={k}
-            >
+            <TeamsContainer onClick={() => handleClick(k)} key={k}>
               <Component>
                 <LabelCont>
                   {selected === k ? <ArrowDown /> : <ArrowRight />}
