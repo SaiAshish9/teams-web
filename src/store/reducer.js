@@ -2,7 +2,7 @@ import { SET_THEME, SET_LAYOUT } from "./types";
 
 export const initialState = {
   theme: localStorage.getItem("theme") ?? "dark",
-  layout: "list",
+  layout: localStorage.getItem("layout") ?? "grid",
 };
 
 export default function reducer(state, action) {

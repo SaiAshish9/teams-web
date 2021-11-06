@@ -250,6 +250,7 @@ const SettingsModal = ({ open, setOpen }) => {
                   onClick={() => {
                     setLayout(i.key);
                     setLayoutSelected(i.key);
+                    localStorage.setItem("layout", i.key);
                   }}
                 >
                   <ThemeImg src={i.img} />
