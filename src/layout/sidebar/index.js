@@ -72,7 +72,7 @@ const Sidebar = () => {
           ? CalendarHCSelectedIcon
           : CalendarIconFilled,
       text: "Calendar",
-      path: "/calendar",
+      paths: ["/calendar"],
       id: 0,
     },
     {
@@ -80,7 +80,7 @@ const Sidebar = () => {
       iconFilled:
         theme === Theme.highContrast ? BellIconHCSelected : BellIconFilled,
       text: "Activity",
-      path: "/activity",
+      paths: ["/activity"],
       id: 1,
     },
     {
@@ -88,7 +88,7 @@ const Sidebar = () => {
       iconFilled:
         theme === Theme.highContrast ? ChatIconHCSelected : ChatIconFilled,
       text: "Chat",
-      path: "/chat",
+      paths: ["/chat"],
       id: 2,
     },
     {
@@ -96,7 +96,7 @@ const Sidebar = () => {
       iconFilled:
         theme === Theme.highContrast ? TeamsHCSelectedIcon : TeamsIconFilled,
       text: "Teams",
-      path: "/",
+      paths: ["/", "/teams"],
       id: 3,
     },
     {
@@ -106,7 +106,7 @@ const Sidebar = () => {
           ? AssignmentsHCSelectedIcon
           : AssignmentsIconFilled,
       text: "Assignments",
-      path: "/assignments",
+      paths: ["/assignments"],
       id: 4,
     },
     {
@@ -114,7 +114,7 @@ const Sidebar = () => {
       iconFilled:
         theme === Theme.highContrast ? CallIconHCSelected : CallIconFilled,
       text: "Calls",
-      path: "/calls",
+      paths: ["/calls"],
       id: 5,
     },
     {
@@ -124,7 +124,7 @@ const Sidebar = () => {
           ? ThreeDotsIconHCSelected
           : ThreeDotsIconFilled,
       text: "",
-      path: "",
+      paths: [""],
       id: 6,
     },
     {
@@ -132,7 +132,7 @@ const Sidebar = () => {
       iconFilled:
         theme === Theme.highContrast ? AppsIconHCSelected : AppsIconFilled,
       text: "Apps",
-      path: "/apps",
+      paths: ["/apps"],
       id: 7,
     },
     {
@@ -140,14 +140,14 @@ const Sidebar = () => {
       iconFilled:
         theme === Theme.highContrast ? HelpIconHCSelected : HelpIconFilled,
       text: "Help",
-      path: "/help",
+      paths: ["/help"],
       id: 8,
     },
   ];
 
   const itemSelected = icons.filter(
-    (x) => x["path"] === history.location.pathname
-  )[0]["id"];
+    (x) => x["paths"].includes(history.location.pathname)
+  )[0]?.["id"];
 
   const [selected, setSelected] = useState(itemSelected);
 
@@ -160,7 +160,7 @@ const Sidebar = () => {
           <ListItem
             onClick={() => {
               setListItemClicked(k);
-              history.push(i.path);
+              history.push(i.paths[0]);
             }}
             key={k}
             onMouseEnter={() => setSelected(k)}
