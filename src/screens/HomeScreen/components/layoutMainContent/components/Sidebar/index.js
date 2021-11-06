@@ -20,15 +20,19 @@ import {
   ArrowCont,
   TeamsContainer,
   GeneralsContainer,
+  SettingsIconCont,
 } from "./styles";
 
 import CreateTeamImg from "assets/images/homeScreen/createTeam.svg";
+import CreateTeamYellowImg from "assets/images/homeScreen/createTeamYellow.svg";
 import CreateTeamGrayImg from "assets/images/homeScreen/createTeamGray.svg";
 import CreateTeamHCImg from "assets/images/homeScreen/createTeamHC.svg";
 import SettingsIcon from "assets/images/navbar/settings.svg";
+import SettingsIconBlack from "assets/images/navbar/settingsBlack.svg";
 import SettingsIconHC from "assets/images/navbar/settingsHC.svg";
 import ThreeDotsDark from "assets/images/sidebar/threeDots-white.svg";
 import ThreeDots from "assets/images/sidebar/threeDots.svg";
+import ThreeDotsHC from "assets/images/sidebar/threeDotsHCSelected.svg";
 
 import { TEAMS_DATA, Theme } from "constants/index";
 
@@ -41,6 +45,9 @@ const Sidebar = ({ setItemSelected }) => {
 
   const [open, setOpen] = useState(true);
   const [selected, setSelected] = useState(-1);
+  const [settingsHovered, setSettingsHovered] = useState(-1);
+  const [footerContentHovered, setFooterContentHovered] = useState(false);
+  const [settingsIconHovered, setSettingsIconHovered] = useState(false);
 
   function handleClick(k) {
     if (selected === k) {
@@ -68,7 +75,12 @@ const Sidebar = ({ setItemSelected }) => {
 
         {open &&
           TEAMS_DATA.map((i, k) => (
-            <TeamsContainer onClick={() => handleClick(k)} key={k}>
+            <TeamsContainer
+              onMouseEnter={() => setSettingsHovered(k)}
+              onMouseLeave={() => setSettingsHovered(-1)}
+              onClick={() => handleClick(k)}
+              key={k}
+            >
               <Component>
                 <LabelCont>
                   {selected === k ? <ArrowDown /> : <ArrowRight />}
@@ -80,7 +92,9 @@ const Sidebar = ({ setItemSelected }) => {
                     theme === Theme.light
                       ? ThreeDots
                       : theme === Theme.highContrast
-                      ? ThreeDotsDark
+                      ? settingsHovered === k
+                        ? ThreeDotsHC
+                        : ThreeDotsDark
                       : ThreeDots
                   }
                   alt="img"
@@ -91,11 +105,16 @@ const Sidebar = ({ setItemSelected }) => {
           ))}
       </Content>
       <Footer>
-        <FooterCont>
+        <FooterCont
+          onMouseEnter={() => setFooterContentHovered(true)}
+          onMouseLeave={() => setFooterContentHovered(false)}
+        >
           <Img
             src={
               theme === Theme.highContrast
-                ? CreateTeamHCImg
+                ? footerContentHovered
+                  ? CreateTeamYellowImg
+                  : CreateTeamImg
                 : theme === Theme.light
                 ? CreateTeamHCImg
                 : theme === Theme.dark
@@ -106,16 +125,23 @@ const Sidebar = ({ setItemSelected }) => {
           />
           <FooterLabel>Join or create a team</FooterLabel>
         </FooterCont>
-        <Img
-          src={
-            theme === Theme.highContrast
-              ? SettingsIconHC
-              : theme === Theme.light
-              ? SettingsIconHC
-              : SettingsIcon
-          }
-          alt="img"
-        />
+        <SettingsIconCont
+          onMouseEnter={() => setSettingsIconHovered(true)}
+          onMouseLeave={() => setSettingsIconHovered(false)}
+        >
+          <Img
+            src={
+              theme === Theme.highContrast
+                ? settingsIconHovered
+                  ? SettingsIconBlack
+                  : SettingsIcon
+                : theme === Theme.light
+                ? SettingsIconHC
+                : SettingsIcon
+            }
+            alt="img"
+          />
+        </SettingsIconCont>
       </Footer>
     </Container>
   );

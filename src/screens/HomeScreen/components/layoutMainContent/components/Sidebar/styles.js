@@ -5,7 +5,7 @@ import { Theme, COLORS, Styles } from "constants/index";
 import { BsFilter } from "react-icons/bs";
 import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 
-const { dustyGray } = COLORS;
+const { dustyGray, blue } = COLORS;
 
 export const Container = styled.div`
   height: 100%;
@@ -175,8 +175,21 @@ export const Img = styled.img`
   width: 2rem;
 `;
 
+export const SettingsIconCont = styled.div`
+  cursor: pointer;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      &:hover {
+        background: yellow;
+      }
+    `};
+`;
+
 export const FooterCont = styled.div`
   display: flex;
+  cursor: pointer;
+  width: 100%;
   align-items: center;
 `;
 
@@ -184,6 +197,11 @@ export const FooterLabel = styled.p`
   color: #8d8d8d;
   font-size: 0.81rem;
   margin-left: 0.1rem;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: yellow;
+    `};
 `;
 
 export const Label = styled.p`
@@ -198,6 +216,23 @@ export const Component = styled.div`
     background: #242424;
     color: #fff;
   }
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: #fff;
+      &:hover {
+        background: yellow;
+        color: #000;
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      &:hover {
+        background: #fff;
+        color: #000;
+      }
+    `};
 `;
 
 export const LabelImg = styled.img`
@@ -229,14 +264,32 @@ export const ArrowDown = styled(IoMdArrowDropdown)`
 export const ArrowCont = styled.div`
   position: relative;
   display: flex;
-  margin: 0.5rem 0;
-  padding: 0.5rem 0;
+  margin: 0.8rem 0;
+  padding: 0.2rem 0;
+  border-radius: 0.2rem;
   align-items: center;
   color: #8d8d8d;
   cursor: pointer;
   &:hover {
     color: #fff;
   }
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      color: #fff;
+      &:hover {
+        background: yellow;
+        color: #000;
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      &:hover {
+        background: #fff;
+        color: #000;
+      }
+    `};
 `;
 
 export const TeamsContainer = styled.div`
@@ -247,7 +300,23 @@ export const GeneralsContainer = styled.div`
   background: #242424;
   color: #fff;
   padding: 0.4rem 0;
+  cursor: pointer;
   font-size: 0.7rem;
   border-radius: 0.2rem;
   padding-left: 3.4rem;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      background: ${blue};
+      color: #000;
+      &:hover {
+        background: yellow;
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      background: #fff;
+      color: #8d8d8d;
+    `};
 `;
