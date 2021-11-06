@@ -93,7 +93,7 @@ const SettingsModal = ({ open, setOpen }) => {
 
   const {
     state: { theme },
-    actions: { setTheme },
+    actions: { setTheme, setLayout },
   } = useStore();
 
   const [themeSelected, setThemeSelected] = useState(theme);
@@ -176,6 +176,7 @@ const SettingsModal = ({ open, setOpen }) => {
           ? GridLayoutHC
           : GridLayoutLight,
       title: "Grid",
+      key: "grid",
     },
     {
       img:
@@ -185,6 +186,7 @@ const SettingsModal = ({ open, setOpen }) => {
           ? ListLayoutHC
           : ListLayoutLight,
       title: "List",
+      key: "list",
     },
   ];
 
@@ -244,7 +246,9 @@ const SettingsModal = ({ open, setOpen }) => {
                 <ThemeImgContainer
                   key={k}
                   selected={+(k === 0)}
-                  onClick={() => {}}
+                  onClick={() => {
+                    setLayout(i.key);
+                  }}
                 >
                   <ThemeImg src={i.img} />
                   <ThemeImgLabel>{i.title}</ThemeImgLabel>

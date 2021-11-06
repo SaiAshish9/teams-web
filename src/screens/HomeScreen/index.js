@@ -15,55 +15,63 @@ import { useStore } from "store";
 
 import { Theme } from "constants/index";
 
+import LayoutMainContent from "./components/layoutMainContent";
+
 const HomeScreen = () => {
   const {
-    state: { theme },
+    state: { theme, layout },
   } = useStore();
 
   const [filterHovered, setFilterHovered] = useState(false);
   const [settingsHovered, setSettingsHovered] = useState(false);
 
   return (
-    <Container>
-      <Content>
-        <Label>Teams</Label>
-        <Row>
-          <ImgContainer
-            onMouseEnter={() => setFilterHovered(true)}
-            onMouseLeave={() => setFilterHovered(false)}
-          >
-            <Img
-              src={
-                !filterHovered
-                  ? theme === Theme.light
-                    ? FilterImg
-                    : FilterImgDark
-                  : theme !== Theme.highContrast
-                  ? FilterImgBlue
-                  : FilterImg
-              }
-              alt="img"
-            />
-          </ImgContainer>
-          <ImgContainer
-            onMouseEnter={() => setSettingsHovered(true)}
-            onMouseLeave={() => setSettingsHovered(false)}
-          >
-            <Img
-              src={
-                settingsHovered
-                  ? GeneralFilledImg
-                  : theme === Theme.light
-                  ? GeneralImg
-                  : GeneralLightImg
-              }
-              alt="img"
-            />
-          </ImgContainer>
-          <CreateTeamBtn />
-        </Row>
-      </Content>
-      <MainContent />
+    <Container layout={+(layout === "grid")}>
+      {layout === "grid" && (
+        <Content>
+          <Label>Teams</Label>
+
+          <Row>
+            <ImgContainer
+              onMouseEnter={() => setFilterHovered(true)}
+              onMouseLeave={() => setFilterHovered(false)}
+            >
+              <Img
+                src={
+                  !filterHovered
+                    ? theme === Theme.light
+                      ? FilterImg
+                      : FilterImgDark
+                    : theme !== Theme.highContrast
+                    ? FilterImgBlue
+                    : FilterImg
+                }
+                alt="img"
+              />
+            </ImgContainer>
+            <ImgContainer
+              onMouseEnter={() => setSettingsHovered(true)}
+              onMouseLeave={() => setSettingsHovered(false)}
+            >
+              <Img
+                src={
+                  settingsHovered
+                    ? GeneralFilledImg
+                    : theme === Theme.light
+                    ? GeneralImg
+                    : GeneralLightImg
+                }
+                alt="img"
+              />
+            </ImgContainer>
+            <CreateTeamBtn />
+          </Row>
+        </Content>
+      )}
+
+      {layout === "grid" && <MainContent />}
+
+      {layout === "list" && <LayoutMainContent />}
     </Container>
   );
 };

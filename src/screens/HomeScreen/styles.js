@@ -2,11 +2,15 @@ import styled, { css } from "styled-components";
 
 import { Styles, Theme, COLORS } from "constants/index";
 
-const { yellow, blue } = COLORS;
+const { yellow } = COLORS;
 
 export const Container = styled.div`
-  padding: 1rem 0rem;
-  padding-left: 1rem;
+  ${({ layout }) =>
+    layout === 1 &&
+    css`
+      padding: 1rem 0rem;
+      padding-left: 1rem;
+    `};
   width: 100%;
 `;
 

@@ -1,7 +1,8 @@
-import { SET_THEME } from "./types";
+import { SET_THEME, SET_LAYOUT } from "./types";
 
 export const initialState = {
   theme: localStorage.getItem("theme") ?? "dark",
+  layout: "list",
 };
 
 export default function reducer(state, action) {
@@ -10,6 +11,12 @@ export default function reducer(state, action) {
       return {
         ...state,
         theme: action.payload,
+      };
+    }
+    case SET_LAYOUT: {
+      return {
+        ...state,
+        layout: action.payload,
       };
     }
     default:
