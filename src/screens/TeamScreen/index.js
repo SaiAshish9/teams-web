@@ -6,7 +6,7 @@ import { Container } from "./styles";
 
 import TEAMS_DATA from "constants/data";
 
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const TeamScreen = () => {
   const search = useLocation()?.search;

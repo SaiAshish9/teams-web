@@ -233,4 +233,5 @@ export const ArrowCont = styled.div`
   margin: 1rem 0;
   align-items: center;
   color: #8d8d8d;
+  cursor: pointer;
 `;

@@ -5,8 +5,7 @@ import { Theme, Styles, COLORS } from "constants/index";
 const { yellow, blue, bigStone, dustyGray, eastBay, melrose } = COLORS;
 
 export const Container = styled.div`
-  padding: 1rem 1.5rem;
-  padding-right: 0rem;
+  padding: 1rem 0rem;
   height: 100%;
   width: 76.6%;
   position: relative;
@@ -16,9 +15,16 @@ export const Container = styled.div`
 export const Header = styled.div`
   ${Styles.RBC};
   justify-content: flex-start;
+  padding-left: 1.5rem;
   align-items: center !important;
-  padding-top: 1rem;
+  height: 2.7rem;
   position: relative;
+  border-bottom: 1px solid #000;
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    `};
 `;
 
 export const DotsImg = styled.img`
@@ -57,7 +63,7 @@ export const InfoImgContainer = styled.img`
 
 export const ShiftUpwards = css`
   position: relative;
-  bottom: 0.6rem;
+  bottom: 0.4rem;
 `;
 
 export const Label = styled.p`
@@ -151,7 +157,9 @@ export const TabOption = styled.div`
       }
     `};
   font-size: 0.8rem;
-  height: 2.25rem;
+  height: 2.26rem;
+  position: relative;
+  top: 0.2rem;
   cursor: pointer;
 `;
 
@@ -167,7 +175,7 @@ export const Button = styled.div`
   padding: 0 0.2rem;
   border-radius: 0.4rem;
   margin-top: 1rem;
-  margin-left: 3.4rem;
+  margin-left: 4.6rem;
   cursor: pointer;
   ${({ theme: { current } }) =>
     current === Theme.highContrast &&

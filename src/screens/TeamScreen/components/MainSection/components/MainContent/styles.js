@@ -19,6 +19,7 @@ const {
 export const Container = styled.div`
   width: 100%;
   height: 72vh;
+  padding-left: 1.5rem;
   margin-top: 0rem;
   padding-top: 2rem;
   overflow-y: scroll;
