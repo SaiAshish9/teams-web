@@ -10,7 +10,7 @@ import { ThemeProvider } from "styled-components";
 
 import GlobalStyles from "global/global.styles";
 
-import { HomeScreen, TeamScreen, ChatScreen } from "screens";
+import { HomeScreen, TeamScreen, ChatScreen, NewMeetingScreen } from "screens";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -52,6 +52,7 @@ function AppInit() {
                 <Route exact path="/" component={HomeScreen} />
                 <Route exact path="/teams" component={TeamScreen} />
                 <Route exact path="/chat" component={ChatScreen} />
+                <Route exact path="/new-meeting" component={NewMeetingScreen} />
               </Switch>
             </Content>
           </>
