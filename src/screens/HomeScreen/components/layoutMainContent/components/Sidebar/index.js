@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Container,
@@ -37,6 +37,8 @@ const Sidebar = () => {
     state: { theme },
   } = useStore();
 
+  const [open, setOpen] = useState(true);
+
   return (
     <Container>
       <Header>
@@ -49,30 +51,31 @@ const Sidebar = () => {
         </Row>
       </Header>
       <Content>
-        <ArrowCont>
-          <ArrowDown />
+        <ArrowCont onClick={() => setOpen((o) => !o)}>
+          {open ? <ArrowDown /> : <ArrowRight />}
           <Label>Your Teams</Label>
         </ArrowCont>
 
-        {TEAMS_DATA.map((i, k) => (
-          <Component key={k}>
-            <LabelCont>
-              <ArrowRight />
-              <LabelImg src={i.img} alt="img" />
-              <Label>{i.text}</Label>
-            </LabelCont>
-            <Img
-              src={
-                theme === Theme.light
-                  ? ThreeDots
-                  : theme === Theme.highContrast
-                  ? ThreeDotsDark
-                  : ThreeDots
-              }
-              alt="img"
-            />
-          </Component>
-        ))}
+        {open &&
+          TEAMS_DATA.map((i, k) => (
+            <Component key={k}>
+              <LabelCont>
+                <ArrowRight />
+                <LabelImg src={i.img} alt="img" />
+                <Label>{i.text}</Label>
+              </LabelCont>
+              <Img
+                src={
+                  theme === Theme.light
+                    ? ThreeDots
+                    : theme === Theme.highContrast
+                    ? ThreeDotsDark
+                    : ThreeDots
+                }
+                alt="img"
+              />
+            </Component>
+          ))}
       </Content>
       <Footer>
         <FooterCont>

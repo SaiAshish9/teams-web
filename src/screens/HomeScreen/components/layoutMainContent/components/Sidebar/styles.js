@@ -230,8 +230,12 @@ export const ArrowDown = styled(IoMdArrowDropdown)`
 export const ArrowCont = styled.div`
   position: relative;
   display: flex;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
   align-items: center;
   color: #8d8d8d;
   cursor: pointer;
+  &:hover {
+    color: #fff;
+  }
 `;
