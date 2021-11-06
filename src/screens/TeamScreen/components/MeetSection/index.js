@@ -16,12 +16,16 @@ import VideoPlayerImgBlack from "assets/images/mainContent/videoPlayerB.svg";
 import { Theme } from "constants/index";
 import { useStore } from "store";
 
+import { useHistory } from "react-router-dom";
+
 const MeetSection = () => {
   const [hovered, setHovered] = useState(false);
 
   const {
     state: { theme },
   } = useStore();
+
+  const history = useHistory();
 
   return (
     <Item>
@@ -44,6 +48,7 @@ const MeetSection = () => {
           <ProfileImg src={ProfileImgAvatar} alt="img" />
         </Header>
         <Button
+          onClick={() => history.push("/new-meeting")}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
