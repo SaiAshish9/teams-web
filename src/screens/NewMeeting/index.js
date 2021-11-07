@@ -11,20 +11,42 @@ import {
   FooterCont,
   Footer,
   FooterOption,
+  SettingsCont,
+  SettingsImg,
+  Options,
+  StyledSwitch,
+  StyledTooltip,
 } from "./styles";
 
 import { useHistory } from "react-router-dom";
 import AvatarImg from "assets/images/navbar/avatar.png";
 
 import { FiPhone } from "react-icons/fi";
+import { FaMicrophone, FaMicrophoneSlash } from "react-icons/fa";
 import { RiVolumeMuteLine, RiVolumeMuteFill } from "react-icons/ri";
+import { IoIosVideocam } from "react-icons/io";
+import { IoVideocamOffOutline } from "react-icons/io5";
+import SettingsIcon from "assets/images/navbar/settings.svg";
+import SettingsIconHC from "assets/images/navbar/settingsHC.svg";
+import SettingsIconBlack from "assets/images/navbar/settingsBlack.svg";
+
+import { useStore } from "store";
+import { Theme } from "constants/index";
 
 const NewMeetingContainer = () => {
   const inputRef = useRef();
 
   const history = useHistory();
 
-  const [audioHovered, setAudioHovered] = useState(false);
+  const [audioHovered, setAudioHovered] = useState(true);
+  const [videoChecked, setVideoChacked] = useState(false);
+  const [audioChecked, setAudioChacked] = useState(true);
+
+  const [settingsHovered, setSettingsHovered] = useState(false);
+
+  const {
+    state: { theme },
+  } = useStore();
 
   useEffect(() => {
     inputRef.current.focus();
@@ -42,26 +64,81 @@ const NewMeetingContainer = () => {
       <VideoContainer>
         <ProfileImg src={AvatarImg} alt="img" />
         <Button onClick={() => history.push("/call")}>Join now</Button>
+        <Options>
+          <SettingsCont checked={+videoChecked}>
+            {videoChecked ? (
+              <IoIosVideocam size={18} style={{ marginRight: "0.5rem" }} />
+            ) : (
+              <IoVideocamOffOutline
+                size={18}
+                style={{ marginRight: "0.5rem" }}
+              />
+            )}{" "}
+            <StyledSwitch
+              checked={videoChecked}
+              onChange={() => setVideoChacked((c) => !c)}
+            />
+          </SettingsCont>
+          <SettingsCont checked={+audioChecked}>
+            {audioChecked ? (
+              <FaMicrophone size={15} style={{ marginRight: "0.5rem" }} />
+            ) : (
+              <FaMicrophoneSlash size={15} style={{ marginRight: "0.5rem" }} />
+            )}
+            <StyledSwitch
+              checked={audioChecked}
+              onChange={() => setAudioChacked((c) => !c)}
+            />
+          </SettingsCont>
+          <SettingsCont
+            settings={1}
+            onMouseEnter={() => setSettingsHovered(true)}
+            onMouseLeave={() => setSettingsHovered(false)}
+          >
+            <SettingsImg
+              src={
+                theme === Theme.highContrast
+                  ? settingsHovered
+                    ? SettingsIconBlack
+                    : SettingsIcon
+                  : SettingsIcon
+              }
+              alt="img"
+            />
+            Macbook Pro
+          </SettingsCont>
+        </Options>
       </VideoContainer>
       <Footer>
         <Tag>Other join options</Tag>
         <FooterCont>
-          <FooterOption
-            onMouseEnter={() => setAudioHovered(true)}
-            onMouseLeave={() => setAudioHovered(false)}
-            first={1}
+          <StyledTooltip
+            placement="top"
+            title="Prevent echo when there's already an active mic and speaker in the room."
           >
-            {audioHovered ? (
-              <RiVolumeMuteFill size={18} style={{ marginRight: "0.5rem" }} />
-            ) : (
-              <RiVolumeMuteLine size={18} style={{ marginRight: "0.5rem" }} />
-            )}
-            Audio off
-          </FooterOption>
-          <FooterOption>
-            <FiPhone style={{ marginRight: "0.5rem" }} />
-            Phone audio
-          </FooterOption>
+            <FooterOption
+              onMouseEnter={() => setAudioHovered(true)}
+              onMouseLeave={() => setAudioHovered(false)}
+              first={1}
+            >
+              {audioHovered ? (
+                <RiVolumeMuteFill size={18} style={{ marginRight: "0.5rem" }} />
+              ) : (
+                <RiVolumeMuteLine size={18} style={{ marginRight: "0.5rem" }} />
+              )}
+              Audio off
+            </FooterOption>
+          </StyledTooltip>
+
+          <StyledTooltip
+            placement="top"
+            title="We are checking for dial-in information..."
+          >
+            <FooterOption>
+              <FiPhone style={{ marginRight: "0.5rem" }} />
+              Phone audio
+            </FooterOption>
+          </StyledTooltip>
         </FooterCont>
       </Footer>
     </Container>
