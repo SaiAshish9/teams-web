@@ -107,6 +107,12 @@ export const OptionsLabel = styled.p`
   color: #fff;
 `;
 
+export const SettingsCont = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+`;
+
 export const SettingsImg = styled.img`
   width: 2rem;
 `;
