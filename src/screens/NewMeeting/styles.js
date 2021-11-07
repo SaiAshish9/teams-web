@@ -5,7 +5,9 @@ import { Styles } from "constants/index";
 export const Container = styled.div`
   width: 100%;
   background: #000;
-  ${Styles.CCC};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Label = styled.p`
@@ -22,7 +24,7 @@ export const Input = styled.input`
   padding: 0 0.7rem !important;
   line-height: normal;
   background: #000;
-  margin-top: 0.5rem;
+  margin: 0.5rem auto 0;
   width: 428px;
   font-size: 1.6rem;
   height: 39px;
@@ -46,14 +48,28 @@ export const Tag = styled.p`
 
 export const Button = styled.div`
   border: 1px solid #fff;
-  //   min-width: 9.6rem;
   width: fit-content;
   padding: 0.4rem 2rem;
   cursor: pointer;
   color: #fff;
   margin: 2rem auto;
+  border-radius: 0.2rem;
   &:hover {
     background: yellow;
     color: #000;
   }
+`;
+
+export const ProfileImg = styled.img`
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  margin: 4rem auto 0;
+`;
+
+export const Header = styled.div`
+  width: 100%;
+  padding: 1.5rem 1.8rem;
+  ${Styles.RBC};
+  flex-direction: row-reverse;
 `;
