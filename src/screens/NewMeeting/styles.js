@@ -102,3 +102,11 @@ export const FooterOption = styled.div`
 `;
 
 export const Footer = styled.div``;
+
+export const OptionsLabel = styled.p`
+  color: #fff;
+`;
+
+export const SettingsImg = styled.img`
+  width: 2rem;
+`;
