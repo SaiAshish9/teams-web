@@ -96,7 +96,7 @@ const Sidebar = () => {
       iconFilled:
         theme === Theme.highContrast ? TeamsHCSelectedIcon : TeamsIconFilled,
       text: "Teams",
-      paths: ["/", "/teams"],
+      paths: ["/", "/teams", "/new-meeting"],
       id: 3,
     },
     {
@@ -145,8 +145,8 @@ const Sidebar = () => {
     },
   ];
 
-  const itemSelected = icons.filter(
-    (x) => x["paths"].includes(history.location.pathname)
+  const itemSelected = icons.filter((x) =>
+    x["paths"].includes(history.location.pathname)
   )[0]?.["id"];
 
   const [selected, setSelected] = useState(itemSelected);

@@ -29,6 +29,8 @@ import { IoVideocamOffOutline } from "react-icons/io5";
 import SettingsIcon from "assets/images/navbar/settings.svg";
 import SettingsIconHC from "assets/images/navbar/settingsHC.svg";
 import SettingsIconBlack from "assets/images/navbar/settingsBlack.svg";
+import SettingsIconBlue from "assets/images/navbar/settingsBlue.svg";
+import SettingsIconWhite from "assets/images/navbar/settingsWhite.svg";
 
 import { useStore } from "store";
 import { Theme } from "constants/index";
@@ -63,7 +65,12 @@ const NewMeetingContainer = () => {
       <Input ref={inputRef} sanitized defaultValue={`Meeting in "General" `} />
       <VideoContainer>
         <ProfileImg src={AvatarImg} alt="img" />
-        <Button onClick={() => history.push("/call")}>Join now</Button>
+        <Button
+          selected={+(theme === Theme.dark)}
+          onClick={() => history.push("/call")}
+        >
+          Join now
+        </Button>
         <Options>
           <SettingsCont checked={+videoChecked}>
             {videoChecked ? (
@@ -100,6 +107,10 @@ const NewMeetingContainer = () => {
                 theme === Theme.highContrast
                   ? settingsHovered
                     ? SettingsIconBlack
+                    : SettingsIcon
+                  : theme === Theme.dark
+                  ? settingsHovered
+                    ? SettingsIconWhite
                     : SettingsIcon
                   : SettingsIcon
               }

@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { Styles, COLORS, Theme } from "constants/index";
 import { Switch, Tooltip } from "antd";
 
-const { blue, bigStone } = COLORS;
+const { blue, bigStone, mineShaft2 } = COLORS;
 
 export const Container = styled.div`
   width: 100%;
@@ -12,6 +12,11 @@ export const Container = styled.div`
   align-items: center;
   height: calc(100% - 3rem);
   position: relative;
+  ${({ theme: { current } }) =>
+    current !== Theme.highContrast &&
+    css`
+      background:#1f1f1f;
+    `};
 `;
 
 export const Label = styled.p`
@@ -24,7 +29,7 @@ export const Label = styled.p`
       color: #fff;
     `};
   ${({ theme: { current } }) =>
-    current === Theme.dark &&
+    current !== Theme.highContrast &&
     css`
       color: #c4c4c4;
     `};
@@ -49,11 +54,19 @@ export const Input = styled.input`
       border: 1px solid #fff !important;
     `};
   ${({ theme: { current } }) =>
-    current === Theme.dark &&
+    current !== Theme.highContrast &&
     css`
       background: rgba(32, 31, 31, 0.32);
       &:focus {
         border-bottom: 2px solid #c6c9ff !important;
+      }
+    `};
+  ${({ theme: { current } }) =>
+    current !== Theme.highContrast &&
+    css`
+      background: rgba(32, 31, 31, 0.32);
+      &:focus {
+        border-bottom: 2px solid #fff !important;
       }
     `};
 `;
@@ -61,8 +74,20 @@ export const Input = styled.input`
 export const VideoContainer = styled.div`
   width: 570px;
   height: 320px;
-  border: 2px solid #fff;
   margin: 3.6rem auto 4rem;
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      border: 2px solid #fff;
+    `};
+
+  ${({ theme: { current } }) =>
+    current !== Theme.highContrast &&
+    css`
+      border: 2px solid transparent !important;
+      background: ${mineShaft2};
+      box-shadow: rgb(0 0 0 / 50%) 0px 0.2rem 1.6rem 0px;
+    `};
 `;
 
 export const Tag = styled.p`
@@ -76,7 +101,7 @@ export const Tag = styled.p`
       color: #fff;
     `};
   ${({ theme: { current } }) =>
-    current === Theme.dark &&
+    current !== Theme.highContrast &&
     css`
       color: #fff;
     `};
@@ -101,10 +126,21 @@ export const Button = styled.div`
     `};
 
   ${({ theme: { current } }) =>
-    current === Theme.dark &&
+    current !== Theme.highContrast &&
     css`
       &:hover {
         background: #323131;
+      }
+    `};
+
+  ${({ selected }) =>
+    selected === 1 &&
+    css`
+      background: ${bigStone};
+      border: 1px solid ${bigStone};
+      &:hover {
+        background: #464775;
+        border: 1px solid #464775;
       }
     `};
 `;
@@ -143,7 +179,7 @@ export const FooterOption = styled.div`
       color: #3ff23f;
     `};
   ${({ theme: { current } }) =>
-    current === Theme.dark &&
+    current !== Theme.highContrast &&
     css`
       color: #585757;
     `};
@@ -158,7 +194,7 @@ export const FooterOption = styled.div`
           color: #fff;
         `};
       ${({ theme: { current } }) =>
-        current === Theme.dark &&
+        current !== Theme.highContrast &&
         css`
           border-right: 1px solid #585757;
           color: #c4c4c4;
@@ -197,36 +233,69 @@ export const SettingsCont = styled.div`
   height: 2rem;
   font-weight: 300;
   padding: 0 0.2rem;
-  ${({ checked }) =>
-    checked === 1 &&
-    css`
-      .ant-switch-checked {
-        background-color: ${blue} !important;
-      }
-      .ant-switch-handle::before {
-        background: #000;
-      }
-    `};
-  ${({ checked }) =>
-    checked !== 1 &&
-    css`
-      .ant-switch-checked {
-        background-color: #000 !important;
-      }
-      .ant-switch-handle::before {
-        background-color: #000 !important;
-        border: 1px solid #fff !important;
-      }
-      .ant-switch {
-        border: 1px solid #fff !important;
-        background-color: #000 !important;
-      }
-    `};
 
-  &:hover {
-    background: yellow;
-    color: #000;
-  }
+  ${({ theme: { current } }) =>
+    current === Theme.highContrast &&
+    css`
+      &:hover {
+        background: yellow;
+        color: #000;
+      }
+      ${({ checked }) =>
+        checked === 1 &&
+        css`
+          .ant-switch-checked {
+            background-color: ${blue} !important;
+          }
+          .ant-switch-handle::before {
+            background: #000;
+          }
+        `};
+      ${({ checked }) =>
+        checked !== 1 &&
+        css`
+          .ant-switch-checked {
+            background-color: #000 !important;
+          }
+          .ant-switch-handle::before {
+            background-color: #000 !important;
+            border: 1px solid #fff !important;
+          }
+          .ant-switch {
+            border: 1px solid #fff !important;
+            background-color: #000 !important;
+          }
+        `};
+    `};
+  ${({ theme: { current } }) =>
+    current !== Theme.highContrast &&
+    css`
+      ${({ checked }) =>
+        checked === 1 &&
+        css`
+          .ant-switch-checked {
+            background-color: ${bigStone} !important;
+          }
+          .ant-switch-handle::before {
+            background: ${mineShaft2};
+          }
+        `};
+      ${({ checked }) =>
+        checked !== 1 &&
+        css`
+          .ant-switch-checked {
+            background-color: #000 !important;
+          }
+          .ant-switch-handle::before {
+            background-color: ${mineShaft2} !important;
+            border: 1px solid #c4c4c4 !important;
+          }
+          .ant-switch {
+            border: 1px solid #c4c4c4 !important;
+            background-color: ${mineShaft2} !important;
+          }
+        `};
+    `};
 `;
 
 export const SettingsImg = styled.img`
