@@ -8,6 +8,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  height: calc(100% - 3rem);
 `;
 
 export const Label = styled.p`
@@ -26,8 +28,8 @@ export const Input = styled.input`
   background: #000;
   margin: 0.5rem auto 0;
   width: 428px;
-  font-size: 1.6rem;
-  height: 39px;
+  font-size: 1.4rem;
+  height: 36px;
   color: #fff;
   text-align: center;
 `;
@@ -73,3 +75,30 @@ export const Header = styled.div`
   ${Styles.RBC};
   flex-direction: row-reverse;
 `;
+
+export const FooterCont = styled.div`
+  margin: 0 auto;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+`;
+
+export const FooterOption = styled.div`
+  padding: 0.3rem 2rem;
+  color: #3ff23f;
+  cursor: default;
+  font-size: 0.81rem;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  ${({ first }) =>
+    first === 1 &&
+    css`
+      border-right: 1px solid #fff;
+      color: #fff;
+      cursor: pointer;
+    `};
+`;
+
+export const Footer = styled.div``;
