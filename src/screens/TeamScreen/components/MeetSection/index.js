@@ -52,7 +52,14 @@ const MeetSection = () => {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
-          <Img alt="img" src={hovered ? VideoPlayerImgBlack : VideoPlayerImg} />
+          <Img
+            alt="img"
+            src={
+              hovered && theme === Theme.highContrast
+                ? VideoPlayerImgBlack
+                : VideoPlayerImg
+            }
+          />
           <p>Join</p>
         </Button>
       </Container>

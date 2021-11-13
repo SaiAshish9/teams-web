@@ -54,8 +54,10 @@ const MainContent = ({ title }) => {
   async function scrollElement() {
     return setTimeout(() => {
       var element = document.getElementById("teams-container");
-      element.scrollTop = element.scrollHeight;
-      setScrolled(true);
+      if (element) {
+        element.scrollTop = element.scrollHeight;
+        setScrolled(true);
+      }
     }, 500);
   }
 

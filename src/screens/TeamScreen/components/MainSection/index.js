@@ -33,8 +33,10 @@ import VideoPlayerImgBlack from "assets/images/mainContent/videoPlayerB.svg";
 import InfoImg from "assets/images/mainContent/info.svg";
 import InfoBlackImg from "assets/images/mainContent/info-black.svg";
 
+import { useHistory } from "react-router-dom";
+
 const MainSection = ({ item }) => {
-  // const history = useHistory();
+  const history = useHistory();
 
   const [selected, setSelected] = useState(0);
 
@@ -102,6 +104,7 @@ const MainSection = ({ item }) => {
           alt="img"
         />
         <MeetBtnContainer
+          onClick={() => history.push("/new-meeting")}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
