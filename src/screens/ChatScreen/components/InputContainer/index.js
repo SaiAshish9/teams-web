@@ -8,6 +8,7 @@ import {
   Row,
   Img,
   EmojiIcon,
+  StyledInnerHtml,
 } from "./styles";
 
 import Img1 from "./assets/img1";
@@ -69,7 +70,7 @@ function setEndOfContenteditable(el) {
   // sel.collapseToEnd();
 }
 
-const InputContainer = () => {
+const InputContainer = ({ setInnerHtml }) => {
   const [hovered, setHovered] = useState(-1);
 
   const [clicked, setClicked] = useState(false);
@@ -79,8 +80,6 @@ const InputContainer = () => {
   const [selectedEmoji, setSelectedEmoji] = useState([]);
 
   const inputRef = useRef();
-
-  const [innerHtml, setInnerHtml] = useState(null);
 
   function handleClick() {
     setEndOfContenteditable(inputRef.current);
@@ -95,12 +94,6 @@ const InputContainer = () => {
 
   return (
     <Container>
-      <div
-        dangerouslySetInnerHTML={{ __html: innerHtml }}
-        target="_blank"
-        style={{ height: "3rem", color: "#fff" }}
-      />
-
       {/* var xmlString = "<div id='foo'><a href='#'>Link</a><span></span></div>";
 var doc = new DOMParser().parseFromString(xmlString, "text/xml");
 console.log(doc.firstChild.innerHTML); // => <a href="#">Link...

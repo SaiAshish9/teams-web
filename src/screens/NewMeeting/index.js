@@ -34,6 +34,7 @@ import SettingsIconWhite from "assets/images/navbar/settingsWhite.svg";
 
 import { useStore } from "store";
 import { Theme } from "constants/index";
+import { Helmet } from "react-helmet";
 
 const NewMeetingContainer = () => {
   const inputRef = useRef();
@@ -56,6 +57,9 @@ const NewMeetingContainer = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Meeting | Microsoft Teams</title>
+      </Helmet>
       <Header>
         <Button style={{ margin: 0 }} onClick={() => history.goBack()}>
           Close

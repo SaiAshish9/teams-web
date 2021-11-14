@@ -41,6 +41,7 @@ const MainSection = () => {
   } = useStore();
 
   const [hovered, setHovered] = useState(false);
+  const [innerHtml, setInnerHtml] = useState(null);
 
   return (
     <Container>
@@ -99,8 +100,8 @@ const MainSection = () => {
           />
         </Row>
       </Header>
-      <ChatContainer />
-      <InputContainer />
+      <ChatContainer innerHtml={innerHtml} />
+      <InputContainer setInnerHtml={setInnerHtml} />
     </Container>
   );
 };

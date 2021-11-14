@@ -7,6 +7,7 @@ import { Container } from "./styles";
 import TEAMS_DATA from "constants/data";
 
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const TeamScreen = () => {
   const search = useLocation()?.search;
@@ -17,6 +18,9 @@ const TeamScreen = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Microsoft Teams</title>
+      </Helmet>
       <SideSection item={item} />
       <MainSection item={item} />
     </Container>

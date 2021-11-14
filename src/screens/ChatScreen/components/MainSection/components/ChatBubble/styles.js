@@ -43,7 +43,7 @@ export const Text = styled.p`
 
 export const Desc = styled.p`
   color: #fff;
-  font-size: 0.63rem;
+  font-size: 0.7rem;
   white-space: nowrap;
   margin-top: 0.1rem;
   ${({ theme: { current } }) =>
@@ -77,4 +77,15 @@ export const BubbleImg = styled.img`
   border-radius: 1rem;
   border: 2px solid #fff;
   margin-right: 0.5rem;
+`;
+
+export const StyledInnerHtml = styled.div`
+  color: #fff;
+  margin: 0.2rem 0;
+  height: 1rem;
+  ${({ theme: { current } }) =>
+    current === Theme.light &&
+    css`
+      color: #000;
+    `}
 `;

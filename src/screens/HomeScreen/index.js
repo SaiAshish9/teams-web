@@ -16,6 +16,7 @@ import { useStore } from "store";
 import { Theme } from "constants/index";
 
 import LayoutMainContent from "./components/layoutMainContent";
+import { Helmet } from "react-helmet";
 
 const HomeScreen = () => {
   const {
@@ -27,6 +28,9 @@ const HomeScreen = () => {
 
   return (
     <Container layout={+(layout === "grid")}>
+      <Helmet>
+        <title>Microsoft Teams</title>
+      </Helmet>
       {layout === "grid" && (
         <Content>
           <Label>Teams</Label>

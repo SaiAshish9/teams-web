@@ -8,6 +8,7 @@ import {
   Parent,
   Row,
   BubbleImg,
+  StyledInnerHtml,
 } from "./styles";
 
 import TickIcon from "../ChatContainer/tickIcon";
@@ -34,6 +35,7 @@ const ChatBubbleContainer = ({
   display,
   onMouseEnter,
   onMouseLeave,
+  innerHtml,
 }) => {
   const {
     state: { theme },
@@ -53,7 +55,13 @@ const ChatBubbleContainer = ({
           <Text>{timeline}</Text>
         </Row>
 
-        <Desc>{title}</Desc>
+        {title && <Desc>{title}</Desc>}
+        {innerHtml && (
+          <StyledInnerHtml
+            dangerouslySetInnerHTML={{ __html: innerHtml }}
+            target="_blank"
+          />
+        )}
         {img && <Img src={img} alt="img" />}
       </Container>
       {last && (
