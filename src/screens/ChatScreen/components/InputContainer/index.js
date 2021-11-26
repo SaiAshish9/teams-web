@@ -8,7 +8,6 @@ import {
   Row,
   Img,
   EmojiIcon,
-  StyledInnerHtml,
 } from "./styles";
 
 import Img1 from "./assets/img1";
