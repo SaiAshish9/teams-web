@@ -12,7 +12,7 @@ const LayoutMainContent = () => {
   return (
     <Container>
       <Sidebar setItemSelected={setItemSelected} />
-      <MainSection item={TEAMS_DATA[itemSelected]} />
+      <MainSection item={TEAMS_DATA?.[itemSelected]} />
     </Container>
   );
 };
